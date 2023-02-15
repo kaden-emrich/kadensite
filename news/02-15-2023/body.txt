@@ -1,0 +1,2 @@
+This is a test of a implimentation of text files.
+I have done this so that it is easier to post on news.

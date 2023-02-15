@@ -81,8 +81,8 @@ button {
     width: 400px;
     height: 640px;
     margin-top: 40px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 30px;
+    margin-right: 10px;
     border-style: solid;
     border-width: 5px;
     border-color: #224466;
@@ -91,10 +91,9 @@ button {
 
 #rTextBox {
     position: relative;
-    height: 600px;
     margin-top: 40px;
-    margin-left: 500px;
-    margin-right: 5%;
+    margin-left: 450px;
+    margin-right: 30px;
     margin-bottom: 40px;
     border-style: solid;
     border-width: 5px;
@@ -122,6 +121,58 @@ p.textBox {
     text-shadow: 2px 2px 2px #000;
 }
 
+.newsBox {
+    position: relative;
+    margin: 30px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #224466;
+    padding: 10px;
+    background-color: #102540;
+    box-shadow: 5px 5px 5px #000;
+    text-align: left;
+    font-family: monospace;
+}
+
+.news{
+    margin: 10px;
+    font-size: 20px;
+    padding-left: 0px;
+}
+h1.news{
+    font-size: 40px;
+    text-shadow: 10px 10px 10px #000;
+}
+h3.news {
+    margin: 0;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px #000;
+}
+p.news {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 0;
+}
+
+img.placeholder {
+    width: 500px;
+}
+
+.image-text {
+    display: flex;
+}
+.image {
+    margin: 10px 20px;
+    max-width: 50%;
+    object-fit: cover;
+}
+
+img {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #224466;
+}
+
 #greeting {
     font-weight: bold;
     text-shadow: 2px 2px 2px #000;
@@ -130,12 +181,18 @@ p.textBox {
 #htmlTagStart::before {
     content: "<";
 }
+#htmlTagStart {
+    text-align: left;
+}
 #htmlTagStart::after {
     content: ">";
 }
 
 #htmlTagEnd::before {
     content: "</";
+}
+#htmlTagEnd {
+    text-align: right;
 }
 #htmlTagEnd::after {
     content: ">";
