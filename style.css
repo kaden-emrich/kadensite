@@ -138,6 +138,7 @@ p.textBox {
     margin: 10px;
     font-size: 20px;
     padding-left: 0px;
+    text-align: left;
 }
 h1.news {
     font-size: 40px;
@@ -154,7 +155,7 @@ h3.news {
 }
 p.news {
     font-size: 20px;
-    margin: 0;
+    margin: 10px;
     margin-top: 0;
 }
 
@@ -165,17 +166,18 @@ img.placeholder {
 .image-text {
     display: flex;
     justify-content: center;
+    margin: 10px;
+}
+.imageblock {
+    object-fit: cover;
+    width: auto;
+    position: relative;
+    margin: 10px 20px;
+    height: auto;
 }
 .image {
-    position: relative;
-    display: block;
-    margin: 10px 20px;
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-}
-
-img {
+    top: 0; bottom: 0; right: 0; left: 0;
+    box-shadow: 5px 5px 5px #000;
     border-style: solid;
     border-width: 5px;
     border-color: #224466;
@@ -225,4 +227,23 @@ img {
     font-weight: bolder;
     color: #ffff00;
     text-shadow: 10px 10px 10px #000;
+}
+
+.frame {
+    height: 500px; 
+    width: 95%; 
+    margin-top: 20px; 
+    border-style: solid;
+    border-color: #224466;
+    border-width: 10px;
+}
+
+.newsFrame {
+    height: 500px; 
+    width: 60%; 
+    margin-top: 20px; 
+    border-style: solid;
+    border-color: #224466;
+    border-width: 10px;
+    box-shadow: 5px 5px 5px #000;
 }
