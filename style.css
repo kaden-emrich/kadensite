@@ -7,6 +7,19 @@ body {
     color: #eee;
 }
 
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+
 #title {
     margin-top: 1%;
     position: relative;
@@ -26,26 +39,32 @@ body {
 }
 
 button {
+    border: 2px solid #224466;
+    background-color: #102540;
+    color: #ccc;
+    box-shadow: 5px 5px 5px #000;
+}
+button:hover {
+    top: -5px;
+    left: -5px;
+    border-color: #204060;
+    background-color: #102030;
+    box-shadow: 10px 10px 10px #000;
+}
+button:active {
+    box-shadow: 1px 1px 1px #000;
+}
+
+button.menuButton {
     margin: auto;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 6px;
     margin-top: 6px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #224466;
-    background-color: #102540;
-    box-shadow: 5px 5px 5px #000;
     text-align: center;
     font-family: monospace;
     font-size: 40px;
-    color: #ccc;
 }
-
-#backButton {
-    margin-bottom: 10px;
-}
-
 .menuButton::before {
     content: "</";
 }
@@ -53,10 +72,15 @@ button {
     content: ">";
 }
 
+#backButton {
+    margin-bottom: 10px;
+}
+
 #menu1 {
     display: flex;
     margin: auto;
     margin-top: 2px;
+    margin-bottom: 20px;
     list-style: none;
     padding: 0;
     width: fit-content;
@@ -222,7 +246,7 @@ img.placeholder {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transform: rotate(-25deg);
+    transform: rotate(-15deg);
     font: inherit;
     font-weight: bolder;
     color: #ffff00;
@@ -239,11 +263,35 @@ img.placeholder {
 }
 
 .newsFrame {
+    display: inline;
     height: 500px; 
-    width: 60%; 
+    width: 70%; 
     margin-top: 20px; 
     border-style: solid;
     border-color: #224466;
     border-width: 10px;
     box-shadow: 5px 5px 5px #000;
+}
+
+.newsLink {
+    width: 80%;
+    border-width: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 20px;
+    text-align: left;
+    font-family: monospace;
+    text-decoration: none;
+    text-decoration-line: none;
+    color: #eee;
+}
+h1.newsLink {
+    margin: 0;
+    font-size: 40px;
+    text-shadow: 10px 10px 10px #000;
+}
+h2.newsLink {
+    margin: 0;
+    margin-left: 20px;
+    font-size: 20px;
 }
