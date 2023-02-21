@@ -302,3 +302,11 @@ h2.newsLink {
     font-family: monospace;
     font-size: 20px;
 }
+
+footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    background-color: #102540;
+}
