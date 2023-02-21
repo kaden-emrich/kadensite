@@ -52,6 +52,8 @@ button:hover {
     box-shadow: 10px 10px 10px #000;
 }
 button:active {
+    top: 4px;
+    left: 4px;
     box-shadow: 1px 1px 1px #000;
 }
 
