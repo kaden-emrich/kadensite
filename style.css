@@ -295,3 +295,10 @@ h2.newsLink {
     margin-left: 20px;
     font-size: 20px;
 }
+
+.gameMenuButton {
+    margin: 5px;
+    width: 200px;
+    font-family: monospace;
+    font-size: 20px;
+}
