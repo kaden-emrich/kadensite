@@ -1,6 +1,9 @@
-var textArea = document.getElementById("texter");
+var outputArea = document.getElementById("output");
+var inputArea = document.getElementById("inputBox");
 
 var inputValue;
+
+inputArea.focus();
 
 function command(cmd) {
     switch(cmd) {
@@ -15,7 +18,7 @@ function command(cmd) {
 }
 
 function print(output) {
-    textArea.value = output;
+    outputArea.innerHTML += "<br>" + output;
 }
 
 function typeIt(from, e) {
@@ -24,8 +27,9 @@ function typeIt(from, e) {
     if(kc == 13) {
         console.log(inputValue);
         command(inputValue);
+        inputArea.value = "";
     } else {
-        inputValue = textArea.value;
+        inputValue = inputArea.value;
     }
 }
 
