@@ -2,29 +2,42 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
-var cHelp = "Commands - \n - help: you just used it. \n - back: sends you back to the main site. "
+var cHelp = "Commands - \n - help: You just used it. (good job) \n - back: sends you back to the main site. "
 
 var inputValue;
 var lastLine;
 
 init();
 
-function init() {
+async function init() {
     printFancyLine("welcome to the secret site!_", "greenGlow", 20);
     inputArea.focus();
 }
 
-function help() {
-    printFancyLine(cHelp, "greenGlow", 10);
+async function help() {
+    await printFancyLine(cHelp, "greenGlow", 10);
+    printFancyLine(" - 404: [COMMAND NOT FOUND]", "redGlow", 10);
 }
 
 function back() {
-    printFancyLine("Sending you back...", "redGlow", 10);
+    printFancyLine("Sending you back...", "greenGlow", 10);
     newTab("../index.html");
 }
 
 function helloWorld() {
     printFancyLine("Hello World!", "greenGlow", 300);
+}
+
+function muck() {
+    setTimeout(function() {
+    printFancyLine("Muck.", "blueGlow", 100);
+    }, 1000);
+}
+
+async function fourOhFour() {
+    for(let i = 0; i < 25; i++) {
+        await printFancyLine("ERROR", "redGlow", 5);
+    }
 }
 
 function unknownCommand(command) {
@@ -44,6 +57,13 @@ async function command(cmd) {
         case 'hello world':
             helloWorld();
             break;
+        case 'muck':
+        case 'muck.':
+            muck();
+            break;
+        case '404':
+            fourOhFour();
+            break;
         default:
             unknownCommand(cmd);
     }
@@ -56,7 +76,7 @@ function typeIt(from, e) {
         console.log(inputValue);
         command(inputValue);
     } else {
-        inputValue = inputArea.value;
+        inputValue = inputArea.value.toLowerCase();
     }
 }
 
@@ -94,8 +114,16 @@ async function printFancyLine(text, style, delay) {
     var el = newElement(style);
     addText(text, el, delay, 0);
     terminal.scrollTo(0, terminal.offsetHeight);
-    await sleep(delay*text.length);
-    //console.log("timeout over");
+    await sleep(delay*1.5*text.length);
+    lastLine = el;
+    return;
+}
+
+async function printFancy(text, style, delay) {
+    var el = lastLine;
+    addText(text, el, delay, 0);
+    terminal.scrollTo(0, terminal.offsetHeight);
+    await sleep(delay*1.5*text.length);
     lastLine = el;
     return;
 }
