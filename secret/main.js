@@ -2,31 +2,50 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
+var cHelp = "Commands - \n - help: you just used it. \n - back: sends you back to the main site. "
+
 var inputValue;
+var lastLine;
 
 init();
 
 function init() {
-    printLine("welcome to the secret site!_", "greenGlow", 80);
+    printFancyLine("welcome to the secret site!_", "greenGlow", 20);
     inputArea.focus();
+}
+
+function help() {
+    printFancyLine(cHelp, "greenGlow", 10);
+}
+
+function back() {
+    printFancyLine("Sending you back...", "redGlow", 10);
+    newTab("../index.html");
+}
+
+function helloWorld() {
+    printFancyLine("Hello World!", "greenGlow", 300);
+}
+
+function unknownCommand(command) {
+    printFancyLine("Command \'" + command + "\' unknown.", "redGlow", 10);
 }
 
 async function command(cmd) {
     inputArea.value = "";
-    await printFancy("> " + inputValue, "whiteGlow", 10);
+    await printFancyLine("> " + inputValue, "whiteGlow", 10);
     switch(cmd) {
         case 'help':
-            printFancy("Help command used...", "greenGlow", 10);
+            help();
             break;
         case 'back':
-            printFancy("Sending you back...", "redGlow", 10);
-            newTab("../index.html");
+            back();
             break;
         case 'hello world':
-            printFancy("Hello World!", "greenGlow", 300);
+            helloWorld();
             break;
         default:
-            printFancy("Command \'" + cmd + "\' unknown.", "redGlow", 10);
+            unknownCommand(cmd);
     }
 }
 
@@ -71,18 +90,26 @@ function printLine(text, style, time) {
     }, time);
 }
 
-async function printFancy(text, style, delay) {
+async function printFancyLine(text, style, delay) {
     var el = newElement(style);
     addText(text, el, delay, 0);
     terminal.scrollTo(0, terminal.offsetHeight);
     await sleep(delay*text.length);
-    console.log("timeout over");
+    //console.log("timeout over");
+    lastLine = el;
     return;
 }
 
 async function addText(text, element, delay, index) {
     if(index < text.length) {
-        element.innerHTML += text[index++];
+        if(text.substring(index, index+1) == '\n') {
+            element.innerHTML += "<br>";
+            index += 2;
+            console.log("linebreak");
+        }
+        else {
+            element.innerHTML += text[index++];
+        }
         setTimeout(function() {addText(text, element, delay, index)}, delay);
     }
 }
