@@ -2,103 +2,182 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
-var cHelp = "Commands - \n - help: You just used it. (good job) \n - back: sends you back to the main site. "
+var cHelp = "Commands - \n - help: You just used it. (good job) \n - back: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer."
 
 var inputValue;
 var lastLine;
+var inputLine;
+
+var numLines;
+var username = "User";
+
+var line;
 
 init();
 
 async function init() {
-    printFancyLine("welcome to the secret site!_", "greenGlow", 20);
+    sizeScreen();
+    newInputLine();
+    printFancyLine("welcome to the secret site!_\n", "greenGlow", 20);
     inputArea.focus();
 }
 
+function sizeScreen() {
+    let screen = document.getElementById("screen");
+    //document.getElementById("screen").style = "height:" + (document.body.offsetHeight*0.96) + ";width:" + (document.body.offsetWidth*0.96) + ";top:" + (document.body.offsetHeight*0.02) + ";left:" + (document.body.offsetWidth*0.02) +";";
+    screen.style.top = (window.innerHeight*0.02) + "px";
+    screen.style.left = (window.innerHeight*0.02) + "px";
+    screen.style.width = (window.innerWidth-2*(window.innerHeight*0.02)) + "px";
+    screen.style.height = (window.innerHeight-2*(window.innerHeight*0.02)) + "px";
+}
+
+setInterval(sizeScreen, 100);
+
+document.addEventListener("click", function() {
+    //console.log("click");
+    if(inputArea == document.activeElement) {
+        //console.log("text has focus");
+        before.style.animation = "blinker 1s linear infinite";
+    } else {
+        //console.log("text does not has focus");
+        before.style.animation = "hide .2s ease forwards";
+    }
+});
+
+/* Commands Start */
 async function help() {
     await printFancyLine(cHelp, "greenGlow", 10);
     printFancyLine(" - 404: [COMMAND NOT FOUND]", "redGlow", 10);
+    return;
 }
 
-function back() {
+async function back() {
     printFancyLine("Sending you back...", "greenGlow", 10);
-    newTab("../index.html");
+    thisTab("../index.html");
+    return;
 }
 
-function helloWorld() {
+async function helloWorld() {
     printFancyLine("Hello World!", "greenGlow", 300);
+    return;
 }
 
-function muck() {
+async function muck() {
     setTimeout(function() {
     printFancyLine("Muck.", "blueGlow", 100);
     }, 1000);
+    return;
 }
 
 async function fourOhFour() {
     for(let i = 0; i < 25; i++) {
         await printFancyLine("ERROR", "redGlow", 5);
     }
+    return;
 }
 
-function unknownCommand(command) {
-    printFancyLine("Command \'" + command + "\' unknown.", "redGlow", 10);
+async function findAnswer() {
+    printFancyLine("Calculating the answer...", "greenGlow", 10);
+    newTab("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    return;
 }
+
+async function setUsername(name) {
+    username = name;
+    printFancyLine("Hello ", "greenGlow", 10);
+    printFancy(username, "blueGlow", 10);
+    printFancy("!", "greenGlow", 10);
+    return;
+}
+
+async function unknownCommand(command) {
+    printFancyLine("Command \'" + command + "\' unknown.", "redGlow", 10);
+    return;
+}
+/* Commands End */
 
 async function command(cmd) {
     inputArea.value = "";
-    await printFancyLine("> " + inputValue, "whiteGlow", 10);
+    //await printFancyLine("> " + inputValue, "whiteGlow", 10);
     switch(cmd) {
         case 'help':
-            help();
+            await help();
             break;
         case 'back':
-            back();
+            await back();
             break;
         case 'hello world':
-            helloWorld();
+            await helloWorld();
             break;
         case 'muck':
         case 'muck.':
-            muck();
+            await muck();
             break;
         case '404':
-            fourOhFour();
+            await fourOhFour();
+            break;
+        case 'findtheanswer':
+            await findAnswer();
             break;
         default:
-            unknownCommand(cmd);
+            await unknownCommand(cmd);
     }
+    return;
 }
 
-function typeIt(from, e) {
+async function typeIt(from, e) {
     var kc = e.keyCode;
     //textArea.value = e.keyCode;
     if(kc == 13) {
+        newInputLine();
         console.log(inputValue);
-        command(inputValue);
+        await command(inputValue.toLowerCase());
     } else {
-        inputValue = inputArea.value.toLowerCase();
+        inputValue = inputArea.value;
+        inputLine.innerHTML = "<br>> " + inputValue;
+        terminal.scrollTo(0, inputLine.offsetTop)
     }
+    terminal.scrollTo(0, inputLine.offsetTop)
+}
+
+function thisTab(link) {
+    setTimeout(function() {
+        window.open(link, "_self");
+    }, 500);
 }
 
 function newTab(link) {
-setTimeout(function() {
-    window.open(link, "_self");
-}, 500);
+    setTimeout(function() {
+        window.open(link, "_blank");
+    }, 500);
+}
+
+function newInputLine() {
+    var next = document.createElement("p");
+    next.innerHTML = "<br>> ";
+    next.className = "whiteGlow";
+    before.parentNode.insertBefore(next, before);
+    inputLine = next;
+    terminal.scrollTo(0, inputLine.offsetTop)
+    return next;
 }
 
 function newElement(style) {
     var next = document.createElement("p");
-        next.innerHTML = "";
-        next.className = style;
-        before.parentNode.insertBefore(next, before);
-        return next;
+    next.innerHTML = "<br>";
+    next.className = style;
+    inputLine.parentNode.insertBefore(next, inputLine);
+    terminal.scrollTo(0, inputLine.offsetTop)
+    numLines++;
+    return next;
 }
 
 function print(text, element) {
-    element.innerHtml = text;
+    element.innerHtml += text;
 }
 
 function printLine(text, style, time) {
+    before.style.animation = "hide .2s ease forwards";
     setTimeout(function() {
         var next = document.createElement("p");
         next.innerHTML = text;
@@ -106,25 +185,31 @@ function printLine(text, style, time) {
 
         before.parentNode.insertBefore(next, before);
 
-        window.scrollTo(0, document.body.offsetHeight);
+        terminal.scrollTo(0, inputLine.offsetTop)
+        numLines++;
+        before.style.animation = "blinker 1s linear infinite";
     }, time);
 }
 
 async function printFancyLine(text, style, delay) {
+    before.style.animation = "hide .2s ease forwards";
     var el = newElement(style);
     addText(text, el, delay, 0);
-    terminal.scrollTo(0, terminal.offsetHeight);
+    terminal.scrollTo(0, inputLine.offsetTop)
     await sleep(delay*1.5*text.length);
     lastLine = el;
+    before.style.animation = "blinker 1s linear infinite";
     return;
 }
 
 async function printFancy(text, style, delay) {
+    before.style.animation = "hide .2s ease forwards";
     var el = lastLine;
     addText(text, el, delay, 0);
-    terminal.scrollTo(0, terminal.offsetHeight);
+    terminal.scrollTo(0, inputLine.offsetTop)
     await sleep(delay*1.5*text.length);
     lastLine = el;
+    before.style.animation = "blinker 1s linear infinite";
     return;
 }
 
@@ -133,11 +218,12 @@ async function addText(text, element, delay, index) {
         if(text.substring(index, index+1) == '\n') {
             element.innerHTML += "<br>";
             index += 2;
-            console.log("linebreak");
+            //console.log("linebreak");
         }
         else {
             element.innerHTML += text[index++];
         }
+        terminal.scrollTo(0, inputLine.offsetTop)
         setTimeout(function() {addText(text, element, delay, index)}, delay);
     }
 }
