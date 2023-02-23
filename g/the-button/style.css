@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    font-family: monospace;
+}
+
+#game {
+    margin-top: 100px;
+}
+
+#theButton {
+    margin: auto;
+    font-family: monospace;
+}
+
+#counterText {
+    opacity: 0;
+}
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
