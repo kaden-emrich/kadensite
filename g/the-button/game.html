@@ -7,12 +7,15 @@
         <title>The Button</title>
     </head>
 
-    <body onkeyup="inKey(this, event)">
+    <body onkeypress="inKey(this, event)">
         <div id="game">
             <h1 id="heading">click the button</h1>
             <button type="button" id="theButton" onclick="clickReg()"></button>
             <p id="counter"></p>
             <p id="cps"></p>
+            <p id="mod"></p>
+            <p id="bits"></p>
+            <button type="button" id="upgrade" onclick="upgrade()">UPGRADE!<br>cost: 50 bits</button>
         </div>
     </body>
     <script src="script.js"></script>

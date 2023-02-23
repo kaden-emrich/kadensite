@@ -72,3 +72,21 @@ body {
 #num {
     text-decoration: underline;
 }
+
+#upgrade {
+    opacity: 0;
+    border: 0;
+    padding: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+@keyframes showUpgrade {
+    to {
+        opacity: 1;
+        height: auto;
+        width: auto;
+        border: 1px solid;
+        padding: 5px;
+    }
+}

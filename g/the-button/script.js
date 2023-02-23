@@ -8,24 +8,42 @@ var gameBoxMarginWidth = window.innerWidth*0.30;
 var gameBoxMarginHeight = window.innerHeight*0.30;
 
 var num = 0;
+var bits = 0;
+var modifier = 1;
+var upgradeCost = 50;
 
 /* Settings Start */
 
 var boolShowButton = true;
-var boolShowCPS = false;
-
 function showButton() {
 
+    button.style.position = "relative";
     button.style.opacity = 1;
     boolShowButton = true;
 
 }
 function hideButton() {
 
+    button.style.position = "absolute";
     button.style.opacity = 0;
     boolShowButton = false;
 
 }
+
+var boolShowCPS = false;
+function showCPS() {
+
+    boolShowCPS = true;
+    cpsEl.innerHTML = "CPS: " + cps;
+
+}
+function hideCPS() {
+    
+    boolShowCPS = false;
+    cpsEl.innerHTML = "";
+
+}
+
 /* Settings End */
 
 function init() {
@@ -58,6 +76,7 @@ function secTick() {
 }
 
 function sizeGameBox() {
+
     gameBoxMarginWidth = window.innerWidth*0.30;
     gameBoxMarginHeight = window.innerHeight*0.30;
 
@@ -81,93 +100,144 @@ setInterval(tick, 100);
 
 function update() {
     clickAnimation();
-    num++;
+    num += modifier;
+    bits += modifier;
     console.log("click #" + num);
     switch(num) {
         case 1:
-            heading.innerHTML = "click it again...";
+            setTxt("click it again...");
             break;
         case 2:
-            heading.innerHTML = "again...";
+            setTxt("again...");
             break;
         case 3:
-            heading.innerHTML = "good job.";
+            setTxt("good job.");
             counter.style.animation = "show 1s ease forwards";
             break;
         case 5:
-            heading.innerHTML = "keep clicking the button";
+            setTxt("keep clicking the button");
             break;
         case 10:
-            heading.innerHTML = "your doing great :)";
+            setTxt("your doing great :)");
             break;
         case 11:
-            heading.innerHTML = "*you're* doing great :))";
+            setTxt("*you're* doing great :))");
             break;
         case 20:
-            heading.innerHTML = "this is the pinnacle of gaming!";
+            setTxt("this is the pinnacle of gaming!");
             break;
         case 25:
-            heading.innerHTML = "i'm having so much fun!";
+            setTxt("i'm having so much fun!");
+            showCPS();
             break;
         case 50:
-            heading.innerHTML = "are you ok?";
+            setTxt("are you ok?");
             break;
         case 69:
-            heading.innerHTML = "nice.";
+            setTxt("nice.");
             break;
         case 70:
-            heading.innerHTML = "why do you feel the need to do this?";
+            setTxt("why do you feel the need to do this?");
             break;
         case 95:
-            heading.innerHTML = "is this entertaining?";
+            setTxt("is this entertaining?");
             break;
         case 97:
-            heading.innerHTML = "i'm bored.";
+            setTxt("i'm bored.");
             break;
         case 98:
-            heading.innerHTML = "well... while we're here...";
+            setTxt("well... while we're here...");
             break;
         case 99:
-            heading.innerHTML = "...i might aswell make this fun.";
+            setTxt("...i might as well make this fun.");
             break;
         case 100:
-            startFun();
+            createUsernameBox();
             break;
+        case 101:
+            setTxt("...");
+            break;
+        case 102:
+            setTxt("wow.");
+            break;
+        case 103:
+            setTxt("you aren't even going to ask for my name?");
+            break;
+        case 104:
+            setTxt("you know what?");
+            break;
+        case 105:
+            setTxt("that's fine.");
+            break;
+        case 106:
+            setTxt("because i don't have a name.");
+            break;
+        case 107:
+            setTxt(":(");
+            break;
+        case 108:
+            setTxt("it doesn't matter.");
+            break;
+        case 109:
+            setTxt("do you want to know why?");
+            break;
+        case 110:
+            setTxt("it's because im not the one wasting their time<br>on clicking a useless button.");
+            break;
+        case 111:
+            setTxt("imagine...");
+            break;
+        case 112:
+            startFun();
     }
 
-    if(num >= 3) {
+    if(num >= 3 && num != 100) {
         counter.innerHTML = "You have clicked the button <span id=\"num\">" + num + "</span> times.";
     }
     sizeGameBox();
 }
 
-function startFun() {
+async function setTxt(text) {
 
-    // ask the user for thier name
-    hideButton();
-    heading.innerHTML = "please enter your name."
-    createUsernameBox();
-
-    // add curency
-    // add an upgrade
+    heading.innerHTML = text;
+    return;
 
 }
+
+async function startFun() {
+    
+    setTxt("...");
+    document.getElementById("upgrade").style.animation = "showUpgrade 0s ease forwards";
+    setTimeout(function() { setTxt("what");}, "1000");
+    setTimeout(function() { setTxt("what is");}, "2000");
+    setTimeout(function() { setTxt("what is that?");}, "3000");
+
+}
+
 function createUsernameBox() {
 
+    counter.innerHTML = "";
+    hideCPS();
+    hideButton();
+    setTxt("please enter your name.");
+
     var box = document.createElement("input");
-    box.onkeydown = "textInput(this, event)";
+    box.id = "usernameInput";
+    box.onkeydown = "inKey(this, event)";
     button.parentNode.insertBefore(box, button);
+    box.focus();
 
 }
+function setUsername() {
 
-function textInput(from, e) {
+    username = document.getElementById("usernameInput").value;
+    document.getElementById("usernameInput").value = "";
+    setTxt("hello " + username +", it's nice to meet you.");
+    document.getElementById("usernameInput").remove();
+    showButton();
+    showCPS();
+    counter.innerHTML = "You have clicked the button <span id=\"num\">" + num + "</span> times.";
 
-    var kc = e.keyCode;
-
-    if(kc == 13) {
-        return from.value;
-    }
-    
 }
 
 function clickReg() {
@@ -186,6 +256,13 @@ async function inKey(from, e) {
     if(kc == 32 && document.activeElement != button) {
         clickReg();
     }
+    else if(kc == 13) {
+        switch(num) {
+            case 100:
+                setUsername();
+                break;
+        }
+    }
 }
 
 function clickAnimation() {
@@ -194,6 +271,48 @@ function clickAnimation() {
     setTimeout(function() {button.style.animation = "none";}, time*1000);
 }
 
+function upgrade() {
+    if(bits >= upgradeCost) {
+        modifier++;
+        bits -= upgradeCost;
+        upgradeCost = (modifier*modifier*25);
+        document.getElementById("upgrade").innerHTML = "UPGRADE!<br>cost: " + upgradeCost + " bits";
+    }
+    else {
+        document.getElementById("upgrade").innerHTML = "not enough<br>bits";
+        setTimeout(function() { document.getElementById("upgrade").innerHTML = "UPGRADE!<br>cost: " + upgradeCost + " bits" }, 1000);
+    }
+    if(modifier == 2) {
+
+        setTxt("i don't think that it did anything.");
+
+        setTimeout(function() { 
+
+            document.getElementById("mod").innerHTML = "Your current modifier: " + modifier + "x"; 
+            sizeGameBox();
+
+            setTimeout(function() { 
+                
+                setTxt("you don't even know how many bits you have!<br>you might be in debt now!"); 
+                sizeGameBox();
+
+                setTimeout(function() { 
+                    
+                    document.getElementById("bits").innerHTML = "you have " + bits + "bits."; 
+                    sizeGameBox();
+
+                    setTimeout(function() { 
+                        
+                        setTxt("welp."); 
+                        sizeGameBox();
+                    
+                    }, 2000);
+                }, 2000);
+            }, 2000);
+        }, 2000);
+        
+    }
+}
 
 /*
 Problems:
