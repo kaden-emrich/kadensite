@@ -2,18 +2,59 @@ var button = document.getElementById("theButton");
 var gameBox = document.getElementById("game");
 var heading = document.getElementById("heading");
 var counter = document.getElementById("counter");
+var cpsEl = document.getElementById("cps");
 
 var gameBoxMarginWidth = window.innerWidth*0.30;
 var gameBoxMarginHeight = window.innerHeight*0.30;
 
 var num = 0;
 
+/* Settings Start */
+
+var boolShowButton = true;
+var boolShowCPS = false;
+
+function showButton() {
+
+    button.style.opacity = 1;
+    boolShowButton = true;
+
+}
+function hideButton() {
+
+    button.style.opacity = 0;
+    boolShowButton = false;
+
+}
+/* Settings End */
+
 function init() {
 
 }
 
+var tickCounter = 0;
 function tick() {
+    tickCounter++;
     sizeGameBox();
+    if(tickCounter == 10) {
+        tickCounter = 0;
+        secTick();
+    }
+}
+var seconds = 0;
+var lastClicks = 0;
+var cps = 0;
+function secTick() {
+    cps = num - lastClicks;
+    lastClicks = num;
+    if(boolShowCPS == true){
+        cpsEl.innerHTML = "CPS: " + cps;
+    }
+    else {
+        cpsEl.innerHTML = "";
+    }
+
+    //console.log(++seconds + "s");
 }
 
 function sizeGameBox() {
@@ -101,16 +142,49 @@ function update() {
 }
 
 function startFun() {
+
     // ask the user for thier name
+    hideButton();
+    heading.innerHTML = "please enter your name."
+    createUsernameBox();
+
     // add curency
     // add an upgrade
+
+}
+function createUsernameBox() {
+
+    var box = document.createElement("input");
+    box.onkeydown = "textInput(this, event)";
+    button.parentNode.insertBefore(box, button);
+
+}
+
+function textInput(from, e) {
+
+    var kc = e.keyCode;
+
+    if(kc == 13) {
+        return from.value;
+    }
+    
+}
+
+function clickReg() {
+
+    if(boolShowButton) {
+
+        update();
+
+    }
+
 }
 
 async function inKey(from, e) {
     var kc = e.keyCode;
     console.log(kc);
     if(kc == 32 && document.activeElement != button) {
-        update();
+        clickReg();
     }
 }
 
@@ -119,3 +193,10 @@ function clickAnimation() {
     button.style.animation = "theButtonClick " + time + "s ease forwards";
     setTimeout(function() {button.style.animation = "none";}, time*1000);
 }
+
+
+/*
+Problems:
+    Holding down spacebar is unfair.
+    - When holding down the space bar the browser automaticly registers many keypresses is quick succession. This works like an auto clicker.
+*/

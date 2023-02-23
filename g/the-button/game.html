@@ -7,11 +7,12 @@
         <title>The Button</title>
     </head>
 
-    <body onkeypress="inKey(this, event)">
+    <body onkeyup="inKey(this, event)">
         <div id="game">
             <h1 id="heading">click the button</h1>
-            <button type="button" id="theButton" onclick="update()"></button>
+            <button type="button" id="theButton" onclick="clickReg()"></button>
             <p id="counter"></p>
+            <p id="cps"></p>
         </div>
     </body>
     <script src="script.js"></script>
