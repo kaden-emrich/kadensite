@@ -1,6 +1,5 @@
 var game = document.getElementById("game");
 var player = document.getElementById("player");
-var debugArea = document.getElementById("debugArea");
 
 var gameWidth = game.clientWidth;
 var gameHeight = game.clientHeight;
