@@ -2,7 +2,7 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
-var cHelp = "Commands - \n - help: You just used it. (good job) \n - back: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer."
+var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page.";
 
 var inputValue;
 var lastLine;
@@ -51,7 +51,7 @@ async function help() {
     return;
 }
 
-async function back() {
+async function home() {
     printFancyLine("Sending you back...", "greenGlow", 10);
     thisTab("../index.html");
     return;
@@ -82,6 +82,18 @@ async function findAnswer() {
     return;
 }
 
+async function noGames() {
+    printFancyLine("There are no games...", "redGlow", 10);
+    thisTab("../g/index.html");
+    return;
+}
+
+async function about() {
+    printFancyLine("Taking you to about me...", "greenGlow", 10);
+    thisTab("../about/index.html");
+    return;
+}
+
 async function setUsername(name) {
     username = name;
     printFancyLine("Hello ", "greenGlow", 10);
@@ -103,8 +115,8 @@ async function command(cmd) {
         case 'help':
             await help();
             break;
-        case 'back':
-            await back();
+        case 'home':
+            await home();
             break;
         case 'hello world':
             await helloWorld();
@@ -118,6 +130,12 @@ async function command(cmd) {
             break;
         case 'findtheanswer':
             await findAnswer();
+            break;
+        case 'nogames':
+            await noGames();
+            break;
+        case 'about':
+            await about();
             break;
         default:
             await unknownCommand(cmd);
