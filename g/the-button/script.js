@@ -194,6 +194,9 @@ function update() {
     if(num >= 3 && num != 100) {
         counter.innerHTML = "You have clicked the button <span id=\"num\">" + num + "</span> times.";
     }
+    if(num > 112) {
+        document.getElementById("bits").innerHTML = "you have " + bits + "bits."; 
+    }
     sizeGameBox();
 }
 
@@ -282,7 +285,7 @@ function upgrade() {
         document.getElementById("upgrade").innerHTML = "not enough<br>bits";
         setTimeout(function() { document.getElementById("upgrade").innerHTML = "UPGRADE!<br>cost: " + upgradeCost + " bits" }, 1000);
     }
-    if(modifier == 2) {
+    if(modifier > 2) {
 
         setTxt("i don't think that it did anything.");
 
