@@ -24,7 +24,6 @@ var FPS = 60;
 /* Settings end */
 
 init();
-setInterval(tick, 1000/FPS);
 
 function moveUp() {
 
@@ -96,6 +95,7 @@ document.addEventListener("keyup", event => {
 
 function init() {
 
+    setInterval(tick, 1000/FPS);
     game.focus();
 
 }
