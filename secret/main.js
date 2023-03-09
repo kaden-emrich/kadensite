@@ -152,7 +152,7 @@ async function typeIt(from, e) {
         await command(inputValue.toLowerCase());
     } else {
         inputValue = inputArea.value;
-        inputLine.innerHTML = "<br>> " + inputValue;
+        inputLine.innerHTML = "<br>/< " + inputValue;
         terminal.scrollTo(0, inputLine.offsetTop)
     }
     terminal.scrollTo(0, inputLine.offsetTop)
@@ -172,7 +172,7 @@ function newTab(link) {
 
 function newInputLine() {
     var next = document.createElement("p");
-    next.innerHTML = "<br>> ";
+    next.innerHTML = "<br>/< ";
     next.className = "whiteGlow";
     before.parentNode.insertBefore(next, before);
     inputLine = next;

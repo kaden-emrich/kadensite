@@ -1,0 +1,127 @@
+div.awardHolder{
+    width: fit-content;
+    margin: auto;
+    padding: 50px;
+}
+
+.award {
+    padding: 10px;
+}
+div.award {
+    display: inline-block;
+    width: 400px;
+    padding: 20px;
+    margin: 10px;
+    border: 15px solid #663300;
+    border-top-color: #704000;
+    border-bottom-color: #522200;
+    border-right-color: #582800;
+    background-color: #603000;
+    box-shadow: 2px 2px 5px #000;
+}
+
+div.awardTop {
+    box-sizing: border-box;
+    width: 400px;
+    height: 500px;
+    padding: 0;
+    border-top: 3px solid #ffcc33;
+    border-left: 3px solid #eebb22;
+    background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+}
+h3.awardTop {
+    position: relative;
+    top: -150px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #047;
+}
+#bpaLogo {
+    position: relative;
+    top: -60px;
+}
+#ohioLogo {
+    position: relative;
+    top: -140px;
+}
+
+div.awardBottom {
+    box-sizing: border-box;
+    width: 400px;
+    height: 100px;
+    margin-top: 20px;
+    border-top: 3px solid #ffcc33;
+    border-left: 3px solid #eebb22;
+    background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+}
+p.awardBottom {
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #a90;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+@keyframes lift {
+    0% {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: 2px 2px 5px #000;
+    }
+    /*
+    15% {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        box-shadow: -5px -5px 10px #000;
+    }
+    20% {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        box-shadow: -5px -5px 10px #000;
+    }
+    */
+    100% {
+        position: relative;
+        top: -10px;
+        left: -10px;
+        box-shadow: 10px 10px 10px #000;
+    }
+}
+@keyframes drop {
+    0% {
+        position: relative;
+        top: -10px;
+        left: -10px;
+        box-shadow: 10px 10px 10px #000;
+    }
+    20% {
+        top: 3px;
+        left: 3px;
+        box-shadow: -3px -3px 5px #000;
+    }
+    40% {
+        top: -5px;
+        left: -5px;
+        box-shadow: 7px 7px 5px #000;
+    }
+    60% {
+        top: 0px;
+        left: 0px;
+        box-shadow: 2px 2px 5px #000;
+    }
+    80% {
+        top: -3px;
+        left: -3px;
+        box-shadow: 5px 5px 5px #000;
+    }
+    100% {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: 2px 2px 5px #000;
+    }
+}
