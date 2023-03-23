@@ -91,6 +91,7 @@ button.menuButton {
 
 .gameMenuButton {
     position: relative;
+    margin-top: 10px;
 }
 .gamesMenuButton::after {
     content: "\a";

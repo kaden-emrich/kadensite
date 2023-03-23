@@ -2,7 +2,7 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
-var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page.";
+var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page. \n - more - is there any more?";
 
 var inputValue;
 var lastLine;
@@ -52,7 +52,7 @@ async function help() {
 }
 
 async function home() {
-    printFancyLine("Sending you back...", "greenGlow", 10);
+    printFancyLine("Sending you home...", "greenGlow", 10);
     thisTab("../index.html");
     return;
 }
@@ -91,6 +91,12 @@ async function noGames() {
 async function about() {
     printFancyLine("Taking you to about me...", "greenGlow", 10);
     thisTab("../about/index.html");
+    return;
+}
+
+async function extras() {
+    printFancyLine("Taking you to [e]...", "greenGlow", 10);
+    thisTab("../e/index.html");
     return;
 }
 
@@ -136,6 +142,9 @@ async function command(cmd) {
             break;
         case 'about':
             await about();
+            break;
+        case 'more':
+            await extras();
             break;
         default:
             await unknownCommand(cmd);
