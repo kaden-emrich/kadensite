@@ -1,49 +1,82 @@
 var c = document.getElementById("visualizer");
 var ctx = c.getContext("2d");
 
+var arrayLength = 50;
+var towerColor = "#123456";
+
 var numbers = [];
 
-for(let i = 0; i < 500; i++){
-    numbers[i] = i+1;
-}
+c.width = arrayLength*2;
+c.height = arrayLength;
 
 init();
 
+function init() {
 
-
-async function shuffle() {
-    for(let i = 0; i < 500; i++){
-        swap(Math.floor(Math.random() * 501), i);
+    for(let i = 0; i < arrayLength; i++){
+        numbers[i] = i+1;
     }
+
+    ctx.fillStyle = towerColor;
+
+    update();
+
+    shuffle();
+
+    bubbleSort();
+
+    //ctx.clearRect(0, 0, 1000, 500);
+    //await update();
+
+    //await shuffle();
+
+    //await update();
+
+    //clear();
+    //ctx.clearRect(0, 0, 1000, 500);
+    //setTimeout(update, 1000);
+}
+
+function clear() {
+    ctx.clearRect(0, 0, arrayLength*2, arrayLength);
+    ctx.reset();
+}
+
+function shuffle() {
+    for(let i = 0; i < arrayLength; i++){
+        swap(Math.floor(Math.random() * (arrayLength + 1)), i);
+    }
+    update();
 }
 
 function swap(i1, i2) {
     let temp = numbers[i2];
     numbers[i2] = numbers[i1];
-    numbers[i1] = numbers[i2];
+    numbers[i1] = temp;
     //update();
 }
 
-function clear() {
-    ctx.clearRect(0, 0, 1000, 500);
-}
-
-async function update() {
+function update() {
 
     clear();
-    clear();
 
-    for(let i = 0; i < 500; i++){
+    ctx.fillStyle = towerColor;
 
-        ctx.moveTo(i*2, 500);
-        ctx.lineTo(i*2, 500 - numbers[i]);
-        ctx.stroke();
-        update();
+    for(let i = 0; i < arrayLength; i++){
+
+        //ctx.moveTo(i*2 + 1, arrayLength);
+        //ctx.lineTo(i*2 + 1, arrayLength - numbers[i]);
+
+        ctx.fillRect(i*2, arrayLength - numbers[i], 2, arrayLength);
+        //ctx.stroke();
+        //update();
     }
 
-    var i = 0;
+    //ctx.stroke();
+
+    //var i = 0;
     
-    var updateTick = setInterval(function() {
+    /*var updateTick = setInterval(function() {
         if(i > 500) {
             updateTick = null;
         } 
@@ -54,18 +87,27 @@ async function update() {
         update();
 
         i++;
-    }, 100);
-}
+    }, 100);*/
+} // update()
 
-async function init() {
-    //await update();
+function bubbleSort() {
 
-    //await shuffle();
+    var didSwap;
 
-    //ctx.clearRect(0, 0, 1000, 500);
-    //await update();
+    for(let iteration = 0; iteration < numbers.length - 1; iteration++) {
+        didSwap = false;
 
-    //clear();
-    //ctx.clearRect(0, 0, 1000, 500);
-    //setTimeout(update, 1000);
-}
+        for(let compairison = 0; compairison < numbers.length - 1 - iteration; compairison++) {
+            
+            if(numbers[compairison] > numbers[compairison+1]) {
+                swap(compairison, compairison+1);
+                didSwap = true;
+                update();
+            }
+        }
+        
+        if(!swap) {
+            break;
+        }//*/
+    }
+}// bubbleSort()
