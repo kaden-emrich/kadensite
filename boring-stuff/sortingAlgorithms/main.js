@@ -63,6 +63,9 @@ function swap(i1, i2) {
 
 function update() {
 
+    c.width = arrayLength*2;
+    c.height = arrayLength;
+
     clear();
 
     ctx.fillStyle = towerColor;
