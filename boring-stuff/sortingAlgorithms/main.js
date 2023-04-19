@@ -274,6 +274,7 @@ function init() {
 
     statusDisplay.innerText = "Status: Idle";
 
+    numbers = [];
     for(let i = 0; i < arrayLength; i++){
         numbers[i] = i+1;
     }
