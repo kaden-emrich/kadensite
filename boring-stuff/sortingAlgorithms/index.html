@@ -12,21 +12,30 @@
     </head>
 
     <body>
-
-        <h1 id="status">Status: Idle</h1>
-
-        <canvas id="visualizer" width="1000" height="500"></canvas>
-
-        <div id="buttonsDiv">
-            <button type="button" id="resetButton" onclick="init()">reset</button>
-            <button type="button" id="shuffleButton" onclick="visualShuffle()">Shuffle</button>
-            <button type="button" id="bubbleSortButton" onclick="bubbleSortVisual()">Bubble Sort</button>
-            <button type="button" id="insertionSortButton" onclick="insertionSortVisual()">Insertion Sort</button>
+        <div class="canvasContainer">
+            <canvas id="visualizer" width="1000" height="500"></canvas>
         </div>
 
-        <div class="sliderContainer">
-            <p id="delayDisplay">Delay: 0 ms</p>
-            <input type="range" min=".1" max="50" value="10" class="slider" id="delaySlider" oninput="update()">
+        <div id="stuffs">
+            <h1 id="status">Status: Idle</h1>
+
+            <div id="buttonsDiv">
+                <button type="button" id="resetButton" onclick="init()">reset</button>
+                <button type="button" id="shuffleButton" onclick="visualShuffle()">Shuffle</button>
+                <button type="button" id="bubbleSortButton" onclick="bubbleSortVisual()">Bubble Sort</button>
+                <button type="button" id="insertionSortButton" onclick="insertionSortVisual()">Insertion Sort</button>
+                <button type="button" id="selectionSortButton" onclick="selectionSortVisual()">Selection Sort</button>
+            </div>
+
+            <div class="sliderContainer">
+                <p id="delayDisplay">Delay: 0 ms</p>
+                <input type="number" value="1" class="slider" id="delaySlider" oninput="update()">
+            </div>
+
+            <div id="sizeContainer">
+                <p>Array Size: <a id="arraySizeDisplay"></a></p>
+                <input type="number" id="arraySizeInput" value="100" oninput="init()">
+            </div>
         </div>
 
     </body>
