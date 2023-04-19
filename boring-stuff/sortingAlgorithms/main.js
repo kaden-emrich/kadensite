@@ -4,12 +4,15 @@ var ctx = c.getContext("2d");
 var delaySlider = document.getElementById("delaySlider");
 var delayDisplay = document.getElementById("delayDisplay");
 
+var arraySizeInput = document.getElementById("arraySizeInput");
+var arraySizeDisplay = document.getElementById("arraySizeDisplay");
+
 var statusDisplay = document.getElementById("status");
 
 var arrayLength = 100;
 var towerColor = "#123456";
 
-var delay = 10.0; // ms
+var delay = 1; // ms
 var interval;
 
 var numbers = [];
@@ -36,6 +39,7 @@ function shuffle() {
 }// shuffle()
 
 function visualShuffle() {
+    interval = clearInterval(interval);
     statusDisplay.innerText = "Status: Shuffling...";
 
     let i = 0;
@@ -63,6 +67,9 @@ function swap(i1, i2) {
 
 function update() {
 
+    c.style.width = window.innerWidth + "px";
+    c.style.height = window.innerHeight + "px";
+
     c.width = arrayLength*2;
     c.height = arrayLength;
 
@@ -83,7 +90,11 @@ function update() {
 
     delay = delaySlider.value;
     delayDisplay.innerHTML = "Delay: " + delay + " ms";
+
+    arraySizeDisplay.innerText = arrayLength;
 } // update()
+
+/*----- Bubble Sort -----*/
 
 function bubbleSortInstant() {
     statusDisplay.innerText = "Status: Sorting... (Bubble Sort)";
@@ -105,6 +116,7 @@ function bubbleSortInstant() {
 }// bubbleSortInstant()
 
 function bubbleSortVisual() {
+    interval = clearInterval(interval);
     statusDisplay.innerText = "Status: Sorting... (Bubble Sort)";
 
     let itteration = 0;
@@ -138,6 +150,9 @@ function bubbleSortVisual() {
 
 }// bubbleSortVisual()
 
+/*----- Bubble Sort End -----*/
+/*----- Insertion Sort -----*/
+
 function insertionSortInstant() {
     var traverser;
     var subject;
@@ -158,6 +173,7 @@ function insertionSortInstant() {
 }// insertionSortInstant()
 
 function insertionSortVisual() {
+    interval = clearInterval(interval);
     statusDisplay.innerText = "Status: Sorting... (Insertion)";
 
     var traverser = 1;
@@ -191,7 +207,68 @@ function insertionSortVisual() {
     }, delay);
 }
 
+/*----- Selection Sort -----*/
+
+function selectionSortInstant() {
+    statusDisplay.innerText = "Status: Sorting... (Selection)";
+
+    let minIndex;
+    for(let i = 0; i < numbers.length - 1; i++) {
+        minIndex = i;
+        for(let j = i + 1; j < numbers.length; j++) {
+            if(numbers[j] < numbers[minIndex]){
+                minIndex = j;
+            }
+        }
+        swap(i, minIndex);
+    }
+
+    statusDisplay.innerText = "Status: Idle";
+    update();
+}// selectionSortInstant()
+
+function selectionSortVisual() {
+    interval = clearInterval(interval);
+    statusDisplay.innerText = "Status: Sorting... (Selection)";
+
+    let i = 0;
+    let j = i + 1;
+    let minIndex = i;
+
+    interval = setInterval(function() {
+        if(i < numbers.length) {
+            while(j < numbers.length) {
+                if(numbers[j] < numbers[minIndex]) {
+                    minIndex = j;
+                }
+                j++;
+            }
+            swap(i, minIndex);
+            update();
+            j = i + 1;
+            i++;
+            minIndex = i;
+
+        }
+        else {
+            statusDisplay.innerText = "Status: Idle";
+            update();
+            interval = clearInterval(interval);
+        }
+        update();
+    }, delay);
+}// selectionSortVisual()
+
+/*----- Selection Sort End -----*/
+
+/*----- Insertion Sort End -----*/
+
 function init() {
+
+    arrayLength = arraySizeInput.value;
+    
+    c.style.width = window.innerWidth + "px";
+    c.style.height = window.innerHeight + "px";
 
     interval = clearInterval(interval);
 
@@ -200,6 +277,11 @@ function init() {
     for(let i = 0; i < arrayLength; i++){
         numbers[i] = i+1;
     }
+
+    setInterval(function() {
+        c.style.width = window.innerWidth + "px";
+        c.style.height = window.innerHeight + "px";
+    }, 1000/24);
 
     update();
 
