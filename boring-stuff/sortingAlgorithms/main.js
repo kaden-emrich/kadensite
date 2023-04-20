@@ -97,7 +97,7 @@ function update() {
 /*----- Bubble Sort -----*/
 
 function bubbleSortInstant() {
-    statusDisplay.innerText = "Status: Sorting... (Bubble Sort)";
+    statusDisplay.innerText = "Status: Sorting... (Bubble)";
 
     let swaped;
     for(let itteration = 0; itteration < numbers.length - 1; itteration++) {
@@ -117,7 +117,7 @@ function bubbleSortInstant() {
 
 function bubbleSortVisual() {
     interval = clearInterval(interval);
-    statusDisplay.innerText = "Status: Sorting... (Bubble Sort)";
+    statusDisplay.innerText = "Status: Sorting... (Bubble)";
 
     let itteration = 0;
     let compairison = 0;
@@ -271,16 +271,17 @@ async function mergeSortInstant(l, r) {
     {
         var m = Math.floor(l + (r - l)/2);
 
-        await mergeSortInstant(l, m);
-        await mergeSortInstant(m+1, r);
+        mergeSortInstant(l, m);
+        mergeSortInstant(m+1, r);
 
-        await mergeInstant(l, m, r);
+        mergeInstant(l, m, r);
     }
+    update();
 
     //return arr;
 }// mergeSortInstant(l, r)
 
-async function mergeInstant(l, m, r) {
+function mergeInstant(l, m, r) {
 
     var i = 0;
     var j = 0;
@@ -330,16 +331,55 @@ async function mergeInstant(l, m, r) {
     // instant end
 
     // visual
-async function mergeSortVisual(l, r) {
+function mergeSortStarter() {
+    statusDisplay.innerText = "Status: Sorting... (Merge)";
+    interval = clearInterval(interval);
+    
+    mergeSortVisual(0, numbers.length-1);
+
+    statusDisplay.innerText = "Status: Idle";
+}// mergeSortStarter()
+
+function idle() {
+    statusDisplay.innerText = "Status: Idle";
+}// idle()
+
+function mergeSortVisual(l, r) {
     if(l < r) {
         var m = Math.floor(l + (r - l)/2);
 
-        await mergeSortVisual(l, m);
-        await mergeSortVisual(m+1, r);
+        mergeSortVisualCallback(l, m, mergeSortVisual, m+1, r);
+        //mergeSortVisual(m+1, r);
 
-        await mergeVisual(l, m, r);
+        mergeVisual(l, m, r);
     }
     update();
+
+    /*
+    if(callback != null){
+        callback();
+    }//*/
+
+    return;
+}// mergeSortVisual(l, r)
+
+function mergeSortVisualCallback(l, r, callback, l1, r1) {
+    if(l < r) {
+        var m = Math.floor(l + (r - l)/2);
+
+        mergeSortVisual(l, m);
+        mergeSortVisual(m+1, r);
+
+        mergeVisual(l, m, r);
+    }
+    update();
+
+    
+    if(callback != null){
+        callback(l1, r1);
+    }
+
+    return;
 }// mergeSortVisual(l, r)
 
 async function mergeVisual(l, m, r) {
@@ -354,38 +394,75 @@ async function mergeVisual(l, m, r) {
     var R = [];
 
     for(i = 0; i < n1; i++)
-        L[i] = l+i;
+        L[i] = numbers[l+i];
 
     for(j = 0; j < n2; j++)
-        R[j] = m+1+j;
+        R[j] = numbers[m+1+j];
 
     i = 0;
     j = 0;
     k = l;
+
+    //interval = clearInterval(interval);
+
+    //*
+    update();
+    interval = setInterval(function() {
+        if(i < n1 && j < n2) {
+            if(L[i] <= R[j]) {
+                numbers[k] = L[i];
+                i++;
+            }
+            else {
+                numbers[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        else {
+            if(i < n1) {
+                numbers[k] = L[i];
+                i++;
+                k++;
+            }
+            else if(j < n2) {
+                numbers[k] = R[j];
+                j++;
+                k++;
+            }
+            else interval = clearInterval(interval);
+        }
+        update();
+    }, delay);//*/
+
+    /*
     while(i < n1 && j < n2) {
-        if(numbers[L[i]] <= numbers[R[j]]) {
-            swap(k, L[i]);
+        if(L[i] <= R[j]) {
+            numbers[k] = L[i];
             i++;
         }
         else {
-            swap(k, R[j]);
+            numbers[k] = R[j];
             j++;
         }
         k++;
     }
 
-    /*while(i < n1) {
-        swap(k, L[i]);
+
+    while(i < n1) {
+        numbers[k] = L[i];
         i++;
         k++;
-    }*/
+    }
 
     while(j < n2) {
-        swap(k, R[j]);
+        numbers[k] = R[j];
         j++;
         k++;
-    }
-}
+    }//*/
+
+    return;
+}// mergeVisual(l, m, r)
     // visual end
 
 /*----- Merge Sort End -----*/
