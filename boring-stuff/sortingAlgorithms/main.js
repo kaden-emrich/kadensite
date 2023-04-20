@@ -62,7 +62,7 @@ function swap(i1, i2) {
     let temp = numbers[i2];
     numbers[i2] = numbers[i1];
     numbers[i1] = temp;
-    //update();
+    update();
 }// swap(i1, i2)
 
 function update() {
@@ -185,8 +185,9 @@ function insertionSortVisual() {
             
 
             if(insertIndex >= 0 && numbers[insertIndex] > subject) {
-                numbers[insertIndex+1] = numbers[insertIndex];
+                swap(insertIndex, insertIndex + 1);
                 --insertIndex;
+                update();
             }
             else {
                 numbers[insertIndex+1] = subject;
@@ -202,10 +203,10 @@ function insertionSortVisual() {
             statusDisplay.innerText = "Status: Idle";
             clearInterval(interval);
         }
-
-        update();
     }, delay);
 }
+
+/*----- Insertion Sort End -----*/
 
 /*----- Selection Sort -----*/
 
@@ -261,7 +262,134 @@ function selectionSortVisual() {
 
 /*----- Selection Sort End -----*/
 
-/*----- Insertion Sort End -----*/
+/*----- Merge Sort -----*/
+
+
+    // instant
+async function mergeSortInstant(l, r) {
+    if(l < r)
+    {
+        var m = Math.floor(l + (r - l)/2);
+
+        await mergeSortInstant(l, m);
+        await mergeSortInstant(m+1, r);
+
+        await mergeInstant(l, m, r);
+    }
+
+    //return arr;
+}// mergeSortInstant(l, r)
+
+async function mergeInstant(l, m, r) {
+
+    var i = 0;
+    var j = 0;
+    var k = 0;
+    
+    var n1 = m - l + 1;
+    var n2 = r - m;
+
+    var L = [];
+    var R = [];
+
+    for(i = 0; i < n1; i++)
+        L[i] = numbers[l+i];
+
+    for(j = 0; j < n2; j++)
+        R[j] = numbers[m+1+j];
+
+    i = 0;
+    j = 0;
+    k = l;
+    while(i < n1 && j < n2) {
+        if(L[i] <= R[j]) {
+            numbers[k] = L[i];
+            i++;
+        }
+        else {
+            numbers[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i < n1) {
+        numbers[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while(j < n2) {
+        numbers[k] = R[j];
+        j++;
+        k++;
+    }
+
+    //return arr;
+}// mergeInstant(l, m, r)
+    // instant end
+
+    // visual
+async function mergeSortVisual(l, r) {
+    if(l < r) {
+        var m = Math.floor(l + (r - l)/2);
+
+        await mergeSortVisual(l, m);
+        await mergeSortVisual(m+1, r);
+
+        await mergeVisual(l, m, r);
+    }
+    update();
+}// mergeSortVisual(l, r)
+
+async function mergeVisual(l, m, r) {
+    var i = 0;
+    var j = 0;
+    var k = 0;
+    
+    var n1 = m - l + 1;
+    var n2 = r - m;
+
+    var L = [];
+    var R = [];
+
+    for(i = 0; i < n1; i++)
+        L[i] = l+i;
+
+    for(j = 0; j < n2; j++)
+        R[j] = m+1+j;
+
+    i = 0;
+    j = 0;
+    k = l;
+    while(i < n1 && j < n2) {
+        if(numbers[L[i]] <= numbers[R[j]]) {
+            swap(k, L[i]);
+            i++;
+        }
+        else {
+            swap(k, R[j]);
+            j++;
+        }
+        k++;
+    }
+
+    /*while(i < n1) {
+        swap(k, L[i]);
+        i++;
+        k++;
+    }*/
+
+    while(j < n2) {
+        swap(k, R[j]);
+        j++;
+        k++;
+    }
+}
+    // visual end
+
+/*----- Merge Sort End -----*/
+
 
 function init() {
 
@@ -286,20 +414,8 @@ function init() {
 
     update();
 
-    //shuffle();
+}
 
-    //console.log(numbers);
-
-    //bubbleSortVisual();
-
-    //ctx.clearRect(0, 0, 1000, 500);
-    //await update();
-
-    //await shuffle();
-
-    //await update();
-
-    //clear();
-    //ctx.clearRect(0, 0, 1000, 500);
-    //setTimeout(update, 1000);
+function testFunction(arr) {
+    return arr;
 }
