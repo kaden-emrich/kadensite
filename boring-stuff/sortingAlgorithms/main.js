@@ -16,6 +16,7 @@ var delay = 1; // ms
 var interval;
 
 var numbers = [];
+var animationQueue = [];
 
 c.width = arrayLength*2;
 c.height = arrayLength;
@@ -265,8 +266,8 @@ function selectionSortVisual() {
 /*----- Merge Sort -----*/
 
 
-    // instant
-async function mergeSortInstant(l, r) {
+// instant
+function mergeSortInstant(l, r) {
     if(l < r)
     {
         var m = Math.floor(l + (r - l)/2);
@@ -328,61 +329,53 @@ function mergeInstant(l, m, r) {
 
     //return arr;
 }// mergeInstant(l, m, r)
-    // instant end
+// instant end
 
-    // visual
-function mergeSortStarter() {
+// visual
+function mergeSortVisual() {
     statusDisplay.innerText = "Status: Sorting... (Merge)";
     interval = clearInterval(interval);
+    animationQueue = [];
+
+    animationQueue[0] = [];
+    for(let i = 0; i < numbers.length; i++) {
+        animationQueue[0][i] = numbers[i];
+    }
+
+    mergeSortSplitVisual(0, numbers.length -1);
+
     
-    mergeSortVisual(0, numbers.length-1);
 
-    statusDisplay.innerText = "Status: Idle";
-}// mergeSortStarter()
+    let i = 0;
+    interval = setInterval(function() {
+        if(i < animationQueue.length) {
+            numbers = animationQueue[i];
+            update();
+        }
+        else {
+            interval = clearInterval(interval);
+            statusDisplay.innerText = "Status: Idle";
+        }
+        i++
+    }, delay);
+}// mergeSortVisual()
 
-function idle() {
-    statusDisplay.innerText = "Status: Idle";
-}// idle()
-
-function mergeSortVisual(l, r) {
-    if(l < r) {
+function mergeSortSplitVisual(l, r) {
+    if(l < r)
+    {
         var m = Math.floor(l + (r - l)/2);
 
-        mergeSortVisualCallback(l, m, mergeSortVisual, m+1, r);
-        //mergeSortVisual(m+1, r);
+        mergeSortSplitVisual(l, m);
+        mergeSortSplitVisual(m+1, r);
 
         mergeVisual(l, m, r);
     }
-    update();
 
-    /*
-    if(callback != null){
-        callback();
-    }//*/
+    //return arr;
+}// mergeSortSplitVisual(l, r)
 
-    return;
-}// mergeSortVisual(l, r)
+function mergeVisual(l, m, r) {
 
-function mergeSortVisualCallback(l, r, callback, l1, r1) {
-    if(l < r) {
-        var m = Math.floor(l + (r - l)/2);
-
-        mergeSortVisual(l, m);
-        mergeSortVisual(m+1, r);
-
-        mergeVisual(l, m, r);
-    }
-    update();
-
-    
-    if(callback != null){
-        callback(l1, r1);
-    }
-
-    return;
-}// mergeSortVisual(l, r)
-
-async function mergeVisual(l, m, r) {
     var i = 0;
     var j = 0;
     var k = 0;
@@ -397,76 +390,56 @@ async function mergeVisual(l, m, r) {
         L[i] = numbers[l+i];
 
     for(j = 0; j < n2; j++)
-        R[j] = numbers[m+1+j];
+        R[j] = numbers[m+1+j]; 
 
     i = 0;
     j = 0;
     k = l;
-
-    //interval = clearInterval(interval);
-
-    //*
-    update();
-    interval = setInterval(function() {
-        if(i < n1 && j < n2) {
-            if(L[i] <= R[j]) {
-                numbers[k] = L[i];
-                i++;
-            }
-            else {
-                numbers[k] = R[j];
-                j++;
-            }
-            k++;
-        }
-        else {
-            if(i < n1) {
-                numbers[k] = L[i];
-                i++;
-                k++;
-            }
-            else if(j < n2) {
-                numbers[k] = R[j];
-                j++;
-                k++;
-            }
-            else interval = clearInterval(interval);
-        }
-        update();
-    }, delay);//*/
-
-    /*
     while(i < n1 && j < n2) {
         if(L[i] <= R[j]) {
             numbers[k] = L[i];
             i++;
+            addAnimationFrame();
         }
         else {
             numbers[k] = R[j];
             j++;
+            addAnimationFrame();
         }
         k++;
     }
-
 
     while(i < n1) {
         numbers[k] = L[i];
         i++;
         k++;
+        addAnimationFrame();
     }
 
     while(j < n2) {
         numbers[k] = R[j];
         j++;
         k++;
-    }//*/
+        addAnimationFrame();
+    }
 
-    return;
+    //return arr;
 }// mergeVisual(l, m, r)
-    // visual end
+// visual end
+
 
 /*----- Merge Sort End -----*/
 
+function addAnimationFrame() {
+    let next = animationQueue.length;
+    animationQueue[next] = [];
+    for(let i = 0; i < numbers.length; i++) {
+        if(numbers[i] == undefined) {
+
+        }
+        animationQueue[next][i] = numbers[i];
+    }
+}// addAnimationFrame()
 
 function init() {
 
