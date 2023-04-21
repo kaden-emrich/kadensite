@@ -63,7 +63,7 @@ function swap(i1, i2) {
     let temp = numbers[i2];
     numbers[i2] = numbers[i1];
     numbers[i1] = temp;
-    update();
+    //update();
 }// swap(i1, i2)
 
 function update() {
@@ -429,6 +429,55 @@ function mergeVisual(l, m, r) {
 
 
 /*----- Merge Sort End -----*/
+/*----- Quick Sort -----*/
+
+function startQuickSort() {
+    statusDisplay.innerText = "Status: Sorting... (Quick)";
+    interval = clearInterval(interval);
+
+    newAnimationQ();
+
+    quickSort(0, numbers.length -1);
+
+    playAnimationQ();
+    
+}// startQuickSort()
+
+function quickSort(low, high) {
+    if(low < high) {
+        var pivotLocation = partition(low, high);
+        quickSort(low, pivotLocation - 1);
+        quickSort(pivotLocation + 1, high);
+    }
+}// quickSort(low, high)
+
+function partition(low, high) {
+    var pivot = high;
+    var leftwall = low;
+
+    for(let i = low; i <= high - 1; i++) {
+        if(numbers[i] <= numbers[pivot]) {
+            swap(i, leftwall);
+            addAnimationFrame();
+            leftwall++;
+        }
+    }
+    swap(pivot, leftwall);
+    addAnimationFrame();
+
+    return(leftwall);
+}// partition(low, high)
+
+/*----- Quick Sort End -----*/
+
+function newAnimationQ() {
+    animationQueue = [];
+
+    animationQueue[0] = [];
+    for(let i = 0; i < numbers.length; i++) {
+        animationQueue[0][i] = numbers[i];
+    }
+}// newAnimationQ()
 
 function addAnimationFrame() {
     let next = animationQueue.length;
@@ -440,6 +489,42 @@ function addAnimationFrame() {
         animationQueue[next][i] = numbers[i];
     }
 }// addAnimationFrame()
+
+function playAnimationQ() {
+    let i = 0;
+    interval = setInterval(function() {
+        if(i < animationQueue.length) {
+            numbers = animationQueue[i];
+            update();
+        }
+        else {
+            interval = clearInterval(interval);
+            statusDisplay.innerText = "Status: Idle";
+        }
+        i++
+    }, delay);
+}
+
+function startSort() {
+    var type = document.getElementById("sortDropdown").value;
+    switch(type) {
+        case "bubble":
+            bubbleSortVisual();
+            break;
+        case "insertion":
+            insertionSortVisual();
+            break;
+        case "selection":
+            selectionSortVisual();
+            break;
+        case "merge":
+            mergeSortVisual();
+            break;
+        case "quick":
+            startQuickSort();
+            break;
+    }
+}
 
 function init() {
 

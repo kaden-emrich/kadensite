@@ -23,11 +23,20 @@
                 <button type="button" id="resetButton" onclick="init()">reset</button>
                 <button type="button" id="shuffleButton" onclick="visualShuffle()">Shuffle</button>
                 <button type="button" id="quickShuffleButton" onclick="shuffle()">Quick Shuffle</button>
-                <br>
+                <!--<br>
                 <button type="button" id="bubbleSortButton" onclick="bubbleSortVisual()">Bubble Sort</button>
                 <button type="button" id="insertionSortButton" onclick="insertionSortVisual()">Insertion Sort</button>
                 <button type="button" id="selectionSortButton" onclick="selectionSortVisual()">Selection Sort</button>
-                <button type="button" id="mergeSortButton" onclick="mergeSortVisual()">Merge Sort</button>
+                <button type="button" id="mergeSortButton" onclick="mergeSortVisual()">Merge Sort</button>-->
+                <br>
+                <button type="button" id="startButton" onclick="startSort()">Start!</button>
+                <select name="sort" id="sortDropdown" oninput="">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                </select>
             </div>
 
             <div class="sliderContainer">
