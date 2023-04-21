@@ -171,7 +171,7 @@ function insertionSort() {
         insertIndex = traverser - 1;
 
         while(insertIndex >= 0 && numbers[insertIndex] > subject) {
-            numbers[insertIndex+1] = numbers[insertIndex];
+            swap(insertIndex+1, insertIndex);
             addAnimationFrame();
             --insertIndex;
         }
