@@ -21,6 +21,7 @@
 
             <div id="buttonsDiv">
                 <button type="button" id="resetButton" onclick="init()">reset</button>
+                <button type="button" id="stopButton" onclick="stop()">Stop</button>
                 <button type="button" id="shuffleButton" onclick="visualShuffle()">Shuffle</button>
                 <button type="button" id="quickShuffleButton" onclick="shuffle()">Quick Shuffle</button>
                 <!--<br>
@@ -31,6 +32,7 @@
                 <br>
                 <button type="button" id="startButton" onclick="startSort()">Start!</button>
                 <select name="sort" id="sortDropdown" oninput="">
+                    <option value="autoPlay">Auto Play</option>
                     <option value="bubble">Bubble Sort</option>
                     <option value="insertion">Insertion Sort</option>
                     <option value="selection">Selection Sort</option>
@@ -48,6 +50,7 @@
                 <p>Array Size: <a id="arraySizeDisplay"></a></p>
                 <input type="number" id="arraySizeInput" value="100" oninput="init()">
             </div>
+            <p>Tip: Press 'h' to hide this box!</p>
         </div>
 
     </body>

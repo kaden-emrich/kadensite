@@ -47,6 +47,12 @@ function clear() {
     ctx.reset();
 }// clear()
 
+function stop() {
+    autoPlayOn = 0; 
+    interval = clearInterval(interval); 
+    statusDisplay.innerText = "Status: Idle";
+}// stop()
+
 function shuffle() {
     statusDisplay.innerHTML = "Status: Shuffling...";
 
@@ -94,7 +100,7 @@ function update() {
 
         //ctx.moveTo(i*2 + 1, arrayLength);
         //ctx.lineTo(i*2 + 1, arrayLength - numbers[i]);
-        ctx.fillStyle = "hsl(" + (numbers[i] * 360 / arrayLength) + ", 100%, 50%)";
+        ctx.fillStyle = "hsl(" + (numbers[i] * 300 / arrayLength) + ", 100%, 50%)";
 
         ctx.fillRect(i*2, arrayLength - numbers[i], 2, arrayLength);
         //ctx.stroke();
@@ -106,6 +112,11 @@ function update() {
 
     arraySizeDisplay.innerText = arrayLength;
 } // update()
+
+function startAutoPlay() {
+    autoPlayOn = true;
+    autoPlay();
+}// startAutoPlay()
 
 function autoPlay() {
     if(!autoPlayOn) return;
@@ -332,6 +343,8 @@ function partition(low, high) {
 
 /*----- Quick Sort End -----*/
 
+// maybe do gnome sort next...
+
 function newAnimationQ() {
     animationQueue = [];
 
@@ -386,6 +399,9 @@ function startSort() {
             break;
         case "quick":
             quickSortVisual();
+            break;
+        case "autoPlay":
+            startAutoPlay();
             break;
     }
 }
