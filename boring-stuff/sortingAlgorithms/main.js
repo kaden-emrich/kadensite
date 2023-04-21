@@ -9,11 +9,17 @@ var arraySizeDisplay = document.getElementById("arraySizeDisplay");
 
 var statusDisplay = document.getElementById("status");
 
-var arrayLength = 100;
-var towerColor = "#123456";
+// Settings
 
+var arrayLength = 100;
 var delay = 1; // ms
+var showBox = true;
+var autoPlayOn = false;
+
+// Settings end
+
 var interval;
+
 
 var numbers = [];
 var animationQueue = [];
@@ -22,6 +28,19 @@ c.width = arrayLength*2;
 c.height = arrayLength;
 
 init();
+
+document.body.onkeydown = function(e) {
+    if(e.key=="h") {
+        if(showBox) {
+            document.getElementById("stuffs").style.opacity = 0;
+            showBox = false;
+        }
+        else {
+            document.getElementById("stuffs").style.opacity = 100;
+            showBox = true;
+        }
+    }
+}
 
 function clear() {
     ctx.clearRect(0, 0, arrayLength*2, arrayLength);
@@ -39,23 +58,18 @@ function shuffle() {
     statusDisplay.innerHTML = "Status: Idle";
 }// shuffle()
 
-function visualShuffle() {
-    interval = clearInterval(interval);
+function visualShuffle(callback) {
+    //interval = clearInterval(interval);
     statusDisplay.innerText = "Status: Shuffling...";
 
-    let i = 0;
-    interval = setInterval(function() {
-        if(i < arrayLength) {
-            swap(Math.floor(Math.random() * (arrayLength)), i);
-            update();
-        }
-        else {
-            statusDisplay.innerText = "Status: Idle";
-            clearInterval(interval);
-        }
-        i++;
-    }, delay);
+    newAnimationQ();
 
+    for(let i = 0; i < arrayLength; i++) {
+        swap(Math.floor(Math.random() * (arrayLength)), i);
+        addAnimationFrame();
+    }
+
+    playAnimationQ(callback);
     //statusDisplay.innerHTML = "Status: Idle";
 }// visualShuffle()
 
@@ -76,8 +90,6 @@ function update() {
 
     clear();
 
-    ctx.fillStyle = towerColor;
-
     for(let i = 0; i < arrayLength; i++){
 
         //ctx.moveTo(i*2 + 1, arrayLength);
@@ -95,66 +107,61 @@ function update() {
     arraySizeDisplay.innerText = arrayLength;
 } // update()
 
+function autoPlay() {
+    if(!autoPlayOn) return;
+    var rng = Math.floor(Math.random() * 5);
+
+    switch(rng) {
+        case 0:
+            visualShuffle(function() {bubbleSortVisual(autoPlay)});
+            break;
+        case 1:
+            visualShuffle(function() {insertionSortVisual(autoPlay)});
+            break;
+        case 2:
+            visualShuffle(function() {selectionSortVisual(autoPlay)});
+            break;
+        case 3:
+            visualShuffle(function() {mergeSortVisual(autoPlay)});
+            break;
+        case 4:
+            visualShuffle(function() {quickSortVisual(autoPlay)});
+            break;
+    }
+}//
+
 /*----- Bubble Sort -----*/
 
-function bubbleSortInstant() {
-    statusDisplay.innerText = "Status: Sorting... (Bubble)";
-
+function bubbleSort() {
     let swaped;
     for(let itteration = 0; itteration < numbers.length - 1; itteration++) {
         swaped = false;
         for(let compairison = 0; compairison < numbers.length - 1 - itteration; compairison++) {
             if(numbers[compairison] > numbers[compairison + 1]) {
                 swap(compairison, compairison + 1);
-                update();
+                addAnimationFrame();
                 swaped = true;
             }
         }
         if(!swaped) break;
     }
+    //update();
+}// bubbleSort()
 
-    statusDisplay.innerText = "Status: Idle";
-}// bubbleSortInstant()
-
-function bubbleSortVisual() {
-    interval = clearInterval(interval);
+function bubbleSortVisual(callback) {
+    //interval = clearInterval(interval);
     statusDisplay.innerText = "Status: Sorting... (Bubble)";
+    newAnimationQ();
 
-    let itteration = 0;
-    let compairison = 0;
-    let swaped = false;
-    interval = setInterval(function() {
-        if(compairison >= numbers.length - 1 - itteration) {
+    bubbleSort();
 
-            if(!swaped) {
-                statusDisplay.innerText = "Status: Idle";
-                clearInterval(interval);
-            }
-
-            itteration++;
-            compairison = 0;
-            swaped = false;
-        }
-        if(itteration >= numbers.length - 1) {
-            statusDisplay.innerText = "Status: Idle";
-            interval = clearInterval(interval);
-        }
-        
-        if(numbers[compairison] > numbers[compairison + 1]) {
-            swap(compairison, compairison + 1);
-            swaped = true;
-        }
-
-        update();
-        compairison ++;
-    }, delay);
-
+    playAnimationQ(callback);
 }// bubbleSortVisual()
 
 /*----- Bubble Sort End -----*/
 /*----- Insertion Sort -----*/
 
-function insertionSortInstant() {
+function insertionSort() {
     var traverser;
     var subject;
     var insertIndex;
@@ -165,54 +172,28 @@ function insertionSortInstant() {
 
         while(insertIndex >= 0 && numbers[insertIndex] > subject) {
             numbers[insertIndex+1] = numbers[insertIndex];
+            addAnimationFrame();
             --insertIndex;
         }
         numbers[insertIndex+1] = subject;
+        addAnimationFrame();
     }
+    //update();
+}// insertionSort()
 
-    update();
-}// insertionSortInstant()
-
-function insertionSortVisual() {
-    interval = clearInterval(interval);
+function insertionSortVisual(callback) {
     statusDisplay.innerText = "Status: Sorting... (Insertion)";
-
-    var traverser = 1;
-    var subject = numbers[traverser];
-    var insertIndex = traverser - 1;
-
-    interval = setInterval(function() {
-        if(traverser < numbers.length) {
-            
-
-            if(insertIndex >= 0 && numbers[insertIndex] > subject) {
-                swap(insertIndex, insertIndex + 1);
-                --insertIndex;
-                update();
-            }
-            else {
-                numbers[insertIndex+1] = subject;
-
-                traverser++;
-                subject = numbers[traverser];
-                insertIndex = traverser - 1;
-            }
-            
-        }
-        else {
-            update();
-            statusDisplay.innerText = "Status: Idle";
-            clearInterval(interval);
-        }
-    }, delay);
-}
+    newAnimationQ();
+    insertionSort();
+    playAnimationQ(callback);
+}// insertionSortVisual()
 
 /*----- Insertion Sort End -----*/
 
 /*----- Selection Sort -----*/
 
-function selectionSortInstant() {
-    statusDisplay.innerText = "Status: Sorting... (Selection)";
+function selectionSort() {
+    //statusDisplay.innerText = "Status: Sorting... (Selection)";
 
     let minIndex;
     for(let i = 0; i < numbers.length - 1; i++) {
@@ -223,66 +204,37 @@ function selectionSortInstant() {
             }
         }
         swap(i, minIndex);
+        addAnimationFrame();
     }
 
-    statusDisplay.innerText = "Status: Idle";
-    update();
-}// selectionSortInstant()
+    //statusDisplay.innerText = "Status: Idle";
+    //update();
+}// selectionSort()
 
-function selectionSortVisual() {
-    interval = clearInterval(interval);
+function selectionSortVisual(callback) {
     statusDisplay.innerText = "Status: Sorting... (Selection)";
-
-    let i = 0;
-    let j = i + 1;
-    let minIndex = i;
-
-    interval = setInterval(function() {
-        if(i < numbers.length) {
-            while(j < numbers.length) {
-                if(numbers[j] < numbers[minIndex]) {
-                    minIndex = j;
-                }
-                j++;
-            }
-            swap(i, minIndex);
-            update();
-            j = i + 1;
-            i++;
-            minIndex = i;
-
-        }
-        else {
-            statusDisplay.innerText = "Status: Idle";
-            update();
-            interval = clearInterval(interval);
-        }
-        update();
-    }, delay);
+    newAnimationQ();
+    selectionSort();
+    playAnimationQ(callback);
 }// selectionSortVisual()
 
 /*----- Selection Sort End -----*/
 
 /*----- Merge Sort -----*/
 
-
-// instant
-function mergeSortInstant(l, r) {
+function mergeSort(l, r) {
     if(l < r)
     {
         var m = Math.floor(l + (r - l)/2);
 
-        mergeSortInstant(l, m);
-        mergeSortInstant(m+1, r);
+        mergeSort(l, m);
+        mergeSort(m+1, r);
 
-        mergeInstant(l, m, r);
+        merge(l, m, r);
     }
-    update();
+}// mergeSort(l, r)
 
-    //return arr;
-}// mergeSortInstant(l, r)
-
-function mergeInstant(l, m, r) {
+function merge(l, m, r) {
 
     var i = 0;
     var j = 0;
@@ -313,125 +265,35 @@ function mergeInstant(l, m, r) {
             j++;
         }
         k++;
+        addAnimationFrame();
     }
 
     while(i < n1) {
         numbers[k] = L[i];
+        addAnimationFrame();
         i++;
         k++;
     }
 
     while(j < n2) {
         numbers[k] = R[j];
+        addAnimationFrame();
         j++;
         k++;
     }
+}// merge(l, m, r)
 
-    //return arr;
-}// mergeInstant(l, m, r)
-// instant end
-
-// visual
-function mergeSortVisual() {
+function mergeSortVisual(callback) {
     statusDisplay.innerText = "Status: Sorting... (Merge)";
-    interval = clearInterval(interval);
-    animationQueue = [];
-
-    animationQueue[0] = [];
-    for(let i = 0; i < numbers.length; i++) {
-        animationQueue[0][i] = numbers[i];
-    }
-
-    mergeSortSplitVisual(0, numbers.length -1);
-
-    
-
-    let i = 0;
-    interval = setInterval(function() {
-        if(i < animationQueue.length) {
-            numbers = animationQueue[i];
-            update();
-        }
-        else {
-            interval = clearInterval(interval);
-            statusDisplay.innerText = "Status: Idle";
-        }
-        i++
-    }, delay);
+    newAnimationQ();
+    mergeSort(0, numbers.length-1);
+    playAnimationQ(callback);
 }// mergeSortVisual()
-
-function mergeSortSplitVisual(l, r) {
-    if(l < r)
-    {
-        var m = Math.floor(l + (r - l)/2);
-
-        mergeSortSplitVisual(l, m);
-        mergeSortSplitVisual(m+1, r);
-
-        mergeVisual(l, m, r);
-    }
-
-    //return arr;
-}// mergeSortSplitVisual(l, r)
-
-function mergeVisual(l, m, r) {
-
-    var i = 0;
-    var j = 0;
-    var k = 0;
-    
-    var n1 = m - l + 1;
-    var n2 = r - m;
-
-    var L = [];
-    var R = [];
-
-    for(i = 0; i < n1; i++)
-        L[i] = numbers[l+i];
-
-    for(j = 0; j < n2; j++)
-        R[j] = numbers[m+1+j]; 
-
-    i = 0;
-    j = 0;
-    k = l;
-    while(i < n1 && j < n2) {
-        if(L[i] <= R[j]) {
-            numbers[k] = L[i];
-            i++;
-            addAnimationFrame();
-        }
-        else {
-            numbers[k] = R[j];
-            j++;
-            addAnimationFrame();
-        }
-        k++;
-    }
-
-    while(i < n1) {
-        numbers[k] = L[i];
-        i++;
-        k++;
-        addAnimationFrame();
-    }
-
-    while(j < n2) {
-        numbers[k] = R[j];
-        j++;
-        k++;
-        addAnimationFrame();
-    }
-
-    //return arr;
-}// mergeVisual(l, m, r)
-// visual end
-
 
 /*----- Merge Sort End -----*/
 /*----- Quick Sort -----*/
 
-function startQuickSort() {
+function quickSortVisual(callback) {
     statusDisplay.innerText = "Status: Sorting... (Quick)";
     interval = clearInterval(interval);
 
@@ -439,7 +301,7 @@ function startQuickSort() {
 
     quickSort(0, numbers.length -1);
 
-    playAnimationQ();
+    playAnimationQ(callback);
     
 }// startQuickSort()
 
@@ -490,7 +352,7 @@ function addAnimationFrame() {
     }
 }// addAnimationFrame()
 
-function playAnimationQ() {
+function playAnimationQ(callback) {
     let i = 0;
     interval = setInterval(function() {
         if(i < animationQueue.length) {
@@ -498,8 +360,10 @@ function playAnimationQ() {
             update();
         }
         else {
-            interval = clearInterval(interval);
             statusDisplay.innerText = "Status: Idle";
+            //if(callback != null) callback();
+            interval = clearInterval(interval);
+            if(callback != null) callback();
         }
         i++
     }, delay);
@@ -521,7 +385,7 @@ function startSort() {
             mergeSortVisual();
             break;
         case "quick":
-            startQuickSort();
+            quickSortVisual();
             break;
     }
 }
