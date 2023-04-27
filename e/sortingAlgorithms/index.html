@@ -31,22 +31,23 @@
                 <button type="button" id="mergeSortButton" onclick="mergeSortVisual()">Merge Sort</button>-->
                 <br>
                 <button type="button" id="startButton" onclick="startSort()">Start!</button>
-                <select name="sort" id="sortDropdown" oninput="">
-                    <option value="autoPlay">Auto Play</option>
+                <select name="sort" id="sortDropdown">
+                    <option value="random">Random</option>
                     <option value="bubble">Bubble Sort</option>
                     <option value="insertion">Insertion Sort</option>
                     <option value="selection">Selection Sort</option>
                     <option value="merge">Merge Sort</option>
                     <option value="quick">Quick Sort</option>
                 </select>
+                <button type="button" id="autoButton" onclick="startAutoPlay()">Auto Play</button>
             </div>
 
-            <div class="sliderContainer">
+            <div class="delayContainer" class="inlineDiv">
                 <p id="delayDisplay">Delay: 0 ms</p>
-                <input type="number" value="1" class="slider" id="delaySlider" oninput="update()">
+                <input type="number" value="1" id="delayInput" oninput="update()">
             </div>
 
-            <div id="sizeContainer">
+            <div id="sizeContainer" class="inlineDiv">
                 <p>Array Size: <a id="arraySizeDisplay"></a></p>
                 <input type="number" id="arraySizeInput" value="100" oninput="init()">
             </div>

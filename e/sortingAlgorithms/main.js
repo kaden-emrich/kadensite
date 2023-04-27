@@ -1,7 +1,7 @@
 var c = document.getElementById("visualizer");
 var ctx = c.getContext("2d");
 
-var delaySlider = document.getElementById("delaySlider");
+var delaySlider = document.getElementById("delayInput");
 var delayDisplay = document.getElementById("delayDisplay");
 
 var arraySizeInput = document.getElementById("arraySizeInput");
@@ -120,25 +120,8 @@ function startAutoPlay() {
 
 function autoPlay() {
     if(!autoPlayOn) return;
-    var rng = Math.floor(Math.random() * 5);
-
-    switch(rng) {
-        case 0:
-            visualShuffle(function() {bubbleSortVisual(autoPlay)});
-            break;
-        case 1:
-            visualShuffle(function() {insertionSortVisual(autoPlay)});
-            break;
-        case 2:
-            visualShuffle(function() {selectionSortVisual(autoPlay)});
-            break;
-        case 3:
-            visualShuffle(function() {mergeSortVisual(autoPlay)});
-            break;
-        case 4:
-            visualShuffle(function() {quickSortVisual(autoPlay)});
-            break;
-    }
+    
+    visualShuffle(function() {startSort(autoPlay);});
 }//
 
 /*----- Bubble Sort -----*/
@@ -382,26 +365,43 @@ function playAnimationQ(callback) {
     }, delay);
 }
 
-function startSort() {
+function startSort(callback) {
     var type = document.getElementById("sortDropdown").value;
     switch(type) {
         case "bubble":
-            bubbleSortVisual();
+            bubbleSortVisual(callback);
             break;
         case "insertion":
-            insertionSortVisual();
+            insertionSortVisual(callback);
             break;
         case "selection":
-            selectionSortVisual();
+            selectionSortVisual(callback);
             break;
         case "merge":
-            mergeSortVisual();
+            mergeSortVisual(callback);
             break;
         case "quick":
-            quickSortVisual();
+            quickSortVisual(callback);
             break;
-        case "autoPlay":
-            startAutoPlay();
+        case "random":
+            var rng = Math.floor(Math.random() * 5);
+            switch(rng) {
+                case 0:
+                    bubbleSortVisual(callback);
+                    break;
+                case 1:
+                    insertionSortVisual(callback);
+                    break;
+                case 2:
+                    selectionSortVisual(callback);
+                    break;
+                case 3:
+                    mergeSortVisual(callback);
+                    break;
+                case 4:
+                    quickSortVisual(callback);
+                    break;
+            }
             break;
     }
 }
