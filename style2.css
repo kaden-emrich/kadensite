@@ -51,6 +51,8 @@ nav.navbar ul li {
 }
 nav.navbar ul li.navbar-right {
     float: left;
+    border-left: 0;
+    border-right: 1px solid #fff;
 }
 nav.navbar ul li a {
     display: block;
