@@ -5,6 +5,10 @@ body {
     background-color: #222;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* ----------------------------- jumbotron start ---------------------------- */
 .jumbotron {
     position: relative;
@@ -102,4 +106,36 @@ button h1 {
     margin: 0 0 0 0;
     backdrop-filter: brightness(50%);
 }
+
+.gameButton {
+    position: relative;
+    margin: 5px;
+    margin-top: 10px;
+    min-width: 200px;
+    background-color: #102540;
+    border: 2px solid #051320;
+    box-shadow: 2px 2px 5px #000;
+    color: #fff;
+    font-family: monospace;
+    font-size: 20px;
+}
+.gameButton:hover {
+    top: -1px;
+    left: -1px;
+    box-shadow: 4px 4px 7px #000;
+}
+.gameButton:active {
+    top: 1px;
+    left: 1px;
+    box-shadow: 1px 1px 2px #000;
+}
 /* ------------------------------- buttons end ------------------------------ */
+
+/* --------------------------------- footer --------------------------------- */
+
+footer {
+    position: static;     
+    bottom: 0;
+}
+
+/* ------------------------------- footer end ------------------------------- */

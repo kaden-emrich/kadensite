@@ -4,26 +4,43 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
-        <title>[stalkMe]</title>
+        <link rel="stylesheet" href="../style2.css">
+        <link rel="icon" href="../icon.jpeg">
+        <title>[stalk_me]</title>
     </head>
+
     <body>
-        <h1 id="title">[stalkMe]</h1>
-        <menu id="menu1">
-            <li><a  href="../index.html"><button type="button" class="menuButton" id="backButton">Home</button></a></li>
-        </menu>
-        <menu id="gamesMenu">
-            <li><a href="https://github.com/kaden-emrich"><button type="button" class="gameMenuButton">github</button></a></li>
-            <li><a href="https://replit.com/@KadenEmrich"><button type="button" class="gameMenuButton">replit</button></a></li>
-            <li><button type="button" class="gameMenuButton" id = "emailButton" onclick="copyEmail()">Copy My Email</button></li>
-        </menu>
+        <div class="jumbotron" style="background-color: #123456;">
+            <h1>[stalk_me]</h1>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li class="navbar-right"><a href="../index.html">kadensite</a></li>
+                <li><a href="../g/index.html">games</a></li>
+                <li><a href="../e/index.html">extras</a></li>
+                <li><a href="../stalkMe/index.html" class="navbar-selected">stalk me</a></li>
+                <li><a href="../about/index.html">about</a></li>
+            </ul>
+        </nav>
+
+        <div class="box">
+            <h1>My stuff</h1>
+
+            <p>
+                I am aware that this site is not the most professional thing in the world, but, I still will not be adding any of my personal social media to this site.<br>(at least for the time being)(linkedin might be coming soon)
+            </p>
+
+            <a href="https://github.com/kaden-emrich">
+                <button type="button" class="gameButton">github</button>
+            </a>
+
+            <a href="https://replit.com/@KadenEmrich">
+                <button type="button" class="gameButton">replit</button>
+            </a>
+
+            <button type="button" class="gameButton" id="emailButton" onclick="copyEmail()">Copy My Email</button>
+        </div>
     </body>
-    <footer>
-        <p>
-            I am aware that this site is not the most professional thing in the world,<br>
-            but, I will not be adding any of my personal social media to this site.<br>
-            (at least for the time being)
-        </p>
-    </footer>
     <script src="script.js"></script>
 </html>
