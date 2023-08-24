@@ -2,7 +2,7 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
-var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page. \n - more - is there any more?";
+var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page.\n - asteroids: play the classic asteroids game. \n - more - is there any more?";
 
 var inputValue;
 var lastLine;
@@ -100,6 +100,12 @@ async function extras() {
     return;
 }
 
+async function asteroids() {
+    printFancyLine("Opening asteroids", "greenGlow", 10);
+    thisTab("https://asteroids.kemri.ch");
+    return;
+}
+
 async function setUsername(name) {
     username = name;
     printFancyLine("Hello ", "greenGlow", 10);
@@ -142,6 +148,9 @@ async function command(cmd) {
             break;
         case 'about':
             await about();
+            break;
+        case 'asteroids':
+            await asteroids();
             break;
         case 'more':
             await extras();
