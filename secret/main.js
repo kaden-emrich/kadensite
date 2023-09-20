@@ -102,7 +102,7 @@ async function extras() {
 
 async function asteroids() {
     printFancyLine("Opening asteroids", "greenGlow", 10);
-    thisTab("https://asteroids.kemri.ch");
+    thisTab("https://asteroids.kadenemrich.com");
     return;
 }
 
