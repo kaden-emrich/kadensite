@@ -1,7 +1,8 @@
 var jumbotron = document.getElementsByClassName("jumbotron")[0];
-var frame = document.getElementsByClassName("jumbotronIFrame")[0];
+var frame = document.getElementById("jumbotronIFrame");
 
-setInterval(() => {
-    frame.width = jumbotron.offsetWidth + "px";
-    frame.height = jumbotron.offsetHeight + "px";
-}, 50/3);
+var currentDate = new Date();
+
+if(currentDate.getMonth() == 5) {
+    frame.setAttribute('src', '../../../e/rainbowAnimation/index.html'); // pride month
+}
