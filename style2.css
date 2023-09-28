@@ -18,8 +18,8 @@ a {
     position: relative;
     margin: 0;
     padding: 0;
-    height: 60vh;
-    line-height: 60vh;
+    height: 50vh;
+    line-height: 50vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -36,7 +36,7 @@ a {
     text-shadow: 10px 10px 10px #000;
     opacity: 10;
     color: #fff;
-    backdrop-filter: brightness(50%);
+    animation: text-shadow-rotate 60s linear forwards infinite;
 }
 .jumbotron #jumbotronIFrame {
     position: absolute;
@@ -46,13 +46,52 @@ a {
     padding: 0;
     z-index: 0;
     border: 0;
+    filter: brightness(35%);
+}
+
+@keyframes text-shadow-rotate {
+    0% {
+        text-shadow: 10px 10px 10px #000;
+    }
+
+    12% {
+        text-shadow: 0px 14px 10px #000;
+    }
+
+    25% {
+        text-shadow: -10px 10px 10px #000;
+    }
+
+    37% {
+        text-shadow: -14px 0px 10px #000;
+    }
+
+    50% {
+        text-shadow: -10px -10px 10px #000;
+    }
+
+    62% {
+        text-shadow: 0px -14px 10px #000;
+    }
+
+    75% {
+        text-shadow: 10px -10px 10px #000;
+    }
+
+    87% {
+        text-shadow: 14px 0px 10px #000;
+    }
+
+    100% {
+        text-shadow: 10px 10px 10px #000;
+    }
 }
 /* ------------------------------ jumbotron end ----------------------------- */
 
 /* ------------------------------ navbar start ------------------------------ */
 nav.navbar {
     position: sticky;
-    top: 0;
+    top: -1px;
     z-index: 100;
     margin: 0;
     padding: 0;
