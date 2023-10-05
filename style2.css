@@ -51,6 +51,7 @@ hr {
     color: #fff;
     animation: text-shadow-rotate 60s linear forwards infinite;
 }
+
 .jumbotron #jumbotronIFrame {
     position: absolute;
     width: 100%;
@@ -59,7 +60,6 @@ hr {
     padding: 0;
     z-index: 0;
     border: 0;
-    filter: brightness(35%);
 }
 
 @keyframes text-shadow-rotate {
@@ -210,3 +210,19 @@ footer {
 }
 
 /* ------------------------------- footer end ------------------------------- */
+
+@media screen and (min-width: 410px) {
+
+    .jumbotron #jumbotronIFrame {
+        filter: brightness(35%);
+    }
+
+}
+
+@media screen and (max-width: 409px) {
+
+    .jumbotron #jumbotronIFrame {
+        filter: none;
+    }
+    
+}
