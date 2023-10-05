@@ -1,5 +1,4 @@
 body {
-    min-width: 410px;
     margin: 0;
     padding: 0;
     font-family: monospace;
@@ -101,48 +100,6 @@ hr {
 }
 /* ------------------------------ jumbotron end ----------------------------- */
 
-/* ------------------------------ navbar start ------------------------------ */
-nav.navbar {
-    position: sticky;
-    top: -1px;
-    z-index: 100;
-    margin: 0;
-    padding: 0;
-    border-top: 2px solid #246;
-    border-bottom: 2px solid #246;
-}
-nav.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-nav.navbar ul li {
-    float: right;
-    font-weight: 500;
-    border-left: 1px solid #fff;
-    color: #fff;
-}
-nav.navbar ul li.navbar-right {
-    float: left;
-    border-left: 0;
-    border-right: 1px solid #fff;
-}
-nav.navbar ul li a {
-    display: block;
-    padding: 8px;
-    font-size: 15px;
-    font-weight: 900;
-    color: #fff;
-    background-color: #444;
-    text-decoration: none;
-}
-nav.navbar ul li a.navbar-selected {
-    background-color: #125678;
-}
-/* ------------------------------- navbar end ------------------------------- */
-
 /* -------------------------------- box start ------------------------------- */
 div.box {
     position: relative;
@@ -211,18 +168,110 @@ footer {
 
 /* ------------------------------- footer end ------------------------------- */
 
-@media screen and (min-width: 410px) {
+@media screen and (min-width: 501px) {
+
+    .mobile {
+        display: none;
+    }
+    .tablet-desktop {
+        display: block;
+    }
 
     .jumbotron #jumbotronIFrame {
         filter: brightness(35%);
     }
 
+    nav.navbar {
+        position: sticky;
+        top: -1px;
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        border-top: 2px solid #246;
+        border-bottom: 2px solid #246;
+    }
+    nav.navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    nav.navbar ul li {
+        float: right;
+        font-weight: 500;
+        border-left: 1px solid #fff;
+        color: #fff;
+    }
+    nav.navbar ul li.navbar-right {
+        float: left;
+        border-left: 0;
+        border-right: 1px solid #fff;
+    }
+    nav.navbar ul li a {
+        display: block;
+        padding: 8px;
+        font-size: 15px;
+        font-weight: 900;
+        color: #fff;
+        background-color: #444;
+        text-decoration: none;
+    }
+    nav.navbar ul li a.navbar-selected {
+        background-color: #125678;
+    }
+
 }
 
-@media screen and (max-width: 409px) {
+@media screen and (max-width: 500px) {
+
+    .mobile {
+        display: block;
+    }
+    .tablet-desktop {
+        display: mobile;
+    }
 
     .jumbotron #jumbotronIFrame {
         filter: none;
+    }
+
+    nav.navbar {
+        top: -1px;
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        border-top: 2px solid #246;
+        border-bottom: 2px solid #246;
+    }
+    nav.navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    nav.navbar ul li {
+        /* float: right; */
+        text-align: center;
+        font-weight: 500;
+        background-color: #333;
+        border-top: 1px solid #fff;
+        color: #fff;
+    }
+    nav.navbar ul li.navbar-right {
+        background-color: #222;
+        border-top: none;
+    }
+    nav.navbar ul li a {
+        display: block;
+        padding: 8px;
+        font-size: 15px;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+    }
+    nav.navbar ul li a.navbar-selected {
+        background-color: #125678;
     }
     
 }
