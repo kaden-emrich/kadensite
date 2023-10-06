@@ -14,7 +14,7 @@ function toggleMenu() {
         menuOpen = true;
         menu.style.animation = "navbar-expand 1s ease forwards";
         
-        setTimeout(() => { menu.style.animation = ''; menu.style.height = '199px' }, 1000);
+        setTimeout(() => { menu.style.animation = ''; menu.style.height = '200px' }, 1000);
     }
 
 
