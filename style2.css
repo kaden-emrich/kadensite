@@ -59,6 +59,7 @@ hr {
     padding: 0;
     z-index: 0;
     border: 0;
+    filter: brightness(35%);
 }
 
 @keyframes text-shadow-rotate {
@@ -177,10 +178,6 @@ footer {
         display: block;
     }
 
-    .jumbotron #jumbotronIFrame {
-        filter: brightness(35%);
-    }
-
     nav.navbar {
         position: sticky;
         top: -1px;
@@ -189,9 +186,11 @@ footer {
         padding: 0;
         border-top: 2px solid #246;
         border-bottom: 2px solid #246;
+        animation: none;
     }
     nav.navbar ul {
         list-style-type: none;
+        height: fit-content;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -229,26 +228,30 @@ footer {
         display: block;
     }
     .tablet-desktop {
-        display: mobile;
+        display: none;
     }
 
-    .jumbotron #jumbotronIFrame {
-        filter: none;
+    .jumbotron {
+        border-bottom: 4px solid #246;
     }
 
     nav.navbar {
-        top: -1px;
+        position: fixed;
+        width: 100%;
+        top: 0px;
         z-index: 100;
         margin: 0;
-        padding: 0;
-        border-top: 2px solid #246;
-        border-bottom: 2px solid #246;
     }
     nav.navbar ul {
+        display: block;
         list-style-type: none;
+        height: 0px;
         margin: 0;
         padding: 0;
         overflow: hidden;
+        border-bottom: 2px solid #246;
+        padding: 0;
+        box-shadow: 0px 3px 5px black;
     }
     nav.navbar ul li {
         /* float: right; */
@@ -261,11 +264,12 @@ footer {
     nav.navbar ul li.navbar-right {
         background-color: #222;
         border-top: none;
+        border-bottom: 2px solid #fff;
     }
     nav.navbar ul li a {
         display: block;
         padding: 8px;
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 900;
         color: #fff;
         text-decoration: none;
@@ -274,4 +278,23 @@ footer {
         background-color: #125678;
     }
     
+    #navbar-hamburger{
+        height: 35px;
+        width: 35px;
+        margin-left: 10px;
+        padding: 5px 5px;
+        background-color: #ccc;
+        border-radius: 0px 0px 10px 10px;
+        box-shadow: 2px 3px 5px #fff;
+        filter: invert();
+    }
+}
+
+@keyframes navbar-expand {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 199px;
+    }
 }
