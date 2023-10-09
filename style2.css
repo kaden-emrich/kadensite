@@ -35,6 +35,7 @@ hr {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #102540;
+    user-select: none;
 }
 .jumbotron h1 {
     position: absolute;
