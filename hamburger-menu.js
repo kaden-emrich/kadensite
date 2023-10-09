@@ -1,20 +1,19 @@
 var menu = document.getElementById("navbar-options");
 
 var menuOpen = false;
+var resetTimeout = null;
 
 function toggleMenu() {
 
     if(menuOpen) {
         menuOpen = false;
-        menu.style.animation = "navbar-expand 1s ease reverse";
-        
-        setTimeout(() => { menu.style.animation = ''; menu.style.height = '' }, 1000);
+        menu.className = "nav-animator-collapse";
     }
     else {
+        clearTimeout(resetTimeout);
+
         menuOpen = true;
-        menu.style.animation = "navbar-expand 1s ease forwards";
-        
-        setTimeout(() => { menu.style.animation = ''; menu.style.height = '200px' }, 1000);
+        menu.className = "nav-animator-expand";
     }
 
 
