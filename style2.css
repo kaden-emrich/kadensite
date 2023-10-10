@@ -338,13 +338,13 @@ footer {
         height: 0px;
     }
     to {
-        height: 200px;
+        height: 240px;
     }
 }
 
 @keyframes navbar-collapse {
     from {
-        height: 200px;
+        height: 240px;
     }
     to {
         height: 0px;
