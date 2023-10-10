@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="awards.css">
+        <link rel="stylesheet" href="../style2.css">
+        <link rel="stylesheet" href="new-awards.css">
+        <link rel="icon" href="../icon.jpeg">
 
-        <title>/< awards</title>
+        <title>AWARDS</title>
     </head>
 
     <body>
         
-        <h1 id="title">[awards]</h1>
-        <p class="splashText">Award winning!*</p>
-        <menu id="menu1">
-            <li><a  href="javascript:history.back()"><button type="button" class="menuButton" id="backButton">back</button></a></li>
-        </menu>
+        <div class="jumbotron">
+            <!-- <iframe id="jumbotronIFrame" src="https://vissim.kadenemrich.com/bubbles/" style="filter: none; z-index: 11;"></iframe> -->
+            <h1>AWARDS</h1>
+        </div>
 
-        <div id="regionals2023" class="awardHolder">
-            <div class="award" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
+        <nav class="navbar">    
+            <ul id="navbar-options" class="tablet-desktop">
+                <li class="navbar-right"><a href="../index.html">kadenemrich.com</a></li>
+                <li><a href="../g/index.html">games</a></li>
+                <li><a href="../e/index.html">extras</a></li>
+                <li><a href="index.html" class="navbar-selected">display case</a></li>
+                <li><a href="../stalkMe/index.html">stalk me</a></li>
+                <!-- <li><a href="../projects/index.html">projects</a></li> -->
+                <li><a href="../about/index.html">about</a></li>
+                
+            </ul>
+            <img src="../Hamburger_icon.svg.png" class="mobile" id="navbar-hamburger" onclick="toggleMenu()">
+        </nav>
+
+        <div class="box">
+            <h1 style="text-align: center;">Here are my awards recreated with CSS</h1>
+        </div>
+
+        <hr>
+
+        <div class="awardHolder">
+            <div class="award nationals" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
                 <div class="awardTop">
-                    <img id="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load" width=400>
-                    <img id="ohioLogo" src="../images/placeholder.png" alt="image failed to load" width="200">
+                    <img class="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load">
+                    <h3 class="awardTop">National Leadership<br>Conference</h3>
+                    <hr>
+                    <h3 class="awardTop">First Place</h3>
+                    <div class="awardBottom">
+                        <i><h3>Java Programing</h3><p>Secondary Division<br><br>Anahem, California<br>2023</p></i>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="box">
+                <h1 style="text-align: center;">Business Professionals of America Ohio State Leadership Conference: First Place in Java Programming</h1>
+                <p>I got a huge trophy instead of a plaque for this one. I'm not going to try and re-create it.</p>
+            </div>
+
+            <hr>
+
+            <div class="award regionals" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
+                <div class="awardTop">
+                    <img class="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load">
+                    <img class="ohioLogo" src="ohio.png" alt="image failed to load">
                     <h3 class="awardTop">REGIONAL<br>COMPETITIVE EVENTS</h3>
                 </div>
                 <div class="awardBottom">
@@ -32,10 +72,10 @@
                 </div>
             </div>
 
-            <div class="award" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
+            <div class="award regionals" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
                 <div class="awardTop">
-                    <img id="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load" width=400>
-                    <img id="ohioLogo" src="../images/placeholder.png" alt="image failed to load" width="200">
+                    <img class="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load">
+                    <img class="ohioLogo" src="ohio.png" alt="image failed to load">
                     <h3 class="awardTop">REGIONAL<br>COMPETITIVE EVENTS</h3>
                 </div>
                 <div class="awardBottom">
@@ -43,10 +83,10 @@
                 </div>
             </div>
 
-            <div class="award" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
+            <div class="award regionals" onmouseover="mouseOn(this)" onmouseout="mouseOff(this)">
                 <div class="awardTop">
-                    <img id="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load" width=400>
-                    <img id="ohioLogo" src="../images/placeholder.png" alt="image failed to load" width="200">
+                    <img class="bpaLogo" src="../images/bpa-logo.png" alt="image failed to load">
+                    <img class="ohioLogo" src="ohio.png" alt="image failed to load">
                     <h3 class="awardTop">REGIONAL<br>COMPETITIVE EVENTS</h3>
                 </div>
                 <div class="awardBottom">
@@ -54,7 +94,10 @@
                 </div>
             </div>
         </div>
-        <footer><p>I also took first in java at states and nationals. I will not be updating this for now though. (I have other things I want to spend my time on right now)</p></footer>
+
     </body>
-    <script src="script.js"></script>
+
+    <script src="../hamburger-menu.js"></script>
+    <script src="awards.js"></script>
+    <script src="../animatedJumbotron.js"></script>
 </html>

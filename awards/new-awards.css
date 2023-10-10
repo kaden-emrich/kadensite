@@ -1,0 +1,348 @@
+div.awardHolder{
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    text-align: center;
+}
+
+div.nationals {
+    display: inline-block;
+    width: 40vw;
+    padding: 3vw;
+    margin: 0.25vw;
+    border: 3vw solid #666;
+    border-top-color: #333;
+    border-bottom-color: #000;
+    border-right-color: #111;
+    background-image: linear-gradient(to bottom right, #333, #000);
+    box-shadow: 2px 2px 5px #000;
+}
+div.nationals div.awardTop {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 1vw 0;
+    padding-bottom: 4vw;
+    /* border-top: 3px solid #ffcc33;
+    border-left: 3px solid #eebb22; */
+    background-image: linear-gradient(to bottom right, #777, #444);
+}
+div.nationals img.bpaLogo {
+    position: relative;
+    margin: 3%;
+    width: 94%;
+    height: 15vw;
+    object-fit: cover;
+}
+div.nationals h3.awardTop {
+    position: relative;
+    margin: 0;
+    font-size: 3vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #047;
+}
+div.nationals hr {
+    width: 40%;
+    margin: 2vw auto;
+    background-color: #911;
+    height: 0.25vw;
+    box-shadow: none;
+}
+div.nationals div.awardTop div.awardBottom {
+    box-sizing: border-box;
+    width: 80%;
+    margin: auto;
+    margin-top: 0.5vw;
+    padding: 2vw;
+    /* border-top: 3px solid #ffcc33;
+    border-left: 3px solid #eebb22; */
+    background-image: linear-gradient(to bottom right, #333, #111);
+    
+    color: #ccc;
+    text-shadow: 0px 0px 2px #fff;
+}
+div.nationals div.awardTop div.awardBottom h3 {
+    font-size: 2vw;
+    font-weight: 100;
+    margin: 0;
+}
+div.nationals div.awardTop div.awardBottom p {
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.regionals {
+    padding: 1vw;
+    text-align: center;
+}
+div.regionals {
+    display: inline-block;
+    width: 25vw;
+    padding: 1vw;
+    margin: 0.5vw;
+    border: 1vw solid #663300;
+    border-top-color: #704000;
+    border-bottom-color: #522200;
+    border-right-color: #582800;
+    background-color: #603000;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.regionals div.awardTop {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 2vw 0;
+    border-top: 3px solid #ffcc33;
+    border-left: 3px solid #eebb22;
+    background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+}
+
+.regionals h3.awardTop {
+    position: relative;
+    margin: 0;
+    font-size: 2vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #047;
+}
+
+div.regionals .bpaLogo {
+    position: relative;
+    height: 10vw;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ohioLogo {
+    position: relative;
+    width: 15vw;
+    filter: hue-rotate(100deg) brightness(1.5);
+}
+
+.regionals div.awardBottom {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 1vw;
+    border-top: 3px solid #ffcc33;
+    border-left: 3px solid #eebb22;
+    background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+}
+.regionals p.awardBottom {
+    margin: 0;
+    padding: 1vw;
+    font-size: 1.5vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #a90;
+    text-shadow: -1px -1px 1px #fff;
+}
+
+@media screen and (max-width: 500px) {
+    div.awardHolder{
+        width: fit-content;
+        margin: auto;
+        padding: 2vw;
+        text-align: center;
+    }
+
+    div.nationals {
+        display: inline-block;
+        width: 75vw;
+        padding: 5vw;
+        margin: 0.5vw;
+        border: 3vw solid #666;
+        border-top-color: #333;
+        border-bottom-color: #000;
+        border-right-color: #111;
+        background-image: linear-gradient(to bottom right, #333, #000);
+        box-shadow: 2px 2px 5px #000;
+    }
+    div.nationals div.awardTop {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        padding: 2vw 0;
+        padding-bottom: 7vw;
+        /* border-top: 3px solid #ffcc33;
+        border-left: 3px solid #eebb22; */
+        background-image: linear-gradient(to bottom right, #777, #444);
+    }
+    div.nationals img.bpaLogo {
+        position: relative;
+        margin: 3%;
+        width: 94%;
+        height: 25vw;
+        object-fit: cover;
+    }
+    div.nationals h3.awardTop {
+        position: relative;
+        margin: 0;
+        font-size: 6vw;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #047;
+    }
+    div.nationals hr {
+        width: 40%;
+        margin: 4vw auto;
+        background-color: #911;
+        height: 0.5vw;
+        box-shadow: none;
+    }
+    div.nationals div.awardTop div.awardBottom {
+        box-sizing: border-box;
+        width: 80%;
+        margin: auto;
+        margin-top: 1vw;
+        padding: 4vw;
+        /* border-top: 3px solid #ffcc33;
+        border-left: 3px solid #eebb22; */
+        background-image: linear-gradient(to bottom right, #333, #111);
+        
+        color: #ccc;
+        text-shadow: 0px 0px 2px #fff;
+    }
+    div.nationals div.awardTop div.awardBottom h3 {
+        font-size: 4.5vw;
+        font-weight: 100;
+        margin: 0;
+    }
+    div.nationals div.awardTop div.awardBottom p {
+        font-size: 3.5vw;
+        margin: 0;
+    }
+    
+    div.awardHolder{
+        width: fit-content;
+        margin: auto;
+        padding: 2vw;
+        text-align: center;
+    }
+    
+    .regionals {
+        padding: 1vw;
+        text-align: center;
+    }
+    div.regionals {
+        display: inline-block;
+        width: 38vw;
+        padding: 1.5vw;
+        margin: 1.5vw;
+        border: 1.5vw solid #663300;
+        border-top-color: #704000;
+        border-bottom-color: #522200;
+        border-right-color: #582800;
+        background-color: #603000;
+        box-shadow: 2px 2px 5px #000;
+    }
+    
+    .regionals div.awardTop {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        padding: 3vw 0;
+        border-top: 3px solid #ffcc33;
+        border-left: 3px solid #eebb22;
+        background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+    }
+    
+    .regionals h3.awardTop {
+        position: relative;
+        margin: 0;
+        font-size: 3vw;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #047;
+    }
+    
+    .bpaLogo {
+        position: relative;
+        height: 15vw;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .ohioLogo {
+        position: relative;
+        width: 23vw;
+        filter: hue-rotate(100deg) brightness(1.5);
+    }
+    
+    .regionals div.awardBottom {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 1.5vw;
+        border-top: 3px solid #ffcc33;
+        border-left: 3px solid #eebb22;
+        background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+    }
+    .regionals p.awardBottom {
+        margin: 0;
+        padding: 1.5vw;
+        font-size: 2vw;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #a90;
+        text-shadow: -1px -1px 1px #fff;
+    }
+
+}
+
+@keyframes lift {
+    0% {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: 2px 2px 5px #000;
+    }
+    /*
+    15% {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        box-shadow: -5px -5px 10px #000;
+    }
+    20% {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        box-shadow: -5px -5px 10px #000;
+    }
+    */
+    100% {
+        position: relative;
+        top: -10px;
+        left: -10px;
+        box-shadow: 10px 10px 10px #000;
+    }
+}
+@keyframes drop {
+    0% {
+        position: relative;
+        top: -10px;
+        left: -10px;
+        box-shadow: 10px 10px 10px #000;
+    }
+    20% {
+        top: 3px;
+        left: 3px;
+        box-shadow: -3px -3px 5px #000;
+    }
+    40% {
+        top: -5px;
+        left: -5px;
+        box-shadow: 7px 7px 5px #000;
+    }
+    60% {
+        top: 0px;
+        left: 0px;
+        box-shadow: 2px 2px 5px #000;
+    }
+    80% {
+        top: -3px;
+        left: -3px;
+        box-shadow: 5px 5px 5px #000;
+    }
+    100% {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: 2px 2px 5px #000;
+    }
+}
