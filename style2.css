@@ -51,7 +51,7 @@ hr {
     opacity: 10;
     color: #102540;
     text-shadow: 0px 0px 0px #102540;
-    animation: cool-intro 3s linear normal forwards, text-shadow-rotate 20s linear 4s forwards infinite;
+    animation: cool-intro 3s linear 0.5s normal forwards, text-shadow-rotate 20s linear 4.5s forwards infinite;
 }
 
 .jumbotron h2 {
@@ -67,7 +67,7 @@ hr {
     text-shadow: 10px 10px 10px #000;
     opacity: 0;
     color: #999;
-    animation: fall-in 1s linear 3s normal forwards, text-shadow-rotate 60s linear 4s forwards infinite;
+    animation: fall-in 1s linear 3.5s normal forwards, text-shadow-rotate 60s linear 4.5s forwards infinite;
 }
 .jumbotron h2 a {
     color: #999;
@@ -84,7 +84,7 @@ hr {
     filter: brightness(35%);
     pointer-events: none;
     opacity: 0;
-    animation: fade-in 2s linear 2s normal forwards;
+    animation: fade-in 2s linear 2.5s normal forwards;
 }
 
 @keyframes text-shadow-rotate {
