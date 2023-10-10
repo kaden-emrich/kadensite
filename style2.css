@@ -67,7 +67,7 @@ hr {
     text-shadow: 10px 10px 10px #000;
     opacity: 0;
     color: #999;
-    animation: fall-in 1s linear 3.5s normal forwards, text-shadow-rotate 60s linear 4.5s forwards infinite;
+    animation: fall-in 1s linear 3.5s normal forwards, text-shadow-rotate 20s linear 4.5s forwards infinite;
 }
 .jumbotron h2 a {
     color: #999;
