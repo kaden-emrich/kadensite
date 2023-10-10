@@ -192,7 +192,7 @@ footer {
 
 /* ------------------------------- footer end ------------------------------- */
 
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
 
     .mobile {
         display: none;
@@ -245,7 +245,7 @@ footer {
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
 
     .mobile {
         display: block;

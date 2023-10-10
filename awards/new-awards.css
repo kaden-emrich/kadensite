@@ -1,15 +1,15 @@
 div.awardHolder{
-    width: fit-content;
-    margin: auto;
-    padding: 2vw;
+    width: 100%;
+    margin: 0;
+    padding: 0px;
     text-align: center;
 }
 
 div.nationals {
     display: inline-block;
-    width: 75vw;
-    padding: 5vw;
-    margin: 0.5vw;
+    width: 40vw;
+    padding: 3vw;
+    margin: 0.25vw;
     border: 3vw solid #666;
     border-top-color: #333;
     border-bottom-color: #000;
@@ -21,8 +21,8 @@ div.nationals div.awardTop {
     box-sizing: border-box;
     width: 100%;
     height: auto;
-    padding: 2vw 0;
-    padding-bottom: 7vw;
+    padding: 1vw 0;
+    padding-bottom: 4vw;
     /* border-top: 3px solid #ffcc33;
     border-left: 3px solid #eebb22; */
     background-image: linear-gradient(to bottom right, #777, #444);
@@ -31,29 +31,29 @@ div.nationals img.bpaLogo {
     position: relative;
     margin: 3%;
     width: 94%;
-    height: 25vw;
+    height: 15vw;
     object-fit: cover;
 }
 div.nationals h3.awardTop {
     position: relative;
     margin: 0;
-    font-size: 6vw;
+    font-size: 3vw;
     font-family: Arial, Helvetica, sans-serif;
     color: #047;
 }
 div.nationals hr {
     width: 40%;
-    margin: 4vw auto;
+    margin: 2vw auto;
     background-color: #911;
-    height: 0.5vw;
+    height: 0.25vw;
     box-shadow: none;
 }
 div.nationals div.awardTop div.awardBottom {
     box-sizing: border-box;
     width: 80%;
     margin: auto;
-    margin-top: 1vw;
-    padding: 4vw;
+    margin-top: 0.5vw;
+    padding: 2vw;
     /* border-top: 3px solid #ffcc33;
     border-left: 3px solid #eebb22; */
     background-image: linear-gradient(to bottom right, #333, #111);
@@ -62,12 +62,12 @@ div.nationals div.awardTop div.awardBottom {
     text-shadow: 0px 0px 2px #fff;
 }
 div.nationals div.awardTop div.awardBottom h3 {
-    font-size: 4.5vw;
+    font-size: 2vw;
     font-weight: 100;
     margin: 0;
 }
 div.nationals div.awardTop div.awardBottom p {
-    font-size: 3.5vw;
+    font-size: 1.5vw;
     margin: 0;
 }
 
