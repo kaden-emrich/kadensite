@@ -320,7 +320,7 @@ footer {
         animation-timing-function: ease;
         animation-iteration-count: 1;
         animation-direction: normal;
-        animation-fill-mode: both;
+        animation-fill-mode: forwards;
     }
 
     .nav-animator-collapse {
@@ -329,7 +329,7 @@ footer {
         animation-timing-function: ease;
         animation-iteration-count: 1;
         animation-direction: normal;
-        animation-fill-mode: both;
+        animation-fill-mode: forwards;
     }
 
 }
