@@ -26,25 +26,26 @@ hr {
 }
 
 /* ----------------------------- jumbotron start ---------------------------- */
-.jumbotron {
+div.jumbotron {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
     height: 60vh;
-    line-height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #102540;
     overflow: hidden;
     user-select: none;
 }
-.jumbotron h1 {
-    position: absolute;
+div.jumbotron div.jt-title {
+    z-index: 10;
+}
+div.jumbotron h1 {
     margin: auto;
     top: 0px;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
     font-size: 10vw;
     font-weight: 900;
     text-align: center;
@@ -54,22 +55,19 @@ hr {
     animation: cool-intro 3s linear 0.5s normal forwards, text-shadow-rotate 20s linear 4.5s forwards infinite;
 }
 
-.jumbotron h2 {
-    position: absolute;
-    margin: auto;
-    margin-top: 6vw;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
+div.jumbotron h2 {
+    position: relative;
+    margin: -2vw;
+    z-index: 9;
     font-size: 3vw;
     font-weight: 900;
     text-align: center;
     text-shadow: 10px 10px 10px #000;
     opacity: 0;
     color: #999;
-    animation: fall-in 1s linear 3.5s normal forwards, text-shadow-rotate 20s linear 4.5s forwards infinite;
+    animation: fall-in 1s linear 3.5s normal both, text-shadow-rotate 20s linear 4.5s forwards infinite;
 }
-.jumbotron h2 a {
+div.jumbotron h2 a {
     color: #999;
 }
 
@@ -77,6 +75,7 @@ hr {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 1;
     margin: 0;
     padding: 0;
     z-index: 0;
@@ -249,29 +248,27 @@ footer {
 
 @media screen and (max-width: 550px) {
 
-    .mobile {
-        display: block;
-    }
     .tablet-desktop {
         display: none;
+    }
+    .mobile {
+        display: block;
     }
 
     .jumbotron {
         height: 50vh;
-        line-height: 50vh;
         border-bottom: 4px solid #246;
     }
 
     nav.navbar {
         position: fixed;
         width: 100%;
-        top: 0px;
+        top: -240px;
         z-index: 100;
         margin: 0;
     }
     nav.navbar ul {
         list-style-type: none;
-        /* height: 0px; */
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -307,6 +304,8 @@ footer {
     #navbar-hamburger{
         height: 35px;
         width: 35px;
+        z-index: 12;
+        cursor: pointer;
         margin-left: 10px;
         padding: 5px 5px;
         background-color: #ccc;
@@ -337,24 +336,25 @@ footer {
 
 @keyframes navbar-expand {
     from {
-        height: 0px;
+        top: var(--nav-options-offset);
     }
     to {
-        height: 240px;
+        top: 0px;
     }
 }
 
 @keyframes navbar-collapse {
     from {
-        height: 240px;
+        top: 0px;
     }
     to {
-        height: 0px;
+        top: var(--nav-options-offset);
     }
 }
 
 @keyframes fade-in {
     from {
+        display: block;
         opacity: 0;
     }
     to {
