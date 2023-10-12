@@ -263,7 +263,7 @@ footer {
     nav.navbar {
         position: fixed;
         width: 100%;
-        top: -240px;
+        top: var(--nav-options-offset);
         z-index: 100;
         margin: 0;
     }
