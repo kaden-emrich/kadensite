@@ -1,9 +1,8 @@
-var menu = document.getElementById("navbar");
+var menu;
 
-var docRoot = document.querySelector(':root');
-docRoot.style.setProperty('--nav-options-offset', (0 - document.getElementById('navbar-options').offsetHeight) + 'px');
+var docRoot;
 
-var menuOpen = false;
+var menuOpen;
 
 function toggleMenu() {
 
@@ -20,3 +19,16 @@ function toggleMenu() {
 
 
 }// toggleMenu()
+
+function initHamburgerMenu() {
+
+    menu = document.getElementById("navbar");
+
+    docRoot = document.querySelector(':root');
+    docRoot.style.setProperty('--nav-options-offset', (0 - document.getElementById('navbar-options').offsetHeight) + 'px');
+
+    menuOpen = false;
+
+}// initHamburgerMenu()
+
+initHamburgerMenu();
