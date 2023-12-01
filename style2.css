@@ -332,10 +332,9 @@ footer {
         cursor: pointer;
         margin-left: 10px;
         padding: 5px 5px;
-        background-color: #ccc;
+        background-color: var(--nav-bg-color);
         border-radius: 0px 0px 10px 10px;
-        box-shadow: 2px 3px 5px #fff;
-        filter: invert();
+        box-shadow: 2px 3px 5px var(--main-shadow-color);
     }
 
     .nav-animator-expand {
