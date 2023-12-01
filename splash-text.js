@@ -29,7 +29,7 @@ const splashTextOptions = [
     "Refresh for a more creative subtitle",
     "I try",
     "Where it's at",
-    "Now in blue!",
+    "Now in technicolor!",
     "How much caffeine is too much caffeine?",
     "wake up.",
     "(not clickbait)",
