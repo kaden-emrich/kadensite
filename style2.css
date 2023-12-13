@@ -168,6 +168,23 @@ div.box h1 {
 }
 /* --------------------------------- box end -------------------------------- */
 
+footer {
+    position: relative;
+    /* width: 80vw; */
+    /* margin: 20px auto; */
+    margin-top: 50px;
+    padding: 10px 10vw;
+    background-color: var(--box-bg-color);
+    border-top: 5px solid var(--box-accent-color);
+    box-shadow: 5px 5px 5px var(--main-shadow-color);
+    color: var(--txt-color);
+}
+
+footer h1 {
+    color: var(--txt-color);
+    text-shadow: 5px 5px 10px var(--main-shadow-color);
+}
+
 /* ------------------------------ buttons start ----------------------------- */
 button {
     margin: auto;
