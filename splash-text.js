@@ -48,7 +48,21 @@ const splashTextOptions = [
     "kadenemrich.com",
     "Where dreams come true",
     "= 42",
-    "Welcome to Paradise"
+    "Welcome to Paradise",
+    '<a href="https://www.reachthefinals.com">Play THE FINALS</a>',
+    "Its Gaming Time!",
+    "Comes another...",
+    "Gordan Freeman, in the flesh.",
+    "The cake is a lie!",
+    "All hail lord Gaben",
+    "me when... when you... when the... um",
+    "[bluescreen]",
+    "Smash that like button!",
+    "Do you ever feel like a plastic bag?",
+    "Go read a book",
+    "Kick rocks!",
+    "Somebody once told me the world was macaroni",
+    "Overwatch says stop kicking it."
 ];
 
 function pickSplashText() {
