@@ -73,23 +73,25 @@ div.jumbotron h1 {
     font-size: 10vw;
     font-weight: 900;
     text-align: center;
-    opacity: 10;
+    opacity: 100;
     color: var(--heading-color);
-    text-shadow: 0px 0px 0px var(--main-shadow-color);
-    animation: cool-intro 3s linear 0s normal forwards, text-shadow-rotate 20s linear 4.5s forwards infinite;
+    text-shadow: 10px 10px 10px var(--main-shadow-color);
+    /* animation: cool-intro 3s linear 0s normal forwards, text-shadow-rotate 20s linear 4.5s forwards infinite; */
+    animation: text-shadow-rotate 20s linear 4.5s forwards infinite;
 }
 
 div.jumbotron h2 {
     position: relative;
-    margin: -2vw;
+    margin: -2vw auto;
     z-index: 9;
     font-size: 3vw;
     font-weight: 900;
     text-align: center;
     text-shadow: 10px 10px 10px var(--main-shadow-color);
-    opacity: 0;
+    opacity: 100;
     color: var(--subheading-color);
-    animation: fall-in 1s linear 3.5s normal both, text-shadow-rotate 20s linear 4.5s forwards infinite;
+    /* animation: fall-in 1s linear 3.5s normal both, text-shadow-rotate 20s linear 4.5s forwards infinite; */
+    animation: subheading-bob 7s linear 0s forwards infinite;
 }
 div.jumbotron h2 a {
     color: var(--subheading-color);
@@ -106,8 +108,8 @@ div.jumbotron h2 a {
     border: 0;
     filter: brightness(35%);
     pointer-events: none;
-    opacity: 0;
-    animation: fade-in 2s linear 2.5s normal forwards;
+    opacity: 100;
+    /* animation: fade-in 2s linear 2.5s normal forwards; */
 }
 
 @keyframes text-shadow-rotate {
@@ -451,4 +453,22 @@ footer {
         text-shadow: 10px 10px 10px var(--main-shadow-color);
     }
 
+}
+
+@keyframes subheading-bob {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(2deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-2deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
 }
