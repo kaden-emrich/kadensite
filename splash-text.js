@@ -49,6 +49,7 @@ const splashTextOptions = [
     "Where dreams come true",
     "= 42",
     "Welcome to Paradise",
+    "Welcome to the machine",
     '<a href="https://www.reachthefinals.com">Play THE FINALS</a>',
     "Its Gaming Time!",
     "Comes another...",
@@ -62,8 +63,25 @@ const splashTextOptions = [
     "Go read a book",
     "Kick rocks!",
     "Somebody once told me the world was macaroni",
-    "Overwatch says stop kicking it."
+    "Overwatch says stop kicking it.",
+    "Kaden: 2, Web-Blockers: 0",
+    "What's up gamer?",
+    "if you like PHP you're probably lying",
+    "Just a week away!",
+    "<a href='https://bogdangura.github.io/'>bogdan wus here</a>",
+    "Original concepts only",
+    "Gamers only",
+    "\"I'm in.\""
 ];
+
+splashTextOptions.push("There are " + splashTextOptions.length + " of these");
+
+function howManySplashText() {
+    var selection = splashTextOptions[splashTextOptions.length - 1];
+
+    console.log(selection);
+    document.getElementById("splash-text").innerHTML = selection;
+}
 
 function pickSplashText() {
     var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
