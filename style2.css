@@ -20,6 +20,9 @@
 
     --button-bg-color: #094809;
     --button-bd-color: #042404;
+
+    --footer-bg-color: #094809;
+    --footer-accent-color: #042404;
 }
 
 body {
@@ -176,9 +179,9 @@ footer {
     /* margin: 20px auto; */
     margin-top: 50px;
     padding: 10px 10vw;
-    background-color: var(--box-bg-color);
-    border-top: 5px solid var(--box-accent-color);
-    box-shadow: 5px 5px 5px var(--main-shadow-color);
+    background-color: var(--footer-bg-color);
+    border-top: 5px solid var(--footer-accent-color);
+    box-shadow: 0px -5px 10px var(--main-shadow-color);
     color: var(--txt-color);
 }
 
