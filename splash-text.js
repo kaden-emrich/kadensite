@@ -22,6 +22,7 @@ const splashTextOptions = [
     "Also try Minecraft!",
     "Procrastinating everything since 2006",
     "my dad thinks my website is cool",
+    "my mom thinks my website is cool",
     "I've been expecting you",
     "there is no escape",
     "No viruses I promise",
