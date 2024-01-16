@@ -69,6 +69,7 @@ div.jumbotron {
 }
 div.jumbotron div.jt-title {
     z-index: 10;
+    pointer-events: none;
 }
 div.jumbotron h1 {
     margin: auto;
@@ -93,6 +94,7 @@ div.jumbotron h2 {
     text-shadow: 10px 10px 10px var(--main-shadow-color);
     opacity: 100;
     color: var(--subheading-color);
+    pointer-events: all;
     /* animation: fall-in 1s linear 3.5s normal both, text-shadow-rotate 20s linear 4.5s forwards infinite; */
     animation: subheading-bob 7s linear 0s forwards infinite;
 }
@@ -110,7 +112,7 @@ div.jumbotron h2 a {
     z-index: 0;
     border: 0;
     filter: brightness(35%);
-    pointer-events: none;
+    /* pointer-events: none; */
     opacity: 100;
     /* animation: fade-in 2s linear 2.5s normal forwards; */
 }
