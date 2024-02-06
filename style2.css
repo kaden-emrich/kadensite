@@ -503,6 +503,7 @@ footer {
 }
 
 .pop-window {
+    box-sizing: border-box;
     background-color: #999;
     border: 3px outset #777;
     border-radius: 5px;
@@ -539,4 +540,7 @@ footer {
     text-shadow: 0 0 2px #fff;
 
     user-select: none;
+}
+.pop-content {
+    height: fit-content;
 }
