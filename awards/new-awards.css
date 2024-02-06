@@ -78,13 +78,10 @@ div.nationals div.awardTop div.awardBottom p {
 div.regionals {
     display: inline-block;
     width: 25vw;
-    padding: 1vw;
+    padding: 2vw;
     margin: 0.5vw;
-    border: 1vw solid #663300;
-    border-top-color: #704000;
-    border-bottom-color: #522200;
-    border-right-color: #582800;
-    background-color: #603000;
+    border: 1vw outset #3D1A00;
+    background: linear-gradient(to bottom right, #522200, #3D1A00);
     box-shadow: 2px 2px 5px #000;
 }
 
@@ -93,9 +90,8 @@ div.regionals {
     width: 100%;
     height: auto;
     padding: 2vw 0;
-    border-top: 3px solid #ffcc33;
-    border-left: 3px solid #eebb22;
-    background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+    border: 3px outset #D2AC47;
+    background: linear-gradient(to bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
 }
 
 .regionals h3.awardTop {
@@ -123,17 +119,16 @@ div.regionals .bpaLogo {
     box-sizing: border-box;
     width: 100%;
     margin-top: 1vw;
-    border-top: 3px solid #ffcc33;
-    border-left: 3px solid #eebb22;
-    background-image: linear-gradient(to bottom right, #ffbb33, #cc9900);
+    border: 3px outset #D2AC47;
+    background-image: linear-gradient(to bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
 }
 .regionals p.awardBottom {
     margin: 0;
     padding: 1vw;
     font-size: 1.5vw;
     font-family: Arial, Helvetica, sans-serif;
-    color: #a90;
-    text-shadow: -1px -1px 1px #fff;
+    color: #544012;
+    text-shadow: 0px 0px 1px black;
 }
 
 @media screen and (max-width: 500px) {
