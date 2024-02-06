@@ -72,7 +72,11 @@ const splashTextOptions = [
     "<a href='https://bogdangura.github.io/'>bogdan wus here</a>",
     "Original concepts only",
     "Gamers only",
-    "\"I'm in.\""
+    "\"I'm in.\"",
+    "HARDCORE!",
+    "It can't smell fear (websites can't smell)",
+    "Please don't hack my website",
+    "Get of my lawn!"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
