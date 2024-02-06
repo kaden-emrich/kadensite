@@ -9,6 +9,20 @@
         <!-- <link rel="icon" href="icon.jpeg"> -->
 
         <title>kadenemrich.com</title>
+
+        <script>
+            function openSecretMenu() {
+                if(document.getElementById("secret-window").style.display == "block") {
+                    document.getElementById("secret-window").style.display = "none";
+                }
+                else {
+                    document.getElementById("secret-window").style.display = "block";
+                    document.getElementById("secret-window").style.top = "0px";
+                    document.getElementById("secret-window").style.left = "0px";
+                    // document.getElementById("secret-window").setAttribute("src", "secret/index.html");
+                }
+            }
+        </script>
     </head>
 
     <body onresize="initHamburgerMenu()">
@@ -40,7 +54,7 @@
         
         <div class="box">
             <h1>Welcome to the website of Kaden Emrich</h1>
-            <h1>Your go-to place for all things Kaden<a href="secret/index.html" style="color: #fff; cursor: default;">.</a></h1>
+            <h1>Your go-to place for all things Kaden<span style="user-select: none;" onclick="openSecretMenu()">.</span></h1>
             
             <p class="mobile">Now on mobile!</p>
             <p>You can learn about me by clicking <a href="about/index.html">here</a>.</p>
@@ -95,6 +109,30 @@
             </a>
         </div>
 
+        <!-- <div class="box draggable" style="width: fit-content;">
+            <h1 class="drag-anchor">Drag Here!</h1>
+            Hello World
+        </div>
+
+        <div class="box draggable" style="width: fit-content;">
+            epic games
+        </div> -->
+
+        <!-- <div class="pop-window draggable">
+            <div class="pop-bar"><div class="pop-close" role="button">X</div><div class="pop-title drag-anchor">Hello World</div></div>
+            <div class="pop-content">
+                <h3 style="padding: 30px;">Hello World!</h3>
+            </div>
+        </div> -->
+
+        <div class="pop-window draggable" id="secret-window" style="display: none;">
+            <div class="pop-bar"><div class="pop-close" role="button">X</div><div class="pop-title drag-anchor">secret</div></div>
+            <div class="pop-content" style="background-color: #555;">
+                <iframe src="secret/index.html" frameborder="0" width="800"
+                height="450"></iframe>
+            </div>
+        </div>
+
         <!-- <p style="text-align: center;">bogdan was here</p> -->
         
         <footer>
@@ -109,4 +147,6 @@
     <script src="/hamburger-menu.js"></script>
     <script src="/splash-text.js"></script>
     <script src="/animatedJumbotron.js"></script>
+    <script src="scripts/draggable-element.js"></script>
+    <script src="scripts/pop-window.js"></script>
 </html>

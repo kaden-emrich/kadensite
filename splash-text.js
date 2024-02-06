@@ -1,3 +1,5 @@
+var splashText = document.getElementById("splash-text");
+
 const splashTextOptions = [
     "The world's <i>most</i> website",
     "One of the websites of all time",
@@ -12,13 +14,13 @@ const splashTextOptions = [
     "We have game(s)!",
     "kaden wuz heree",
     "3p1c l33t w3bs1t3",
-    "There are no <a href=\"../secret\">secrets</a> here",
+    "There are no secrets here",
     "NO SOLICITING",
     "We like to have fun around here",
     "There are probably speling errors",
     "Free as a bird",
     "help.",
-    "<a href=\"https://clickthebutton.kadenemrich.com\">click</a>",
+    "click",
     "Also try Minecraft!",
     "Procrastinating everything since 2006",
     "my dad thinks my website is cool",
@@ -51,7 +53,7 @@ const splashTextOptions = [
     "= 42",
     "Welcome to Paradise",
     "Welcome to the machine",
-    '<a href="https://www.reachthefinals.com">Play THE FINALS</a>',
+    'Play THE FINALS',
     "Its Gaming Time!",
     "Comes another...",
     "Gordan Freeman, in the flesh.",
@@ -69,10 +71,14 @@ const splashTextOptions = [
     "What's up gamer?",
     "if you like PHP you're probably lying",
     "Just a week away!",
-    "<a href='https://bogdangura.github.io/'>bogdan wus here</a>",
+    "bogdan wus here",
     "Original concepts only",
     "Gamers only",
-    "\"I'm in.\""
+    "\"I'm in.\"",
+    "HARDCORE!",
+    "It can't smell fear (websites can't smell)",
+    "Please don't hack my website",
+    "Get of my lawn!"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
@@ -81,13 +87,49 @@ function howManySplashText() {
     var selection = splashTextOptions[splashTextOptions.length - 1];
 
     console.log(selection);
-    document.getElementById("splash-text").innerHTML = selection;
+    splashText.innerHTML = selection;
 }
 
 function pickSplashText() {
     var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
 
-    document.getElementById("splash-text").innerHTML = selection;
+    splashText.innerHTML = selection;
+}
+
+var isSpinning = false;
+var isToLate = false;
+var isDoubleClick = false;
+
+splashText.onclick = () => {
+    if(!isSpinning) {
+        isSpinning = true;
+        splashText.classList.add("splash-text-spin-class");
+        isToLate = false;
+
+        setTimeout(() => {
+            if(isDoubleClick) {
+                isDoubleClick = false;
+                isToLate = true;
+                howManySplashText();
+            }
+            else {
+                isDoubleClick = false;
+                isToLate = true;
+                pickSplashText();
+            }
+        }, 200);
+
+        setTimeout(() => {
+            splashText.classList.remove("splash-text-spin-class");
+            isSpinning = false;
+        }, 450);
+    }
+}
+
+splashText.ondblclick = () => {
+    if(!isToLate) {
+        isDoubleClick = true;
+    }
 }
 
 pickSplashText();

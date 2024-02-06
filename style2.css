@@ -97,6 +97,7 @@ div.jumbotron h2 {
     pointer-events: all;
     /* animation: fall-in 1s linear 3.5s normal both, text-shadow-rotate 20s linear 4.5s forwards infinite; */
     animation: subheading-bob 7s linear 0s forwards infinite;
+    transition: transform 0.5s;
 }
 div.jumbotron h2 a {
     color: var(--subheading-color);
@@ -476,4 +477,70 @@ footer {
     100% {
         transform: scale(1) rotate(0deg);
     }
+}
+
+.splash-text-spin-class {
+    /* transform: rotate(0deg); */
+    animation: splash-text-spin 0.4s ease-in-out 0s 1 normal forwards !important;
+    transition: transform 0.5s;
+}
+
+@keyframes splash-text-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.draggable {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: 0 !important;
+}
+
+.pop-window {
+    box-sizing: border-box;
+    background-color: #999;
+    border: 3px outset #777;
+    border-radius: 5px;
+}
+.pop-bar {
+    height: 40px;
+    background-color: #555;
+}
+.pop-title {
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: 0;
+    height: 40px;
+    padding: 5px;
+    border-radius: 3px 3px 0 0;
+    font-size: 25px;
+    line-height: 30px;
+
+    user-select: none;
+}
+.pop-close {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 0 0 0 5px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    
+    background-color: #f00;
+    color: #fff;
+    text-shadow: 0 0 2px #fff;
+
+    user-select: none;
+}
+.pop-content {
+    height: fit-content;
 }
