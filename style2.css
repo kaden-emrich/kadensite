@@ -97,6 +97,7 @@ div.jumbotron h2 {
     pointer-events: all;
     /* animation: fall-in 1s linear 3.5s normal both, text-shadow-rotate 20s linear 4.5s forwards infinite; */
     animation: subheading-bob 7s linear 0s forwards infinite;
+    transition: transform 0.5s;
 }
 div.jumbotron h2 a {
     color: var(--subheading-color);
@@ -475,5 +476,20 @@ footer {
     }
     100% {
         transform: scale(1) rotate(0deg);
+    }
+}
+
+.splash-text-spin-class {
+    /* transform: rotate(0deg); */
+    animation: splash-text-spin 0.4s ease-in-out 0s 1 normal forwards !important;
+    transition: transform 0.5s;
+}
+
+@keyframes splash-text-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
