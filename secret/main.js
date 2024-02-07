@@ -2,7 +2,7 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
-var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page.\n - asteroids: play the classic asteroids game. \n - more - is there any more?";
+var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page.\n - sort: opens sorting algorithm visualizer.  \n - asteroids: play the classic asteroids game.\n - snake: play snake. \n - more - is there any more?";
 
 var inputValue;
 var lastLine;
@@ -53,7 +53,7 @@ async function help() {
 
 async function home() {
     printFancyLine("Sending you home...", "greenGlow", 10);
-    thisTab("../index.html");
+    newTab("../index.html");
     return;
 }
 
@@ -84,25 +84,37 @@ async function findAnswer() {
 
 async function noGames() {
     printFancyLine("There are no games...", "redGlow", 10);
-    thisTab("../g/index.html");
+    newTab("../g/index.html");
     return;
 }
 
 async function about() {
     printFancyLine("Taking you to about me...", "greenGlow", 10);
-    thisTab("../about/index.html");
+    newTab("../about/index.html");
     return;
 }
 
 async function extras() {
     printFancyLine("Taking you to [e]...", "greenGlow", 10);
-    thisTab("../e/index.html");
+    newTab("../e/index.html");
+    return;
+}
+
+async function openSortAlgVis() {
+    printFancyLine("Sorting...", "greenGlow", 10);
+    thisTab("https://sortalg.kadenemrich.com/");
     return;
 }
 
 async function asteroids() {
     printFancyLine("Opening asteroids", "greenGlow", 10);
     thisTab("https://asteroids.kadenemrich.com");
+    return;
+}
+
+async function snake() {
+    printFancyLine("Opening snake", "greenGlow", 10);
+    thisTab("https://snake.kadenemrich.com/fullscreen");
     return;
 }
 
@@ -151,6 +163,12 @@ async function command(cmd) {
             break;
         case 'asteroids':
             await asteroids();
+            break;
+        case 'snake':
+            await snake();
+            break;
+        case 'sort':
+            await openSortAlgVis();
             break;
         case 'more':
             await extras();

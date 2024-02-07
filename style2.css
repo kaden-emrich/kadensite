@@ -113,7 +113,7 @@ div.jumbotron h2 a {
     z-index: 0;
     border: 0;
     filter: brightness(35%);
-    /* pointer-events: none; */
+    pointer-events: none;
     opacity: 100;
     /* animation: fade-in 2s linear 2.5s normal forwards; */
 }
@@ -495,7 +495,7 @@ footer {
 }
 
 .draggable {
-    position: absolute !important;
+    position: fixed !important;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -520,6 +520,7 @@ footer {
     margin: 0;
     height: 40px;
     padding: 5px;
+    padding-left: 10px;
     border-radius: 3px 3px 0 0;
     font-size: 25px;
     line-height: 30px;
