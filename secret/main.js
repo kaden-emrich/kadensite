@@ -2,6 +2,18 @@ var before = document.getElementById("before");
 var inputArea = document.getElementById("inputBox");
 var terminal = document.getElementById("terminal");
 
+// var oldConsoleWordArt = " _____ ____  _   _  _____  ____  _      ______ \n  / ____/ __ \\| \\ | |/ ____|/ __ \\| |    |  ____|\n | |   | |  | |  \\| | (___ | |  | | |    | |__   \n | |   | |  | | . ` |\\___ \\| |  | | |    |  __|  \n | |___| |__| | |\\  |____) | |__| | |____| |____ \n  \\_____\\____/|_| \\_|_____/ \\____/|______|______|\n";
+
+var consoleWordArt = [
+    "   _____ ____  _   _  _____  ____  _      ______ ",
+    "  / ____/ __ \\| \\ | |/ ____|/ __ \\| |    |  ____|",
+    " | |   | |  | |  \\| | (___ | |  | | |    | |__   ",
+    " | |   | |  | | . ` |\\___ \\| |  | | |    |  __|  ",
+    " | |___| |__| | |\\  |____) | |__| | |____| |____ ",
+    "  \\_____\\____/|_| \\_|_____/ \\____/|______|______|",
+    " "
+];
+
 var cHelp = "Commands - \n - help: You just used it. (good job) \n - home: sends you back to the main site. \n - muck: Muck. \n - findTheAnswer: It will find the all the answer. \n - noGames: no games. \n - about: takes you to the about me page.\n - sort: opens sorting algorithm visualizer.  \n - asteroids: play the classic asteroids game.\n - snake: play snake. \n - more - is there any more?";
 
 var inputValue;
@@ -18,17 +30,21 @@ init();
 async function init() {
     sizeScreen();
     newInputLine();
-    printFancyLine("welcome to the secret site!_\n", "greenGlow", 20);
+    await printFancyLine("Welcome to", "greenGlow", 20);
+    await printFancyLines(consoleWordArt, "whiteGlow preformat-whitespace", 5);
+    await printFancyLine("at kadenemrich.com\n", "greenGlow", 20);
     inputArea.focus();
 }
 
 function sizeScreen() {
     let screen = document.getElementById("screen");
     //document.getElementById("screen").style = "height:" + (document.body.offsetHeight*0.96) + ";width:" + (document.body.offsetWidth*0.96) + ";top:" + (document.body.offsetHeight*0.02) + ";left:" + (document.body.offsetWidth*0.02) +";";
-    screen.style.top = (window.innerHeight*0.02) + "px";
-    screen.style.left = (window.innerHeight*0.02) + "px";
-    screen.style.width = (window.innerWidth-2*(window.innerHeight*0.02)) + "px";
-    screen.style.height = (window.innerHeight-2*(window.innerHeight*0.02)) + "px";
+    // screen.style.top = (window.innerHeight*0.02) + "px";
+    // screen.style.left = (window.innerHeight*0.02) + "px";
+    // screen.style.width = (window.innerWidth-2*(window.innerHeight*0.02)) + "px";
+    // screen.style.height = (window.innerHeight-2*(window.innerHeight*0.02)) + "px";
+    screen.style.width = (window.innerWidth) + "px";
+    screen.style.height = (window.innerHeight) + "px";
 }
 
 setInterval(sizeScreen, 100);
@@ -46,7 +62,7 @@ document.addEventListener("click", function() {
 
 /* Commands Start */
 async function help() {
-    await printFancyLine(cHelp, "greenGlow", 10);
+    await printFancyLine(cHelp, "greenGlow", 5);
     printFancyLine(" - 404: [COMMAND NOT FOUND]", "redGlow", 10);
     return;
 }
@@ -188,7 +204,7 @@ async function typeIt(from, e) {
         await command(inputValue.toLowerCase());
     } else {
         inputValue = inputArea.value;
-        inputLine.innerHTML = "<br>/< " + inputValue;
+        inputLine.innerText = "\n/< " + inputValue;
         terminal.scrollTo(0, inputLine.offsetTop)
     }
     terminal.scrollTo(0, inputLine.offsetTop)
@@ -208,7 +224,7 @@ function newTab(link) {
 
 function newInputLine() {
     var next = document.createElement("p");
-    next.innerHTML = "<br>/< ";
+    next.innerText = "\n/< ";
     next.className = "whiteGlow";
     before.parentNode.insertBefore(next, before);
     inputLine = next;
@@ -218,8 +234,9 @@ function newInputLine() {
 
 function newElement(style) {
     var next = document.createElement("p");
-    next.innerHTML = "<br>";
+    // next.innerHTML = "\n";
     next.className = style;
+    inputLine.parentNode.insertBefore(document.createElement('br'), inputLine);
     inputLine.parentNode.insertBefore(next, inputLine);
     terminal.scrollTo(0, inputLine.offsetTop)
     numLines++;
@@ -249,10 +266,18 @@ async function printFancyLine(text, style, delay) {
     before.style.animation = "hide .2s ease forwards";
     var el = newElement(style);
     addText(text, el, delay, 0);
-    terminal.scrollTo(0, inputLine.offsetTop)
-    await sleep(delay*1.5*text.length);
+    terminal.scrollTo(0, inputLine.offsetTop);
+    await sleep(delay*1.3*text.length);
     lastLine = el;
     before.style.animation = "blinker 1s linear infinite";
+    return;
+}
+
+async function printFancyLines(arr, style, delay) {
+    for(let i = 0; i < arr.length; i++) {
+        await printFancyLine(arr[i], style, delay);
+    }
+
     return;
 }
 
@@ -269,13 +294,14 @@ async function printFancy(text, style, delay) {
 
 async function addText(text, element, delay, index) {
     if(index < text.length) {
-        if(text.substring(index, index+1) == '\n') {
-            element.innerHTML += "<br>";
+        if(text.substring(index, index+1) == '\n' && false) {
+            // element.innerText += "\n";
             index += 2;
             //console.log("linebreak");
         }
         else {
-            element.innerHTML += text[index++];
+            index++;
+            element.innerText = text.substring(0, index);
         }
         terminal.scrollTo(0, inputLine.offsetTop)
         setTimeout(function() {addText(text, element, delay, index)}, delay);
