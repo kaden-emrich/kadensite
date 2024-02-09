@@ -295,6 +295,10 @@ footer {
         background-color: var(--nav-select-color);
     }
 
+    #secret-console {
+        width: 50vw;
+    }
+
 }
 
 @media screen and (max-width: 550px) {
@@ -380,6 +384,10 @@ footer {
         animation-iteration-count: 1;
         animation-direction: normal;
         animation-fill-mode: forwards;
+    }
+
+    #secret-console {
+        width: 100vw;
     }
 
 }
@@ -505,8 +513,9 @@ footer {
 .pop-window {
     box-sizing: border-box;
     background-color: #999;
-    border: 3px outset #777;
-    border-radius: 5px;
+    border: 2px outset #888;
+    border-radius: 0px;
+    box-shadow: 5px 5px 10px black, 0px 0px 10px black;
 }
 .pop-bar {
     height: 40px;
@@ -543,5 +552,13 @@ footer {
     user-select: none;
 }
 .pop-content {
-    height: fit-content;
+    resize: both;
+    overflow: hidden;
+}
+
+#secret-console {
+    position: relative;
+    height: 50vh;
+    background: #111;
+    /* overflow: hidden; */
 }
