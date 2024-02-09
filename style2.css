@@ -525,7 +525,7 @@ footer {
     box-sizing: border-box;
     position: relative;
     float: left;
-    width: calc(100% - 40px);
+    width: calc(100% - 80px);
     margin: 0;
     height: 40px;
     padding: 5px;
@@ -540,12 +540,27 @@ footer {
     float: right;
     width: 40px;
     height: 40px;
-    border-radius: 0 0 0 5px;
+    /* border-radius: 0 0 0 5px; */
     text-align: center;
     font-size: 30px;
     line-height: 40px;
     
     background-color: #f00;
+    color: #fff;
+    text-shadow: 0 0 2px #fff;
+
+    user-select: none;
+}
+.pop-reload {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 0 0 0 5px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    
+    background-color: #00f;
     color: #fff;
     text-shadow: 0 0 2px #fff;
 
