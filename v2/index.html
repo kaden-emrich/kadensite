@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style2.css">
+        <!-- <link rel="icon" href="icon.jpeg"> -->
+
+        <title>kadenemrich.com</title>
+
+        <script>
+            function openSecretMenu() {
+                if(document.getElementById("secret-window").style.display == "block") {
+                    document.getElementById("secret-window").style.display = "none";
+                }
+                else {
+                    document.getElementById("secret-iframe").src = "secret/index.html";
+                    document.getElementById("secret-window").style.display = "block";
+                    document.getElementById("secret-window").style.top = "0px";
+                    document.getElementById("secret-window").style.left = "0px";
+                    // document.getElementById("secret-window").setAttribute("src", "secret/index.html");
+                }
+            }
+
+            function resetSecretMenu() {
+                document.getElementById("secret-iframe").src = "secret/index.html";
+            }
+        </script>
+    </head>
+
+    <body onresize="initHamburgerMenu()">
+        
+        <div class="jumbotron">
+
+            <!-- <iframe id="jumbotronIFrame" src="https://sortAlg.kadenemrich.com/?auto=true&dynamicHeight=false&arraySize=200&sortType=random"></iframe>  -->
+            <iframe id="jumbotronIFrame" src="https://vissim.kadenemrich.com/matrix/"></iframe>
+
+            <div class="jt-title">
+                <h1>kadenemrich.com</h1>
+                <h2 id="splash-text"></h2>
+            </div>
+
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <ul id="navbar-options">
+                <li class="navbar-right"><a href="index.html" class="navbar-selected">kadenemrich.com</a></li>
+                <li><a href="g/index.html">games</a></li>
+                <li><a href="e/index.html">extras</a></li>
+                <li><a href="awards/index.html">display case</a></li>
+                <li><a href="stalkMe/index.html">stalk me</a></li>
+                <!-- <li><a href="../projects/index.html">projects</a></li> -->
+                <li><a href="about/index.html">about</a></li>
+            </ul>
+            <img src="hamburger-icon.png" class="mobile" id="navbar-hamburger" onclick="toggleMenu()">
+        </nav>
+        
+        <div class="box">
+            <h1>Welcome to the website of Kaden Emrich</h1>
+            <h1>Your go-to place for all things Kaden<span style="user-select: none;" onclick="openSecretMenu()">.</span></h1>
+            
+            <p class="mobile">Now on mobile!</p>
+            <p>You can learn about me by clicking <a href="about/index.html">here</a>.</p>
+        </div>
+        
+        <!-- <hr>
+
+        <div class="box">
+
+            <h1>Current Project:</h1>
+
+            <p><a href="https://ai.kadenemrich.com">Click here</a> to see the tests that I've been running with A.I. and neural nets. I make as much of my code from scratch as I can.</p>
+
+        </div> -->
+
+        <hr>
+
+        <div class="box">
+            <h1>Recent Projects:</h1>
+
+            <a href="http://asteroids.kadenemrich.com" style="
+                display: flex; 
+                margin: auto; 
+                width: fit-content; 
+                text-decoration: none;
+            ">
+                <button style="
+                    margin: 0;
+                    padding: 0;
+                    width: 50vw; 
+                    background-color: #fff;
+                ">
+                   <img src="images/asteroids-thumbnail.png" alt="Asteroids" width="100%" height="100%">
+                </button>
+            </a>
+
+            <br>
+
+            <a href="http://sortalg.kadenemrich.com" style="
+                display: flex; 
+                margin: auto; 
+                width: fit-content; 
+                text-decoration: none;
+            ">
+                <button style="
+                    width: 50vw; 
+                    line-height: 25vw; 
+                    background-image: url(e/sortingAlgorithms/sorterThumbnail.PNG);
+                ">
+                    <h1>Sorting Algorithm Visualizer</h1>
+                </button>
+            </a>
+        </div>
+
+        <!-- <div class="box draggable" style="width: fit-content;">
+            <h1 class="drag-anchor">Drag Here!</h1>
+            Hello World
+        </div>
+
+        <div class="box draggable" style="width: fit-content;">
+            epic games
+        </div> -->
+
+        <!-- <div class="pop-window draggable">
+            <div class="pop-bar"><div class="pop-close" role="button">X</div><div class="pop-title drag-anchor">Hello World</div></div>
+            <div class="pop-content">
+                <h3 style="padding: 30px;">Hello World!</h3>
+            </div>
+        </div> -->
+
+        <div class="pop-window draggable" id="secret-window" style="display: none;">
+            <div class="pop-bar"><div class="pop-close" role="button">X</div><div class="pop-reload" role="button" onclick="resetSecretMenu()">&#10227</div><div class="pop-title drag-anchor">CONSOLE</div></div>
+
+            <div class="pop-content" id="secret-console" style="background-color: #555;">
+                <iframe src="secret/index.html" id="secret-iframe" frameborder="0" width="100%"
+                height="100%"></iframe>
+            </div>
+        </div>
+
+        <!-- <p style="text-align: center;">bogdan was here</p> -->
+        
+        <footer>
+            <h1 style="color:red; text-decoration: underline">DISCLAIMER:</h1>
+            <p style="font-weight: bold; font-size: 15pt;">
+                Kaden Emrich and kadenemrich.com are <span style="text-decoration: underline;">not</span> responsible for any consequences related to the use of the software/applications/games hosted or linked on this website. Such consequences include but are not limited to, loss of productivity, dizziness, computer-related issues, and after school detention. Kaden Emrich and kadenemrich.com do not endorse the use of this website in situations it is deemed unacceptable such as, school, work, or while driving.
+            </p>
+        </footer>
+
+    </body>
+
+    <script src="hamburger-menu.js"></script>
+    <script src="splash-text.js"></script>
+    <script src="animatedJumbotron.js"></script>
+    <script src="scripts/draggable-element.js"></script>
+    <script src="scripts/pop-window.js"></script>
+</html>
