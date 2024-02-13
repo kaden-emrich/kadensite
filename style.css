@@ -35,6 +35,7 @@ body {
     height: 100vh;
     /* border: 1px solid blue; */
     overflow: hidden;
+    user-select: none;
 }
 
 .jumbotron-background {
@@ -58,6 +59,7 @@ body {
     margin: 10px;
 }
 
+
 .jumbotron-center {
     position: absolute;
     display: flex;
@@ -65,15 +67,28 @@ body {
     height: 100%;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     color: rgba(255,255,255,1);
 }
 .jumbotron-center h1 {
-    font-size: 8vw;
+    margin: 0;
+    font-size: 10vw;
+    line-height: 10vw;
     cursor: default;
     transition: transform 0.2s ease;
 }
 .jumbotron-center h1:active {
     transform: scale(110%);
+}
+.jumbotron-center h2 {
+    position: relative;
+    top: -1vw;
+    margin: 0;
+    font-size: 3vw;
+    color: rgba(150,150,150,1);
+    cursor: pointer;
+    animation: subheading-bob 7s linear 0s forwards infinite;
+    transition: transform 0.5s;
 }
 
 #nav-area-wrapper {
@@ -288,5 +303,37 @@ body {
     }
     .mw90 {
         width: 90vw;
+    }
+}
+
+@keyframes subheading-bob {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(2deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-2deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.splash-text-spin-class {
+    /* transform: rotate(0deg); */
+    animation: splash-text-spin 0.4s ease-in-out 0s 1 normal forwards !important;
+    transition: transform 0.5s;
+}
+@keyframes splash-text-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
