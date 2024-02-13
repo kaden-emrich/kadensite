@@ -7,14 +7,8 @@
     color: white;
 }
 
-.w70 {
-    width: 70vw;
-}
-.w80 {
-    width: 80vw;
-}
-.w90 {
-    width: 90vw;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -23,6 +17,16 @@ body {
     font-family: monospace;
     overflow-x: hidden;
     background-color: rgba(30,30,30,1);
+}
+
+.w70 {
+    width: 70vw;
+}
+.w80 {
+    width: 80vw;
+}
+.w90 {
+    width: 90vw;
 }
 
 .jumbotron {
