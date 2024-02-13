@@ -69,25 +69,30 @@ body {
     left: calc(0px - var(--nav-width));
     height: 100vh;
     width: var(--nav-width);
+    overflow-x: visible;
     background: linear-gradient(to right, rgba(20,20,20,0.9), rgba(20,20,20,0.8), rgba(20,20,20,0));
     color: rgba(255,255,255,1);
     transition: left 0.5s ease;
 }
 
 #nav-options {
+    overflow-x: visible;
     /* border: 1px solid blue; */
 }
 #nav-options ul {
     padding: 0;
     list-style-type: none;
+    overflow-x: visible;
 }
 #nav-options ul a {
     text-decoration: none;
+    overflow-x: visible;
 }
 #nav-options ul a li {
     position: relative;
     display: block;
     height: 50px;
+    width: fit-content;
     /* border: 1px solid red; */
     font-size: 40px;
     margin-left: 10px;
@@ -95,6 +100,8 @@ body {
     font-weight: 900;
     color: rgba(230,230,230,1);
     text-decoration: none;
+    overflow-x: visible;
+    overflow-y: hidden;
     transition: padding 1s ease, margin 0.8s ease, font-size 0.8s ease, color 0.5s linear;
     cursor: pointer;
 }
@@ -112,6 +119,7 @@ body {
     right: calc(0px - var(--nav-opener-width));
     width: var(--nav-opener-width);
     height: 100vh;
+    /* border: 1px solid blue; */
 }
 
 .fullbox {
@@ -134,7 +142,7 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    filter: brightness(40%);
+    filter: brightness(40%) blur(1px);
     border: none;
 }
 
@@ -152,7 +160,8 @@ body {
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(150,150,150,0.5);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
+    box-shadow: 5px 5px 10px rgba(0,0,0,1), 0px 0px 10px rgba(0,0,0,1);
 }
 .glass-box h3 {
     margin: 0;
