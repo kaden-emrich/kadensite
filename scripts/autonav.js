@@ -17,6 +17,10 @@ navOpener.addEventListener('mouseover', () => {
     openNav();
 });
 
+navOpener.addEventListener('click', () => {
+    openNav();
+});
+
 navWrapper.addEventListener('mouseleave', () => {
     closeNav();
 });

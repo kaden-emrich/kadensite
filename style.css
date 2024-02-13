@@ -119,6 +119,9 @@ body {
     transition: padding 1s ease, margin 0.8s ease, font-size 0.8s ease, color 0.5s linear;
     cursor: pointer;
 }
+#nav-options ul a.nav-red li {
+    color: rgba(255,0,0,1);
+}
 #nav-options ul a li:hover {
     /* margin: 5px; */
     padding-left: 25px;
@@ -154,7 +157,8 @@ body {
     top: 0px;
     left: 0px;
     width: 100vw;
-    height: auto;
+    height: 100vh;
+    object-fit: cover;
     min-height: 100vh;
     overflow: hidden;
     filter: brightness(40%) blur(1px);
@@ -171,8 +175,7 @@ body {
 
 .glass-box {
     display: block;
-    margin: 50px auto;
-    padding: 20px;
+    box-sizing: border-box;
     background-color: rgba(150,150,150,0.5);
     backdrop-filter: blur(5px);
     box-shadow: 5px 5px 10px rgba(0,0,0,1), 0px 0px 10px rgba(0,0,0,1);
@@ -180,11 +183,9 @@ body {
 .glass-box h3 {
     margin: 0;
     margin-bottom: 10px;
-    font-size: 35px;
 }
 .glass-box p {
-    margin: 0;
-    font-size: 18px;
+    
 }
 
 .basic-shadow {
@@ -196,7 +197,7 @@ body {
 }
 
 .sidebyside {
-    margin: 0;
+    margin: 0 !important;
     /* width: auto;
     margin: 2%;
     max-height: 100%; */
@@ -215,6 +216,10 @@ body {
         display: block;
     }
 
+    .touch-display {
+        display: none;
+    }
+
     .sidebyside-container {
         display: grid;
         align-items: stretch;
@@ -225,6 +230,28 @@ body {
         /* max-height: 90vh; */
         /* border: 5px solid blue; */
     }
+
+    .dw70 {
+        width: 70vw;
+    }
+    .dw80 {
+        width: 80vw;
+    }
+    .dw90 {
+        width: 90vw;
+    }
+
+    .glass-box {
+        margin: 50px auto;
+        padding: 20px;
+    }
+    .glass-box h3 {
+        font-size: 35px;
+    }
+    .glass-box p {
+        margin: 0;
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 1199px) {
@@ -232,7 +259,34 @@ body {
         display: none;
     }
 
+    /* .touch-display {
+        display: block;
+    } */
+
     .sidebyside-container {
         display: block;
+        margin: 50px auto;
+    }
+
+    .glass-box {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .glass-box h3 {
+        font-size: 35px;
+    }
+    .glass-box p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .mw70 {
+        width: 70vw;
+    }
+    .mw80 {
+        width: 80vw;
+    }
+    .mw90 {
+        width: 90vw;
     }
 }
