@@ -36,7 +36,7 @@ body {
     /* border: 1px solid blue; */
     overflow: hidden;
     user-select: none;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 }
 
 .jumbotron-background {
@@ -50,13 +50,18 @@ body {
 
 .jumbotron-top {
     position: absolute;
-    color: rgba(200,200,200,1);
+    color: rgba(150,150,150,1);
 }
 .jumbotron-top a {
-    color: rgba(200,200,200,1);
+    color: rgba(150,150,150,1);
     text-decoration: none;
 }
+.jumbotron-top h3 {
+    color: rgba(150,150,150,1);
+    margin: 10px;
+}
 .jumbotron-top a h3 {
+    color: rgba(150,150,150,1);
     margin: 10px;
 }
 
@@ -164,7 +169,9 @@ body {
     overflow: hidden;
     clip-path: border-box;
     box-sizing: border-box;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+    background-color: rgb(20,20,20);
 }
 
 .fullbox-background {
@@ -185,7 +192,7 @@ body {
 .onebox {
     display: flex;
     width: 100vw;
-    min-height: 100vh;
+    min-height: 110vh;
     justify-content: center;
     align-items: center;
 }
@@ -231,7 +238,7 @@ body {
 @media screen and (min-width: 1200px) {
 
     html {
-        scroll-snap-type: y proximity;
+        /* scroll-snap-type: y proximity; */
     }
 
     .desktop {
@@ -310,6 +317,12 @@ body {
     }
     .mw90 {
         width: 90vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .mobile {
+        display: none;
     }
 }
 

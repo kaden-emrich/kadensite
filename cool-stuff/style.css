@@ -1,0 +1,25 @@
+* {
+    font-family: monospace;
+    color: rgba(255,255,255,1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+#background-iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    filter: brightness(40%) blur(1px);
+}
+
+h3.top-right-corner {
+    margin: 10px;
+    color: rgba(150,150,150,1);
+}
