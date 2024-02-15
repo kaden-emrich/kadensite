@@ -78,7 +78,8 @@ const splashTextOptions = [
     "HARDCORE!",
     "It can't smell fear (websites can't smell)",
     "Please don't hack my website",
-    "Get of my lawn!"
+    "Get of my lawn!",
+    "Version 3!"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
