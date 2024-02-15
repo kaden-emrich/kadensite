@@ -7,110 +7,173 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="scripts/splash-text.js" defer></script>
-    <script src="scripts/autonav.js" defer></script>
     <script src="scripts/scramble-effect.js" defer></script>
+    <script src="scripts/autonav.js" defer></script>
 
     <title>kadenemrich.com</title>
 </head>
 <body>
 
     <div id="nav-area-wrapper">
+
         <div id="nav-options">
             <ul>
-                <a class="touch-display nav-red"><li onmouseover="elementHoverTextScramble(this)" onclick="closeNav()">Close</li></a>
-                <a href="#top"><li onmouseover="elementHoverTextScramble(this)">Home</li></a>
-                <a href="#aboutme-area"><li onmouseover="elementHoverTextScramble(this)">AboutMe</li></a>
-                <a href="cool-stuff/index.html"><li onmouseover="elementHoverTextScramble(this)">CoolStuff</li></a>
-                <a href="#asteroids-area"><li onmouseover="elementHoverTextScramble(this)">Asteroids</li></a>
-                <a href="#sort-area"><li onmouseover="elementHoverTextScramble(this)">SortAlgs</li></a>
-                <a href="#disclaimer-area"><li onmouseover="elementHoverTextScramble(this)">Bottom</li></a>
+                <a class="touch-display nav-red"><li 
+                    onmouseover="elementHoverTextScramble(this)" 
+                    onclick="closeNav()" 
+                    data-original-content="Close"
+                    >Close</li>
+                </a>
+                <a href="#top"><li 
+                    onmouseover="elementHoverTextScramble(this)" 
+                    data-original-content="Home"
+                    >Home</li>
+                </a>
+                <a href="#aboutme-area"><li 
+                    onmouseover="elementHoverTextScramble(this)"
+                    data-original-content="AboutMe"
+                    >AboutMe</li>
+                </a>
+                <a href="#asteroids-area"><li 
+                    onmouseover="elementHoverTextScramble(this)"
+                    data-original-content="Asteroids"
+                    >Asteroids</li>
+                </a>
+                <a href="#sort-area"><li 
+                    onmouseover="elementHoverTextScramble(this)"
+                    data-original-content="SortAlgs"
+                    >SortAlgs</li>
+                </a>
+                <a href="#disclaimer-area"><li 
+                    onmouseover="elementHoverTextScramble(this)"
+                    data-original-content="Bottom"
+                    >Bottom</li>
+                </a>
+                <a href="cool-stuff/index.html"><li 
+                    onmouseover="elementHoverTextScramble(this)"
+                    data-original-content="CoolStuff"
+                    >CoolStuff</li>
+                </a>
             </ul>
         </div>
-        <div id="nav-opener"></div>
-    </div>
 
-    <div class="jumbotron" id="top">
-        <iframe class="jumbotron-background" src="https://vissim.kadenemrich.com/matrix/"></iframe>
-
-        <div class="jumbotron-top">
-            <h3 class="desktop">Bring your cursor to the left side of the screen to open the menu</h3>
-            <h3 class="mobile">Tap the left side of the screen to open the menu</h3>
-        </div>
-
-        <div class="jumbotron-center">
-            <h1 onclick="elementClickTextScramble(this, 2000, 10)">kadenemrich.com</h1>
-            <h2 id="splash-text">hello world!</h2>
+        <div id="nav-opener">
+            <h3>MENU</h3>
         </div>
     </div>
 
-    <div class="fullbox onebox" id="aboutme-area">
-        <img src="assets/images/kaden/nationalskaden.jpg" alt="me" class="fullbox-background extra-blur">
+    <main class="main-with-nav">
 
-        <div class="dw80 mw90 sidebyside-container">
+        <div class="jumbotron" id="top">
+            <iframe class="jumbotron-background" src="https://vissim.kadenemrich.com/matrix/"></iframe>
 
-            <img src="assets/images/kaden/nationalskaden.jpg" alt="me"  class="sidebyside sidebyside-image desktop basic-shadow">
+            <div class="jumbotron-top">
+                <h3 class="desktop">Bring your cursor to the left side of the screen to open the menu</h3>
+                <h3 class="mobile">Tap the left side of the screen to open the menu</h3>
+            </div>
 
-            <div class="glass-box sidebyside">
-                <h3>About Me</h3>
-                <p>Hi. I'm Kaden Emrich.</p>
+            <div class="jumbotron-center">
+                <h1 onclick="elementClickTextScramble(this, 1500, 10)" 
+                    data-original-content="kadenemrich.com"
+                >kadenemrich.com</h1>
+                <h2 id="splash-text">hello world!</h2>
+            </div>
+        </div>
+
+        <div class="fullbox onebox" id="aboutme-area">
+            <img src="assets/images/kaden/nationalskaden.jpg" alt="me" class="fullbox-background extra-blur">
+
+            <div class="dw80 mw90 sidebyside-container">
+
+                <div class="glass-box sidebyside">
+                    <h3>About Me</h3>
+                    <p>Hi. I'm Kaden Emrich.</p>
+                    <br>
+                    <p>
+                        I am a 17 year old from Ohio who is interested in computers. I have experience in html/css/javascript, PHP, SQL, Python, C#, C++ (to an extent), and Scratch. I have been exposed to Computer Science/I.T. for my whole life so I have quite a bit of knowledge in the area. My dream is to eventually go on to make games for a living but I'm still excited to be programming anything professionally because programming makes me happy. Studying at my trade school has helped me a lot so far. It has allowed me to win awards with BPA, and meet more like-minded individuals. 
+                    </p>
+                    <br>
+                    <p>
+                        Outside of school/career-dreams I have many other interests. Like most teenage boys nowadays, video games are my favorite pass-time. Games like Minecraft, Forza Horizon, Team Fortress 2, and Half-Life all had a great effect on me. I also try my best to program games in my free time, but, with a lack of ideas and stress from other things I don't work on them very often. I also have been playing guitar for longer than I can remember. 
+                    </p>
+                </div>
+
+                <img src="assets/images/kaden/nationalskaden.jpg" alt="me"  class="sidebyside sidebyside-image desktop basic-shadow">
+
+            </div>
+        </div>
+
+        <div class="fullbox onebox" id="asteroids-area">
+            <iframe class="fullbox-background" src="https://asteroids.kadenemrich.com/?background=true"></iframe>
+
+            <div class="glass-box dw70 mw90">
+                <a href="https://asteroids.kadenemrich.com"><h3>Asteroids</h3></a>
+                <p>Controls: Arrow Keys, W,A,S,D, Space</p>
                 <br>
                 <p>
-                    I am a 17 year old from Ohio who is interested in computers. I have experience in html/css/javascript, PHP, SQL, Python, C#, C++ (to an extent), and Scratch. I have been exposed to Computer Science/I.T. for my whole life so I have quite a bit of knowledge in the area. My dream is to eventually go on to make games for a living but I'm still excited to be programming anything professionally because programming makes me happy. Studying at my trade school has helped me a lot so far. It has allowed me to win awards with BPA, and meet more like-minded individuals. 
+                    Out of all of the programming projects that I have done so far, I’d say that Asteroids is probably my favorite. I’ve always liked Atari Asteroids because It’s a great example of a simple concept done well. So, I wanted to take a shot at it.
                 </p>
                 <br>
                 <p>
-                    Outside of school/career-dreams I have many other interests. Like most teenage boys nowadays, video games are my favorite pass-time. Games like Minecraft, Forza Horizon, Team Fortress 2, and Half-Life all had a great effect on me. I also try my best to program games in my free time, but, with a lack of ideas and stress from other things I don't work on them very often. I also have been playing guitar for longer than I can remember. 
+                    The graphics in Asteroids are drawn with lines on an html canvas to stay true to the original game. It uses no outside engines or libraries. The collision, scoring, movement, etc. is all calculated by code written by me. Good thing I’ve always been good at math!
+                </p>
+                <br>
+                <p>
+                    Many of the mechanics and values in the game went through countless revisions and tweaks. The logic for spawning more asteroids is one such mechanic that I am quite proud of. It feels like a natural progression especially if you don’t pay attention to the values that determine the spawning conditions.
+                    
+                    This game took a lot of time and effort so I would appreciate it if you play it. Hope you have fun!
                 </p>
             </div>
         </div>
-    </div>
 
-    <div class="fullbox onebox" id="asteroids-area">
-        <iframe class="fullbox-background" src="https://asteroids.kadenemrich.com/?background=true"></iframe>
+        <div class="fullbox onebox" id="sort-area">
+            <iframe class="fullbox-background" src="https://sortAlg.kadenemrich.com/?auto=true&dynamicHeight=true&arraySize=100&sortType=random"></iframe>
 
-        <div class="glass-box dw70 mw90">
-            <a href="https://asteroids.kadenemrich.com"><h3>Asteroids</h3></a>
-            <p>Controls: Arrow Keys, W,A,S,D, Space</p>
-            <br>
-            <p>
-                Out of all of the programming projects that I have done so far, I’d say that Asteroids is probably my favorite. I’ve always liked Atari Asteroids because It’s a great example of a simple concept done well. So, I wanted to take a shot at it.
-            </p>
-            <br>
-            <p>
-                The graphics in Asteroids are drawn with vectors on an html canvas to stay true to the original game. The game uses no outside engines or libraries. The collision, scoring, movement, etc. is all calculated by code written by me. Good thing I’ve always been good at math!
-            </p>
-            <br>
-            <p>
-                Many of the mechanics and values in the game went through countless revisions and tweaks. The logic for spawning more asteroids is one such mechanic that I am quite proud of. It feels like a natural progression especially if you don’t pay attention to the values that determine the spawning conditions.
-                
-                This game took a lot of time and effort so I would appreciate it if you play it. Hope you have fun!
-            </p>
+            <div class="glass-box dw70 mw90">
+                <a href="https://sortalg.kadenemrich.com"><h3>Sorting Algorithm Visualizer</h3></a>
+
+                <p>
+                    Have you ever wanted to visualize sorting algorithms in a highly customizable environment?    
+                </p>
+
+                <br>
+
+                <p>
+                    No?  That super specific and slightly weird thought never occurred to you?
+                </p> 
+
+                <br>
+
+                <p>
+                    Well too bad! Here at <span style="text-decoration: line-through;">Aperture Science</span> kadenemrich.com we do what we must because we can! Choose between countless* different practical sorting algorithms or put it on random and prepare to be amazed!**  You can set the size of the list, speed that it sorts at, and color scheme.  And If you’re the kind of person that likes to immerse themselves in their sorting algorithms, you’ll be happy to know you can even hide the control panel!
+                </p>
+
+                <br>
+
+                <p>
+                    We’ll even throw in 3 extra silly, impractical, and utterly stupid extra sorting algorithms for absolutely free! Try it now!
+                </p>
+
+                <br><br><br>
+
+                <p>*8</p>
+                <p>**Amazement not guaranteed</p>
+            </div>
         </div>
-    </div>
 
-    <div class="fullbox onebox" id="sort-area">
-        <iframe class="fullbox-background" src="https://sortAlg.kadenemrich.com/?auto=true&dynamicHeight=true&arraySize=100&sortType=random"></iframe>
+        <div class="fullbox" id="disclaimer-area">
+            <iframe class="fullbox-background" src="https://vissim.kadenemrich.com/bubbles/"></iframe>
 
-        <div class="glass-box dw70 mw90">
-            <a href="https://sortalg.kadenemrich.com"><h3>Sorting Algorithm Visualizer</h3></a>
+            <div class="glass-box dw70 mw90">
+                <h3>DISCLAIMER</h3>
 
-            <p>
-                It's pretty cool.
-            </p>
+                <p>
+                    Kaden Emrich and kadenemrich.com are not responsible for any consequences related to the use of the software/applications/games hosted or linked on this website. Such consequences include but are not limited to, loss of productivity, dizziness, computer-related issues, and after school detention. Kaden Emrich and kadenemrich.com do not endorse the use of this website in situations it is deemed unacceptable such as, school, work, or while driving. 
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div class="fullbox onebox" id="disclaimer-area">
-        <iframe class="fullbox-background" src="https://vissim.kadenemrich.com/bubbles/"></iframe>
-
-        <div class="glass-box dw70 mw90">
-            <h3>DISCLAIMER</h3>
-
-            <p>
-                Kaden Emrich and kadenemrich.com are not responsible for any consequences related to the use of the software/applications/games hosted or linked on this website. Such consequences include but are not limited to, loss of productivity, dizziness, computer-related issues, and after school detention. Kaden Emrich and kadenemrich.com do not endorse the use of this website in situations it is deemed unacceptable such as, school, work, or while driving. 
-            </p>
-        </div>
-    </div>
+    </main>
 
 </body>
 </html>
