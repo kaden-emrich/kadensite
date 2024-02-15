@@ -1,6 +1,6 @@
 :root {
     --nav-width: 300px;
-    --nav-opener-width: 20px;
+    --nav-opener-width: 30px;
 }
 
 * {
@@ -24,8 +24,9 @@ p {
 }
 
 main.main-with-nav {
+    position: relative;
     margin-left: var(--nav-opener-width);
-    width: calc(100vw - var(--nav-opener-width));
+    width: calc(100vw - var(--nav-opener-width)  -20px);
 }
 
 .w70 {
@@ -39,9 +40,12 @@ main.main-with-nav {
 }
 
 .jumbotron {
+    position: relative;
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
+    top: 0;
+    left: 0;
     /* border: 1px solid blue; */
     overflow: hidden;
     user-select: none;
@@ -101,10 +105,15 @@ main.main-with-nav {
     top: -1vw;
     margin: 0;
     font-size: 3vw;
-    color: rgba(150,150,150,1);
+    color: rgba(150,150,150,1) !important;
     cursor: pointer;
     animation: subheading-bob 7s linear 0s forwards infinite;
     transition: transform 0.5s;
+}
+.jumbotron-center h2 b, 
+.jumbotron-center h2 i,
+.jumbotron-center h2 u {
+    color: rgba(150,150,150,1) !important;
 }
 
 #nav-area-wrapper {
