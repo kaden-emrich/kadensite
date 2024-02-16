@@ -24,6 +24,18 @@ p {
     font-weight: 500;
 }
 
+
+.inline-ul {
+    margin: 0;
+    display: inline;
+}
+.inline-ul li {
+    font-size: 18px;
+    display: inline;
+}
+
+
+
 main.main-with-nav {
     position: relative;
     margin-left: var(--nav-opener-width);
