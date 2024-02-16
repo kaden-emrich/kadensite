@@ -9,6 +9,7 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-color: rgb(50,50,50) rgb(20,20,20);
 }
 
 body {
@@ -292,15 +293,59 @@ main.main-with-nav {
     /* max-width: 100%; */
 }
 
+.game-section-wrapper {
+    overflow: hidden;
+
+    margin: 0;
+
+    mask-image: linear-gradient(to right,rgba(0,0,0,0) 0%, rgba(255,255,255,1) 20% 80%, rgba(0,0,0,0) 100%);
+    mask-mode: alpha;
+
+    /* border: 1px solid cyan; */
+}
+.game-section-wrapper h2 {
+    margin: 0;
+    font-size: 80pt;
+    text-align: center;
+    user-select: none;
+    color: rgb(255,255,255);
+}
+.game-display-track {
+    display: flex;
+    gap: 4vmin;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: fit-content;
+
+    /* border: 1px solid red; */
+}
+.game-display-track img {
+    box-sizing: border-box;
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    /* border-radius: 2vmin; */
+    margin: 10px 0;
+
+    box-shadow: 0 0 5px black;
+
+    /* filter: brightness(70%); */
+
+    /* border: 1px solid blue; */
+}
+
 @media screen and (min-width: 1200px) {
 
     html {
         /* scroll-snap-type: y proximity; */
     }
 
-    .desktop {
+    /* .desktop {
         display: block;
-    }
+    } */
 
     .touch-display {
         display: none;

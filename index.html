@@ -9,6 +9,7 @@
     <script src="scripts/text-effects.js" defer></script>
     <script src="scripts/autonav.js" defer></script>
     <script src="scripts/splash-text.js" defer></script>
+    <script src="scripts/games-track.js" defer></script>
 
     <title>kadenemrich.com</title>
 </head>
@@ -110,12 +111,30 @@
             </div>
         </div>
 
-        <div class="fullbox onebox" id="games-area">
+        <div class="fullbox onebox desktop" id="games-area">
             <iframe class="fullbox-background" src="https://vissim.kadenemrich.com/matrix/?rainbow=true"></iframe>
 
-            <div class="glass-box dw70 mw90">
-                <a href="v2/g"><h3>Games</h3></a>
-                <p>RGB!!!</p>
+            <div class="game-section-wrapper dw90 mw90" id="games-track-container">
+                <h2>GAMES</h2>
+                <div class="game-display-track" id="display-track" data-mouse-down-at="0" data-prev-percentage="0">
+
+                    <a href="https://asteroids.kadenemrich.com" draggable="false">
+                        <img src="assets/images/games/posters/asteroid-poster.png" alt="asteroids" draggable="false" style="border: 5px solid #00ff00;">
+                    </a>
+                    <a href="https://snake.kadenemrich.com" draggable="false">
+                        <img src="assets/images/games/posters/snake-poster.png" alt="snake" draggable="false">
+                    </a>
+                    <a href="https://3072.kadenemrich.com" draggable="false">
+                        <img src="assets/images/games/posters/3072-poster.png" alt="3072" draggable="false">
+                    </a>
+                    <a href="https://minesweeper.kadenemrich.com" draggable="false">
+                        <img src="assets/images/games/posters/minesweeper-poster.png" alt="minesweeper" draggable="false">
+                    </a>
+                    <a href="https://clicker-clicker.kadenemrich.com" draggable="false">
+                        <img src="assets/images/games/posters/clickerclicker-poster.png" alt="clicker-clicker" draggable="false">
+                    </a>
+
+                </div>
             </div>
         </div>
 
