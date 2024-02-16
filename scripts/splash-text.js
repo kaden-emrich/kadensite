@@ -29,7 +29,7 @@ const splashTextOptions = [
     "there is no escape",
     "No viruses I promise",
     "Monospace is the best font",
-    "Refresh for a more creative subtitle",
+    "click here for a more creative subtitle",
     "I try",
     "Where it's at",
     "Now in technicolor!",
@@ -110,7 +110,6 @@ splashText.onclick = () => {
     if(!isSpinning) {
         isSpinning = true;
         // splashText.classList.add("splash-text-spin-class");
-        elementBackspaceTextLength(splashText, 600);
         isToLate = false;
 
         setTimeout(() => {
@@ -125,13 +124,15 @@ splashText.onclick = () => {
                 pickSplashText();
             }
 
-            elementTypeTextLength(splashText, 600);
-        }, 600);
+            elementTypeText(splashText, 30);
+        }, 30 * splashText.innerText.length);
+
+        elementBackspaceText(splashText, 30);
 
         setTimeout(() => {
             // splashText.classList.remove("splash-text-spin-class");
             isSpinning = false;
-        }, 600);
+        }, 30 * splashText.innerText.length);
     }
 }
 
