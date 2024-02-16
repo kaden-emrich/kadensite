@@ -16,7 +16,7 @@ body {
     padding: 0;
     font-family: monospace;
     overflow-x: hidden;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(10,10,10,1);
 }
 
 p {
@@ -230,9 +230,20 @@ main.main-with-nav {
     object-fit: cover;
     min-height: 100vh;
     overflow: hidden;
-    filter: brightness(40%) blur(1px);
     pointer-events: none;
     border: none;
+}
+
+.fb-dark {
+    filter: brightness(50%);
+}
+
+.fb-blur {
+    filter: brightness(50%) blur(1px);
+}
+
+.fb-extra-blur {
+    filter: blur(20px) brightness(40%);
 }
 
 .onebox {
@@ -261,10 +272,6 @@ main.main-with-nav {
 
 .basic-shadow {
     box-shadow: 5px 5px 10px rgba(0,0,0,1), 0px 0px 10px rgba(0,0,0,1);
-}
-
-.extra-blur {
-    filter: blur(20px) brightness(40%);
 }
 
 .sidebyside {

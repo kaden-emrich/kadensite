@@ -79,6 +79,7 @@ const splashTextOptions = [
     "It can't smell fear (websites can't smell)",
     "Please don't hack my website",
     "Get of my lawn!",
+    "Photosensitivity Warning!",
     "Version 3!"
 ];
 
@@ -87,12 +88,16 @@ splashTextOptions.push("There are " + splashTextOptions.length + " of these");
 function howManySplashText() {
     var selection = splashTextOptions[splashTextOptions.length - 1];
 
+    splashText.dataset.originalContent = selection;
+
     console.log(selection);
     splashText.innerHTML = selection;
 }
 
 function pickSplashText() {
     var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
+
+    splashText.dataset.originalContent = selection;
 
     splashText.innerHTML = selection;
 }
@@ -104,7 +109,8 @@ var isDoubleClick = false;
 splashText.onclick = () => {
     if(!isSpinning) {
         isSpinning = true;
-        splashText.classList.add("splash-text-spin-class");
+        // splashText.classList.add("splash-text-spin-class");
+        elementBackspaceTextLength(splashText, 600);
         isToLate = false;
 
         setTimeout(() => {
@@ -118,12 +124,14 @@ splashText.onclick = () => {
                 isToLate = true;
                 pickSplashText();
             }
-        }, 200);
+
+            elementTypeTextLength(splashText, 600);
+        }, 600);
 
         setTimeout(() => {
-            splashText.classList.remove("splash-text-spin-class");
+            // splashText.classList.remove("splash-text-spin-class");
             isSpinning = false;
-        }, 450);
+        }, 600);
     }
 }
 

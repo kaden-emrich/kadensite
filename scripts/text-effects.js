@@ -135,7 +135,7 @@ function elementTypeText(element, ms = 60) {
     }
 }
 
-function elementBackspaceText(element, ms = 30) {
+function elementTypeTextLength(element, ms = 600) {
     var content = element.innerText;
     if(!element.dataset.originalContent) {
         element.dataset.originalContent = content;
@@ -144,9 +144,32 @@ function elementBackspaceText(element, ms = 30) {
         content = element.dataset.originalContent;
     }
 
+    element.innerText = "";
+
+    for(let i = 0; i < content.length; i++) {
+        setTimeout(() => {
+            if(i == content.length - 1) {
+                element.innerText = content;
+            }
+            else {
+                element.innerText = content.substring(0, i) + "_";
+            }
+        }, Math.floor(i * (ms / content.length)));
+    }
+}
+
+function elementBackspaceText(element, ms = 30) {
+    var content = element.innerText;
+    if(!element.dataset.originalContent) {
+        element.dataset.originalContent = content;
+    }
+    else {
+        // content = element.dataset.originalContent;
+    }
+
     // element.innerText = "";
 
-    for(let i = content.length; i >= 0; i--) {
+    for(let i = content.length - 1; i >= 0; i--) {
         setTimeout(() => {
             if(i == 0) {
                 element.innerText = "";
@@ -155,6 +178,29 @@ function elementBackspaceText(element, ms = 30) {
                 element.innerText = content.substring(0, i) + "<";
             }
         }, Math.floor((content.length - i) * (ms)));
+    }
+}
+
+function elementBackspaceTextLength(element, ms = 600) {
+    var content = element.innerText;
+    if(!element.dataset.originalContent) {
+        element.dataset.originalContent = content;
+    }
+    else {
+        // content = element.dataset.originalContent;
+    }
+
+    // element.innerText = "";
+
+    for(let i = content.length - 1; i >= 0; i--) {
+        setTimeout(() => {
+            if(i == 0) {
+                element.innerText = " ";
+            }
+            else {
+                element.innerText = content.substring(0, i) + "<";
+            }
+        }, Math.floor((content.length - i) * (ms / content.length)));
     }
 }
 

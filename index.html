@@ -6,9 +6,9 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script src="scripts/splash-text.js" defer></script>
-    <script src="scripts/scramble-effect.js" defer></script>
+    <script src="scripts/text-effects.js" defer></script>
     <script src="scripts/autonav.js" defer></script>
+    <script src="scripts/splash-text.js" defer></script>
 
     <title>kadenemrich.com</title>
 </head>
@@ -34,6 +34,11 @@
                     data-original-content="AboutMe"
                     >AboutMe</li>
                 </a>
+                <a href="#games-area"><li 
+                    onmouseover="elementHoverTextScramble(this)"
+                    data-original-content="Games"
+                    >Games</li>
+                </a>
                 <a href="#asteroids-area"><li 
                     onmouseover="elementHoverTextScramble(this)"
                     data-original-content="Asteroids"
@@ -49,11 +54,11 @@
                     data-original-content="Bottom"
                     >Bottom</li>
                 </a> -->
-                <a href="cool-stuff/index.html"><li 
+                <!-- <a href="cool-stuff/index.html"><li 
                     onmouseover="elementHoverTextScramble(this)"
                     data-original-content="CoolStuff"
                     >CoolStuff</li>
-                </a>
+                </a> -->
             </ul>
         </div>
 
@@ -73,15 +78,16 @@
             </div>
 
             <div class="jumbotron-center">
-                <h1 onclick="elementClickTextScramble(this, 1500, 10)" 
-                    data-original-content="kadenemrich.com"
-                >kadenemrich.com</h1>
-                <h2 id="splash-text">hello world!</h2>
+                <!-- <h1 onclick="elementClickTextScramble(this, 1500, 10)"
+                    data-original-content="Don't click me"
+                >kadenemrich.com</h1> -->
+                <h1>kadenemrich.com</h1>
+                <h2 id="splash-text">placeholder</h2>
             </div>
         </div>
 
         <div class="fullbox onebox" id="aboutme-area">
-            <img src="assets/images/kaden/nationalskaden.jpg" alt="me" class="fullbox-background extra-blur">
+            <img src="assets/images/kaden/nationalskaden.jpg" alt="me" class="fullbox-background fb-extra-blur">
 
             <div class="dw80 mw90 sidebyside-container">
 
@@ -103,8 +109,17 @@
             </div>
         </div>
 
+        <div class="fullbox onebox" id="games-area">
+            <iframe class="fullbox-background" src="https://vissim.kadenemrich.com/matrix/?rainbow=true"></iframe>
+
+            <div class="glass-box dw70 mw90">
+                <a href=""><h3>Games</h3></a>
+                <p>RGB!!!</p>
+            </div>
+        </div>
+
         <div class="fullbox onebox" id="asteroids-area">
-            <iframe class="fullbox-background" src="https://asteroids.kadenemrich.com/?background=true"></iframe>
+            <iframe class="fullbox-background fb-blur" src="https://asteroids.kadenemrich.com/?background=true"></iframe>
 
             <div class="glass-box dw70 mw90">
                 <a href="https://asteroids.kadenemrich.com"><h3>Asteroids</h3></a>
@@ -127,7 +142,7 @@
         </div>
 
         <div class="fullbox onebox" id="sort-area">
-            <iframe class="fullbox-background" src="https://sortAlg.kadenemrich.com/?auto=true&dynamicHeight=true&arraySize=100&sortType=random"></iframe>
+            <iframe class="fullbox-background fb-blur" src="https://sortAlg.kadenemrich.com/?auto=true&dynamicHeight=true&arraySize=100&sortType=random"></iframe>
 
             <div class="glass-box dw70 mw90">
                 <a href="https://sortalg.kadenemrich.com"><h3>Sorting Algorithm Visualizer</h3></a>
@@ -162,7 +177,7 @@
         </div>
 
         <div class="fullbox" id="disclaimer-area">
-            <iframe class="fullbox-background" src="https://vissim.kadenemrich.com/bubbles/"></iframe>
+            <iframe class="fullbox-background fb-blur" src="https://vissim.kadenemrich.com/bubbles/"></iframe>
 
             <div class="glass-box dw70 mw90">
                 <h3>DISCLAIMER</h3>
