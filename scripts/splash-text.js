@@ -1,7 +1,7 @@
 var splashText = document.getElementById("splash-text");
 
 const splashTextOptions = [
-    "The world's <i>most</i> website",
+    "The world's most website",
     "One of the websites of all time",
     "\"Its the best\" -Kaden Emrich",
     "By: Kaden Emrich",
@@ -38,7 +38,7 @@ const splashTextOptions = [
     "(not clickbait)",
     "Est. 2023",
     "Start taking notes",
-    "Home of the original <i>The Kaden</i>",
+    "Home of the original The Kaden",
     "Get off your phone and go outside",
     "Take it back now yall",
     "GET BACK TO WORK",
