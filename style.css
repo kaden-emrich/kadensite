@@ -306,6 +306,13 @@ main.main-with-nav {
     /* max-width: 100%; */
 }
 
+#games-area {
+    cursor: grab;
+}
+#games-area:active {
+    cursor: grabbing;
+}
+
 .game-section-wrapper {
     overflow: hidden;
 
@@ -348,6 +355,11 @@ main.main-with-nav {
     /* filter: brightness(70%); */
 
     /* border: 1px solid blue; */
+    transition: scale 0.6s ease;
+}
+.game-display-track img:hover {
+    scale: 105%;
+    transition: scale 0.3s ease;
 }
 
 @media screen and (min-width: 1200px) {
