@@ -94,21 +94,46 @@ function howManySplashText() {
     splashText.innerHTML = selection;
 }
 
-function pickSplashText() {
-    var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
+function setSplashText(value) {
+    splashText.dataset.originalContent = value;
 
-    splashText.dataset.originalContent = selection;
-
-    splashText.innerHTML = selection;
+    splashText.innerHTML = value;
 }
 
-var isSpinning = false;
+function randomSplashText() {
+    var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
+
+   setSplashText(selection);
+}
+
+function pickSplashText() {
+    if(new Date().getMonth() == 2 && new Date().getDate() == 5) {
+        setSplashText("Happy Birthday Kaden!");
+    }
+    else if(new Date().getMonth() == 2 && new Date().getDate() == 9) {
+        setSplashText("Happy Anniversary to This Site!"); // first deployment was on March 9th, 2023
+    }
+    else if(new Date().getMonth() == 4 && new Date().getDate() == 3) {
+        setSplashText("May the 4th be with you");
+    }
+    else if(new Date().getMonth() == 11 && new Date().getDate() == 25) {
+        setSplashText("is crismas!");
+    }
+    else if(new Date().getMonth() == 0 && new Date().getDate() == 1) {
+        setSplashText("Happy new year!");
+    }
+    else {
+        randomSplashText();
+    }
+}
+
+var isAnimating = false;
 var isToLate = false;
 var isDoubleClick = false;
 
 splashText.onclick = () => {
-    if(!isSpinning) {
-        isSpinning = true;
+    if(!isAnimating) {
+        isAnimating = true;
         // splashText.classList.add("splash-text-spin-class");
         isToLate = false;
 
@@ -121,7 +146,7 @@ splashText.onclick = () => {
             else {
                 isDoubleClick = false;
                 isToLate = true;
-                pickSplashText();
+                randomSplashText();
             }
 
             elementTypeText(splashText, 30);
@@ -131,7 +156,7 @@ splashText.onclick = () => {
 
         setTimeout(() => {
             // splashText.classList.remove("splash-text-spin-class");
-            isSpinning = false;
+            isAnimating = false;
         }, 30 * splashText.innerText.length);
     }
 }
