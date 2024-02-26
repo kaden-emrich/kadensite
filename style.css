@@ -110,16 +110,20 @@ main.main-with-nav {
     cursor: default;
     transition: transform 0.2s ease;
     color: rgb(255,255,255);
+    text-shadow: 5px 5px 10px black, 0 0 10px black;
 }
 .jumbotron-center h1:active {
     transform: scale(110%);
 }
 .jumbotron-center h2 {
     position: relative;
+    display: block;
     top: -1vw;
+    height: 3vw;
     margin: 0;
     font-size: 3vw;
     color: rgba(150,150,150,1) !important;
+    text-shadow: 5px 5px 5px black, 0 0 5px black;
     cursor: pointer;
     animation: subheading-bob 7s linear 0s forwards infinite;
     transition: transform 0.5s;
