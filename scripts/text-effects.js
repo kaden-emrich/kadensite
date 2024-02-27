@@ -38,6 +38,10 @@ function elementTextScramble(element, ms = 500, itterations = 3) {
 }
 
 function elementHoverTextScramble(element, ms = 500, itterations = 3) {
+    if(element.dataset.currentInterval) {
+        clearInterval(element.dataset.currentInterval);
+    }
+
     var content = element.innerText;
     if(!element.dataset.originalContent) {
         element.dataset.originalContent = content;
@@ -112,7 +116,11 @@ function elementClickTextScramble(element, ms = 600, itterations = 3) {
     }
 }
 
-function elementTypeText(element, ms = 60) {
+function elementTypeText(element, ms = 60) {    
+    if(element.dataset.currentInterval) {
+        clearInterval(element.dataset.currentInterval);
+    }
+
     var content = element.innerText;
     if(!element.dataset.originalContent) {
         element.dataset.originalContent = content;
@@ -123,19 +131,25 @@ function elementTypeText(element, ms = 60) {
 
     element.innerText = "";
 
-    for(let i = 0; i < content.length; i++) {
-        setTimeout(() => {
-            if(i == content.length - 1) {
-                element.innerText = content;
-            }
-            else {
-                element.innerText = content.substring(0, i) + "_";
-            }
-        }, Math.floor(i * (ms)));
-    }
+    let i = 0
+    element.dataset.currentInterval = setInterval(() => {
+        if(i == content.length - 1) {
+            element.innerText = content;
+            clearInterval(element.dataset.currentInterval);
+        }
+        else {
+            element.innerText = content.substring(0, i) + "_";
+        }
+        i++;
+    }, ms);
+    
 }
 
 function elementTypeTextLength(element, ms = 600) {
+    if(element.dataset.currentInterval) {
+        clearInterval(element.dataset.currentInterval);
+    }
+
     var content = element.innerText;
     if(!element.dataset.originalContent) {
         element.dataset.originalContent = content;
@@ -146,19 +160,25 @@ function elementTypeTextLength(element, ms = 600) {
 
     element.innerText = "";
 
-    for(let i = 0; i < content.length; i++) {
-        setTimeout(() => {
-            if(i == content.length - 1) {
-                element.innerText = content;
-            }
-            else {
-                element.innerText = content.substring(0, i) + "_";
-            }
-        }, Math.floor(i * (ms / content.length)));
-    }
+    let i = 0;
+    element.dataset.currentInterval = setInterval(() => {
+        if(i == content.length - 1) {
+            element.innerText = content;
+            clearInterval(element.dataset.currentInterval);
+        }
+        else {
+            element.innerText = content.substring(0, i) + "_";
+        }
+
+        i++;
+    }, Math.floor(ms / content.length));
 }
 
 function elementBackspaceText(element, ms = 30) {
+    if(element.dataset.currentInterval) {
+        clearInterval(element.dataset.currentInterval);
+    }
+
     var content = element.innerText;
     if(!element.dataset.originalContent) {
         element.dataset.originalContent = content;
@@ -169,19 +189,26 @@ function elementBackspaceText(element, ms = 30) {
 
     // element.innerText = "";
 
-    for(let i = content.length - 1; i >= 0; i--) {
-        setTimeout(() => {
-            if(i == 0) {
-                element.innerText = "";
-            }
-            else {
-                element.innerText = content.substring(0, i) + "<";
-            }
-        }, Math.floor((content.length - i) * (ms)));
-    }
+    let i = content.length - 1;
+    element.dataset.currentInterval = setInterval(() => {
+        if(i == 0) {
+            element.innerText = "";
+            clearInterval(element.dataset.currentInterval);
+        }
+        else {
+            element.innerText = content.substring(0, i) + "<";
+        }
+
+        i--;
+    }, Math.floor(content.length));
+    
 }
 
 function elementBackspaceTextLength(element, ms = 600) {
+    if(element.dataset.currentInterval) {
+        clearInterval(element.dataset.currentInterval);
+    }
+
     var content = element.innerText;
     if(!element.dataset.originalContent) {
         element.dataset.originalContent = content;
@@ -192,16 +219,17 @@ function elementBackspaceTextLength(element, ms = 600) {
 
     // element.innerText = "";
 
-    for(let i = content.length - 1; i >= 0; i--) {
-        setTimeout(() => {
-            if(i == 0) {
-                element.innerText = " ";
-            }
-            else {
-                element.innerText = content.substring(0, i) + "<";
-            }
-        }, Math.floor((content.length - i) * (ms / content.length)));
-    }
+    let i = content.length - 1;
+    element.dataset.currentInterval = setInterval(() => {
+        if(i == 0) {
+            element.innerText = " ";
+            clearInterval(element.dataset.currentInterval);
+        }
+        else {
+            element.innerText = content.substring(0, i) + "<";
+        }
+        i--;
+    }, Math.floor(ms / content.length));
 }
 
 function randomChar() {
