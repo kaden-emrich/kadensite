@@ -80,7 +80,9 @@ const splashTextOptions = [
     "Please don't hack my website",
     "Get of my lawn!",
     "Photosensitivity Warning!",
-    "Version 3!"
+    "Version 3!",
+    "Click the clock to time travel!",
+    "Time travel is AWESOME"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");

@@ -488,3 +488,46 @@ main.main-with-nav {
         transform: rotate(360deg);
     }
 }
+
+.tt-symbol-hide {
+    transform: scale(0%) !important;
+    transition: transform 0.4s cubic-bezier(.55,-0.98,.25,1) !important;
+}
+
+#time-travel-symbol {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 3vh;
+    transform: scale(100%) rotate(0);
+    transition: transform 0.4s cubic-bezier(.68,0,.4,2.14);
+    z-index: 1000;
+}
+#time-travel-symbol:hover {
+    animation: jiggle-zoom 0.3s ease 0s 1 normal both;
+    transform: scale(140%) rotate(0);
+}
+
+@keyframes jiggle-zoom {
+    0% {
+        transform: scale(100%) rotate(0);
+    }
+
+    25% {
+        transform: scale(110%) rotate(30deg);
+    }
+
+    50% {
+        transform: scale(120%) rotate(-30deg);
+    }
+
+    75% {
+        transform: scale(130%) rotate(30deg);
+    }
+
+    100% {
+        transform: scale(140%) rotate(0);
+    }
+}

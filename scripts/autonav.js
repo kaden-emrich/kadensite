@@ -4,6 +4,8 @@ var navWrapper = document.getElementById("nav-area-wrapper");
 var navOpener = document.getElementById("nav-opener");
 var navOptions = document.querySelectorAll("#nav-options ul a li");
 
+var timeTravelSymbol = document.getElementById("time-travel-symbol");
+
 var navWidth = 300;
 var navOpenerWidth = 30;
 
@@ -29,6 +31,8 @@ function openNav() {
         // element.style.height = "50px";
     });
 
+    setTimeout(timeTravelSymbol.classList.remove("tt-symbol-hide"), 1000);
+
     // navOptions.style.fontSize = "40px";
     navOpen = true;
 }
@@ -42,7 +46,7 @@ function closeNav() {
 
     setTimeout(() => navWrapper.style.width = "0px", 150)
 
-    
+    timeTravelSymbol.classList.add("tt-symbol-hide");
 
     navOpen = false;
 }
