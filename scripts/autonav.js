@@ -39,7 +39,7 @@ function openNav() {
 
 function closeNav() {
     navOptions.forEach(element => {
-        elementBackspaceText(element);
+        elementBackspaceText(element, 200 );
         // element.style.fontSize = "0px";
         // element.style.height = "0px";
     });
