@@ -200,7 +200,7 @@ function elementBackspaceText(element, ms = 200) {
         }
 
         i--;
-    }, Math.floor(ms / content.length));
+    }, Math.floor(ms));
     
 }
 

@@ -16,7 +16,7 @@ r.style.setProperty("--nav-width", navWidth + "px");
 r.style.setProperty("--nav-opener-width", navOpenerWidth + "px");
 
 function openNav() {
-    console.log("open nav");
+    // console.log("open nav"); // for debugging
     navWrapper.style.width = navWidth + "px";
 
     navOptions.forEach(element => {
@@ -25,7 +25,7 @@ function openNav() {
         if(!navOpen) {
             element.innerText = "";
             setTimeout(() => {
-                elementTypeText(element);
+                elementTypeText(element, 30);
             }, 100);
         }
         // element.style.height = "50px";
@@ -39,7 +39,7 @@ function openNav() {
 
 function closeNav() {
     navOptions.forEach(element => {
-        elementBackspaceText(element, 200 );
+        elementBackspaceTextLength(element, 200);
         // element.style.fontSize = "0px";
         // element.style.height = "0px";
     });
