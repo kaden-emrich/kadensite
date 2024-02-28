@@ -174,7 +174,7 @@ function elementTypeTextLength(element, ms = 600) {
     }, Math.floor(ms / content.length));
 }
 
-function elementBackspaceText(element, ms = 30) {
+function elementBackspaceText(element, ms = 200) {
     if(element.dataset.currentInterval) {
         clearInterval(element.dataset.currentInterval);
     }
@@ -200,7 +200,7 @@ function elementBackspaceText(element, ms = 30) {
         }
 
         i--;
-    }, Math.floor(content.length));
+    }, Math.floor(ms / content.length));
     
 }
 
