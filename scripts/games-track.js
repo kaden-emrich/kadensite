@@ -5,14 +5,29 @@ const displayTrack = document.getElementById("display-track");
 var maxPercent = 100;
 var minPercent = 0;
 
-gamesArea.onmousedown = e => {
+var mouseDown = false;
+gamesArea.onmousedown = (e) => {
+    mouseDown = true;
     displayTrack.dataset.mouseDownAt = e.clientX;
     // console.log("mouse down");
+
+    setTimeout(() => {
+        let gamePosters = document.querySelectorAll('.game-display-track a');
+        gamePosters.forEach((poster) => {
+            poster.classList.add('not-clickable');
+        });
+    }, 300);
 }
 
-gamesArea.onmouseup = e => {
+gamesArea.onmouseup = (e) => {
+    mouseDown = false;
     displayTrack.dataset.mouseDownAt = 0;
     displayTrack.dataset.prevPercentage = displayTrack.dataset.percentage;
+
+    let gamePosters = document.querySelectorAll('.game-display-track a');
+    gamePosters.forEach((poster) => {
+        poster.classList.remove('not-clickable');
+    });
 }
 
 gamesArea.onmousemove = e => {
