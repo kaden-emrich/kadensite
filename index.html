@@ -128,7 +128,7 @@
         </div>
 
         <div class="fullbox onebox desktop" id="games-area">
-            <iframe class="fullbox-background" id="games-dot-background" src="https://vissim.kadenemrich.com/dots"></iframe> <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
+            <iframe class="fullbox-background" id="games-dot-background" src="http://vissim.kadenemrich.com/dots/"></iframe> <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
 
             <div class="game-section-wrapper dw90 mw90" id="games-track-container">
                 <h2>GAMES</h2>
@@ -160,6 +160,8 @@
                 // Get all the foreground elements
                 const gamesForeground = document.querySelectorAll('#games-area');
 
+                const gamePosters = document.querySelectorAll('.game-display-track a');
+
                 // Forward the mousemove event from each foreground element to the iframe
                 gamesForeground.forEach(function(element) {
                     element.addEventListener('mousemove', function(event) {
@@ -177,6 +179,42 @@
                             type: 'mousemove',
                             clientX: -1000,
                             clientY: -1000
+                        }, '*');
+                    });
+
+                    element.addEventListener('mousedown', function(event) {
+                        // Send the mouse coordinates to the iframe
+                        iframe.contentWindow.postMessage({
+                            type: 'implode'
+                        }, '*');
+                    });
+
+                    element.addEventListener('mouseup', function(event) {
+                        // Send the mouse coordinates to the iframe
+                        iframe.contentWindow.postMessage({
+                            type: 'replode'
+                        }, '*');
+                    });
+                });
+
+                gamePosters.forEach(function(element) {
+                    element.addEventListener('mouseleave', function(event) {
+                        // Send the mouse coordinates to the iframe
+                        iframe.contentWindow.postMessage({
+                            type: 'replode'
+                        }, '*');
+
+                        // setTimeout(() => {
+                        //     iframe.contentWindow.postMessage({
+                        //         type: 'replode'
+                        //     }, '*');
+                        // }, 100);
+                    });
+
+                    element.addEventListener('mouseenter', function(event) {
+                        // Send the mouse coordinates to the iframe
+                        iframe.contentWindow.postMessage({
+                            type: 'explode'
                         }, '*');
                     });
                 });
