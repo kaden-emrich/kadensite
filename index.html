@@ -128,7 +128,7 @@
         </div>
 
         <div class="fullbox onebox desktop" id="games-area">
-            <iframe class="fullbox-background" src="https://vissim.kadenemrich.com/matrix/?rainbow=true"></iframe>
+            <iframe class="fullbox-background" id="games-dot-background" src="https://vissim.kadenemrich.com/dots"></iframe> <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
 
             <div class="game-section-wrapper dw90 mw90" id="games-track-container">
                 <h2>GAMES</h2>
@@ -152,6 +152,35 @@
 
                 </div>
             </div>
+
+            <script>
+                // Get the iframe element
+                const iframe = document.querySelector('#games-dot-background');
+
+                // Get all the foreground elements
+                const gamesForeground = document.querySelectorAll('#games-area');
+
+                // Forward the mousemove event from each foreground element to the iframe
+                gamesForeground.forEach(function(element) {
+                    element.addEventListener('mousemove', function(event) {
+                        // Send the mouse coordinates to the iframe
+                        iframe.contentWindow.postMessage({
+                            type: 'mousemove',
+                            clientX: event.clientX,
+                            clientY: event.clientY
+                        }, '*');
+                    });
+
+                    element.addEventListener('mouseleave', function(event) {
+                        // Send the mouse coordinates to the iframe
+                        iframe.contentWindow.postMessage({
+                            type: 'mousemove',
+                            clientX: -1000,
+                            clientY: -1000
+                        }, '*');
+                    });
+                });
+            </script>
         </div>
 
         <div class="fullbox onebox" id="asteroids-area">
