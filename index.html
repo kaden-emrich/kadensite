@@ -18,7 +18,7 @@
     <div id="nav-area-wrapper">
 
         <div id="nav-options">
-            <ul>
+            <ul class="chromatic-aberration">
                 <a class="touch-display nav-red"><li 
                     onmouseover="elementHoverTextScramble(this)" 
                     onclick="closeNav()" 
@@ -92,7 +92,7 @@
                 <!-- <h1 onclick="elementClickTextScramble(this, 1500, 10)"
                     data-original-content="Don't click me"
                 >kadenemrich.com</h1> -->
-                <h1>kadenemrich.com</h1>
+                <h1 class="chromatic-aberration">kadenemrich.com</h1>
                 <h2 id="splash-text"></h2>
             </div>
         </div>
@@ -131,7 +131,7 @@
             <iframe class="fullbox-background" id="games-dot-background" src="https://vissim.kadenemrich.com/dots/?sludge=true"></iframe> <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
 
             <div class="game-section-wrapper dw90 mw90" id="games-track-container">
-                <h2>GAMES</h2>
+                <h2 class="chromatic-aberration">GAMES</h2>
                 <div class="game-display-track" id="display-track" data-mouse-down-at="0" data-prev-percentage="0">
 
                     <a href="https://asteroids.kadenemrich.com" draggable="false">
@@ -292,6 +292,40 @@
         </div>
 
     </main>
+
+    <svg width="0" height="0">
+        <filter id="chromatic-aberration-filter">
+            <feColorMatrix type="matrix"
+            in="SourceGraphic" 
+                result="red_"
+                values="1 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="red_" dx="2" dy="-2" result="red"/>
+
+            <feColorMatrix type="matrix"
+                in="SourceGraphic" 
+                result="green_"
+                values="0 0 0 0 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="green_" dx="0" dy="0" result="green"/>
+            
+            <feColorMatrix type="matrix"
+                in="SourceGraphic" 
+                result="blue_"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 1 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="blue_" dx="-2" dy="2" result="blue"/>
+
+            <feBlend mode="screen" in="red" in2="green" result="redgreen"/>
+            <feBlend mode="screen" in="redgreen" in2="blue" result="rgbshift"/>
+        </filter>
+    </svg>
 
 </body>
 </html>

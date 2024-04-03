@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chromatic aberration</title>
+</head>
+<body>
+    <svg width="0" height="0">
+        <filter id="filter">
+            <feColorMatrix type="matrix"
+            in="SourceGraphic" 
+                result="red_"
+                values="1 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="red_" dx="2" dy="-2" result="red"/>
+
+            <feColorMatrix type="matrix"
+                in="SourceGraphic" 
+                result="green_"
+                values="0 0 0 0 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="green_" dx="0" dy="0" result="green"/>
+            
+            <feColorMatrix type="matrix"
+                in="SourceGraphic" 
+                result="blue_"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 1 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="blue_" dx="-2" dy="2" result="blue"/>
+
+            <feBlend mode="screen" in="red" in2="green" result="redgreen"/>
+            <feBlend mode="screen" in="redgreen" in2="blue" result="rgbshift"/>
+        </filter>
+    </svg>
+</body>
+</html>

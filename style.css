@@ -534,3 +534,7 @@ main.main-with-nav {
         transform: scale(140%) rotate(0);
     }
 }
+
+.chromatic-aberration {
+    filter: url("#chromatic-aberration-filter");
+}
