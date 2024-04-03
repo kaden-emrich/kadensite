@@ -72,20 +72,40 @@ const splashTextOptions = [
     "if you like PHP you're probably lying",
     "Just a week away!",
     "bogdan wus here",
+    "logan wus here",
     "Original concepts only",
     "Gamers only",
     "\"I'm in.\"",
     "HARDCORE!",
     "It can't smell fear (websites can't smell)",
     "Please don't hack my website",
-    "Get of my lawn!",
+    "Get off my lawn!",
     "Photosensitivity Warning!",
     "Version 3!",
     "Click the clock to time travel!",
-    "Time travel is AWESOME"
+    "Time travel is AWESOME",
+    "Chromatic Aberration looks cool",
+    "Retro look, same great website",
+    "Totaly Tubular!",
+    "RETRO!",
+    "↑ ↑ ↓ ↓ ← → ← → B A",
+    "I am Error",
+    "You're my only hope",
+    "I'm a website, not a miracle worker",
+    "WinRAR is free, isn't it?",
+    "I'm not a robot",
+    "A world of pure imagination",
+    "work it harder, make it better",
+    "hello neo",
+    ":)",
+    "the end is near",
+    "Uh, let me be clear",
+    "Sponsored by Kaden"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
+
+var lastSplashText = -1;
 
 function howManySplashText() {
     var selection = splashTextOptions[splashTextOptions.length - 1];
@@ -94,16 +114,25 @@ function howManySplashText() {
 
     console.log(selection);
     splashText.innerHTML = selection;
+
+    lastSplashText = -1;
 }
 
 function setSplashText(value) {
     splashText.dataset.originalContent = value;
 
     splashText.innerHTML = value;
+    lastSplashText = value;
 }
 
 function randomSplashText() {
-    var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
+    var index = Math.floor(Math.random() * splashTextOptions.length);
+    while(index == lastSplashText) {
+        index = Math.floor(Math.random() * splashTextOptions.length);
+    }
+    var selection = splashTextOptions[index];
+
+    lastSplashText = index;
 
    setSplashText(selection);
 }
