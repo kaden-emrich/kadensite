@@ -112,7 +112,7 @@ function howManySplashText() {
 
     splashText.dataset.originalContent = selection;
 
-    console.log(selection);
+    // console.log(selection); // for debugging
     splashText.innerHTML = selection;
 
     lastSplashText = -1;
@@ -199,3 +199,48 @@ splashText.ondblclick = () => {
 }
 
 pickSplashText();
+
+const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+var codeIndex = 0;
+var lastKey = "";
+document.addEventListener("keyup", (event) => {
+
+    if(event.key == konamiCode[codeIndex]) {
+        codeIndex++;
+
+        if(codeIndex == konamiCode.length) {
+            codeIndex = 0;
+            window.scroll({ top: 0, left: 0, behavior: 'auto' });
+            if(!isAnimating) {
+                isAnimating = true;
+                // splashText.classList.add("splash-text-spin-class");
+                isToLate = true;
+        
+                setTimeout(() => {
+                    isDoubleClick = false;
+                    isToLate = true;
+                    setSplashText("Achievement unlocked: Konami Code!");
+    
+                    elementTypeText(splashText, 30);
+                }, 30 * splashText.innerText.length);
+        
+                elementBackspaceText(splashText, 30);
+        
+                setTimeout(() => {
+                    // splashText.classList.remove("splash-text-spin-class");
+                    isAnimating = false;
+                }, 30 * splashText.innerText.length);
+            }
+        }
+    }
+    else {
+        codeIndex = 0;
+
+        if(lastKey == konamiCode[0] && event.key == konamiCode[1]) {
+            codeIndex = 2;
+        }
+    }
+
+    // console.log(`${key} (${codeIndex})`); // for debugging
+    lastKey = event.key;
+});
