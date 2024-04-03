@@ -13,12 +13,12 @@
 
     <title>kadenemrich.com</title>
 </head>
-<body>
+<body class="crt">
 
     <div id="nav-area-wrapper">
 
         <div id="nav-options">
-            <ul class="chromatic-aberration">
+            <ul class="chromatic-aberration-subtle">
                 <a class="touch-display nav-red"><li 
                     onmouseover="elementHoverTextScramble(this)" 
                     onclick="closeNav()" 
@@ -71,7 +71,7 @@
         
 
         <div id="nav-opener">
-            <h3>MENU</h3>
+            <h3 class="chromatic-aberration-subtle">MENU</h3>
         </div>
 
         <a href="v2/index.html" id="time-travel-symbol" class="tt-symbol-hide">🕒</a>
@@ -85,7 +85,7 @@
             <div class="jumbotron-top">
                 <!-- <h3 class="desktop">Bring your cursor to the left side of the screen to open the menu</h3>
                 <h3 class="mobile">Tap the left side of the screen to open the menu</h3> -->
-                <h3>Photosensitivity Warning</h3>
+                <h3 class="chromatic-aberration-subtle">Photosensitivity Warning</h3>
             </div>
 
             <div class="jumbotron-center">
@@ -93,7 +93,7 @@
                     data-original-content="Don't click me"
                 >kadenemrich.com</h1> -->
                 <h1 class="chromatic-aberration">kadenemrich.com</h1>
-                <h2 id="splash-text"></h2>
+                <h2 id="splash-text" class="chromatic-aberration-subtle"></h2>
             </div>
         </div>
 
@@ -321,6 +321,40 @@
                         0 0 1 0 0
                         0 0 0 1 0"/>
             <feOffset in="blue_" dx="-2" dy="2" result="blue"/>
+
+            <feBlend mode="screen" in="red" in2="green" result="redgreen"/>
+            <feBlend mode="screen" in="redgreen" in2="blue" result="rgbshift"/>
+        </filter>
+    </svg>
+
+    <svg width="0" height="0">
+        <filter id="chromatic-aberration-filter-subtle">
+            <feColorMatrix type="matrix"
+            in="SourceGraphic" 
+                result="red_"
+                values="1 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="red_" dx="1.5" dy="-1.5" result="red"/>
+
+            <feColorMatrix type="matrix"
+                in="SourceGraphic" 
+                result="green_"
+                values="0 0 0 0 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="green_" dx="0" dy="0" result="green"/>
+            
+            <feColorMatrix type="matrix"
+                in="SourceGraphic" 
+                result="blue_"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 1 0 0
+                        0 0 0 1 0"/>
+            <feOffset in="blue_" dx="-1.5" dy="1.5" result="blue"/>
 
             <feBlend mode="screen" in="red" in2="green" result="redgreen"/>
             <feBlend mode="screen" in="redgreen" in2="blue" result="rgbshift"/>
