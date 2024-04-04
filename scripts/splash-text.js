@@ -67,7 +67,7 @@ const splashTextOptions = [
     "Kick rocks!",
     "Somebody once told me the world was macaroni",
     "Overwatch says stop kicking it.",
-    "Kaden: 2, Web-Blockers: 0",
+    "Kaden: 2, Web-Blockers: 1",
     "What's up gamer?",
     "if you like PHP you're probably lying",
     "Just a week away!",
