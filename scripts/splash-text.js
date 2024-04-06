@@ -67,43 +67,72 @@ const splashTextOptions = [
     "Kick rocks!",
     "Somebody once told me the world was macaroni",
     "Overwatch says stop kicking it.",
-    "Kaden: 2, Web-Blockers: 0",
+    "Kaden: 2, Web-Blockers: 1",
     "What's up gamer?",
     "if you like PHP you're probably lying",
     "Just a week away!",
     "bogdan wus here",
+    "logan wus here",
     "Original concepts only",
     "Gamers only",
     "\"I'm in.\"",
     "HARDCORE!",
     "It can't smell fear (websites can't smell)",
     "Please don't hack my website",
-    "Get of my lawn!",
+    "Get off my lawn!",
     "Photosensitivity Warning!",
     "Version 3!",
     "Click the clock to time travel!",
-    "Time travel is AWESOME"
+    "Time travel is AWESOME",
+    "Chromatic Aberration looks cool",
+    "Retro look, same great website",
+    "Totaly Tubular!",
+    "RETRO!",
+    "↑ ↑ ↓ ↓ ← → ← → B A",
+    "I am Error",
+    "You're my only hope",
+    "I'm a website, not a miracle worker",
+    "WinRAR is free, isn't it?",
+    "I'm not a robot",
+    "A world of pure imagination",
+    "work it harder, make it better",
+    "hello neo",
+    ":)",
+    "the end is near",
+    "Uh, let me be clear",
+    "Sponsored by Kaden"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
+
+var lastSplashText = -1;
 
 function howManySplashText() {
     var selection = splashTextOptions[splashTextOptions.length - 1];
 
     splashText.dataset.originalContent = selection;
 
-    console.log(selection);
+    // console.log(selection); // for debugging
     splashText.innerHTML = selection;
+
+    lastSplashText = -1;
 }
 
 function setSplashText(value) {
     splashText.dataset.originalContent = value;
 
     splashText.innerHTML = value;
+    lastSplashText = value;
 }
 
 function randomSplashText() {
-    var selection = splashTextOptions[Math.floor(Math.random() * splashTextOptions.length)];
+    var index = Math.floor(Math.random() * splashTextOptions.length);
+    while(index == lastSplashText) {
+        index = Math.floor(Math.random() * splashTextOptions.length);
+    }
+    var selection = splashTextOptions[index];
+
+    lastSplashText = index;
 
    setSplashText(selection);
 }
@@ -170,3 +199,48 @@ splashText.ondblclick = () => {
 }
 
 pickSplashText();
+
+const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+var codeIndex = 0;
+var lastKey = "";
+document.addEventListener("keyup", (event) => {
+
+    if(event.key == konamiCode[codeIndex]) {
+        codeIndex++;
+
+        if(codeIndex == konamiCode.length) {
+            codeIndex = 0;
+            window.scroll({ top: 0, left: 0, behavior: 'auto' });
+            if(!isAnimating) {
+                isAnimating = true;
+                // splashText.classList.add("splash-text-spin-class");
+                isToLate = true;
+        
+                setTimeout(() => {
+                    isDoubleClick = false;
+                    isToLate = true;
+                    setSplashText("Achievement unlocked: Konami Code!");
+    
+                    elementTypeText(splashText, 30);
+                }, 30 * splashText.innerText.length);
+        
+                elementBackspaceText(splashText, 30);
+        
+                setTimeout(() => {
+                    // splashText.classList.remove("splash-text-spin-class");
+                    isAnimating = false;
+                }, 30 * splashText.innerText.length);
+            }
+        }
+    }
+    else {
+        codeIndex = 0;
+
+        if(lastKey == konamiCode[0] && event.key == konamiCode[1]) {
+            codeIndex = 2;
+        }
+    }
+
+    // console.log(`${key} (${codeIndex})`); // for debugging
+    lastKey = event.key;
+});
