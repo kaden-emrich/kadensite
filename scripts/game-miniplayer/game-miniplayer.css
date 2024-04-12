@@ -1,0 +1,78 @@
+
+#game-miniplayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 10000;
+    border: 4px solid rgb(201, 197, 184);
+    border-top: none;
+    background-color: black;
+    transition: transform 0.8s ease, opacity 0.4s;
+}
+.gm-closed {
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(0%, 100%);
+}
+.gm-opened {
+    pointer-events: all;
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+
+.miniplayer-controlbar {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    height: 3rem;
+    background-color: rgb(201, 197, 184);
+    color: black;
+    /* border-bottom: 4px solid rgb(201, 197, 184); */
+    /* border: 1px solid lime; */
+}
+.miniplayer-controlbar a {
+    color: black;
+    padding-left: 0.5rem;
+}
+.miniplayer-controlbar button.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50%;
+    margin-right: 5px;
+    background-color: rgb(206, 79, 79);
+    border: 3px inset rgb(219, 141, 141);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    font-size: 50%;
+    font-weight: 900;
+    color:aliceblue;
+}
+
+#gm-miniplayer-iframe {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 3rem);
+    /* border: 2px solid lime; */
+    transition: transform 0.6s ease, filter 0.4s linear;
+}
+
+.gm-iframe-off {
+    /* opacity: 0; */
+    filter: brightness(10) blur(10px) opacity(0%);
+    transform: scale(100%, 0%);
+    transition: transform 0.3s ease, filter 0.3s linear !important;
+}
+
+.gm-iframe-on {
+    /* height: 100%;
+    opacity: 1; */
+    filter: brightness(1) blur(0px) opacity(100%);
+    transform: scale(100%, 100%);
+}
