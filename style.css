@@ -347,7 +347,7 @@ main.main-with-nav {
 
     /* border: 1px solid red; */
 }
-.game-display-track img {
+.game-display-track img { /* 1500 x 2100 */
     box-sizing: border-box;
     width: 40vmin;
     height: 56vmin;
