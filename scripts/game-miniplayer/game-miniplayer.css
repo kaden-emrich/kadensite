@@ -60,6 +60,7 @@
     width: 100%;
     height: calc(100% - 3rem);
     /* border: 2px solid lime; */
+    background-color: #fff;
     transition: transform 0.6s ease, filter 0.4s linear;
 }
 
