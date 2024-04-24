@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="scripts/games-track/games-track.css"> -->
+    <link rel="stylesheet" href="scripts/games-grid/games-grid.css">
     <link rel="stylesheet" href="scripts/game-miniplayer/game-miniplayer.css">
 
     <script src="scripts/text-effects.js" defer></script>
     <script src="scripts/autonav.js" defer></script>
     <script src="scripts/splash-text.js" defer></script>
-    <script src="scripts/games-track.js" defer></script>
+    <script src="scripts/games-grid/games-grid.js" defer></script>
+    <!-- <script src="scripts/games-track/games-track.js" defer></script> -->
     <script src="scripts/game-miniplayer/game-miniplayer.js" defer></script>
 
     <title>kadenemrich.com</title>
@@ -131,10 +134,11 @@
 
         <div class="fullbox onebox desktop" id="games-area">
             <iframe class="fullbox-background" id="games-dot-background" src="https://vissim.kadenemrich.com/dots/?sludge=true"></iframe> <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
+            <div class="fullbox-background" id="games-background-overlay"></div>
 
-            <div class="game-section-wrapper dw90 mw90" id="games-track-container">
+            <!-- <div class="game-section-wrapper dw90 mw90" id="games-track-container"> -->
                 <h2 class="chromatic-aberration">GAMES</h2>
-                <div class="game-display-track" id="display-track" data-mouse-down-at="0" data-prev-percentage="0">
+                <div class="game-display" id="" data-mouse-down-at="0" data-prev-percentage="0">
 
                     <!-- <a href="https://asteroids.kadenemrich.com" draggable="false">
                         <img src="assets/images/games/posters/asteroid-poster.png" alt="asteroids" draggable="false" style="border: 5px solid #00ff00;">
@@ -152,27 +156,28 @@
                         <img src="assets/images/games/posters/clickerclicker-poster.png" alt="clicker-clicker" draggable="false">
                     </a> -->
 
-                    <a onclick="activateMiniplayer('https://asteroids.kadenemrich.com')" draggable="false">
-                        <img src="assets/images/games/posters/asteroid-poster.png" alt="asteroids" draggable="false" style="border: 5px solid #00ff00;">
+                    <a onclick="activateMiniplayer('https://snake.kadenemrich.com')" draggable="false">
+                        <img src="assets/images/games/posters/snake-poster.png" alt="snake" draggable="false">
                     </a>
                     <a onclick="activateMiniplayer('https://3072.kadenemrich.com')" draggable="false">
                         <img src="assets/images/games/posters/3072-poster.png" alt="3072" draggable="false">
                     </a>
-                    <a onclick="activateMiniplayer('https://snake.kadenemrich.com')" draggable="false">
-                        <img src="assets/images/games/posters/snake-poster.png" alt="snake" draggable="false">
-                    </a>
-                    <a onclick="activateMiniplayer('https://minesweeper.kadenemrich.com')" draggable="false">
-                        <img src="assets/images/games/posters/minesweeper-poster.png" alt="minesweeper" draggable="false">
+                    <a onclick="activateMiniplayer('https://asteroids.kadenemrich.com')" draggable="false">
+                        <img src="assets/images/games/posters/asteroid-poster.png" alt="asteroids" draggable="false" style="border: 5px solid #00ff00;">
                     </a>
                     <a onclick="activateMiniplayer('https://clickthebutton.kadenemrich.com')" draggable="false">
                         <img src="assets/images/games/posters/clickthebutton-poster.png" alt="clicker-clicker" draggable="false">
                     </a>
+                    <a onclick="activateMiniplayer('https://minesweeper.kadenemrich.com')" draggable="false">
+                        <img src="assets/images/games/posters/minesweeper-poster.png" alt="minesweeper" draggable="false">
+                    </a>
+                    
                     <!-- <a onclick="activateMiniplayer('https://clicker-clicker.kadenemrich.com')" draggable="false">
                         <img src="assets/images/games/posters/clickerclicker-poster.png" alt="clicker-clicker" draggable="false">
                     </a> -->
 
                 </div> 
-            </div>
+            <!-- </div> -->
 
             <script>
                 // Get the iframe element
@@ -181,7 +186,7 @@
                 // Get all the foreground elements
                 const gamesForeground = document.querySelectorAll('#games-area');
 
-                const gamePosters = document.querySelectorAll('.game-display-track a');
+                const gamePosters = document.querySelectorAll('.game-display img');
 
                 // Forward the mousemove event from each foreground element to the iframe
                 gamesForeground.forEach(function(element) {
