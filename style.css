@@ -363,7 +363,7 @@ main.main-with-nav {
 
 @media screen and (max-width: 1199px) {
     .desktop {
-        display: none;
+        display: none !important;
     }
 
     /* .touch-display {
