@@ -16,6 +16,18 @@
     <!-- <script src="scripts/games-track/games-track.js" defer></script> -->
     <script src="scripts/game-miniplayer/game-miniplayer.js" defer></script>
 
+    <script>
+        const MY_BIRTHDAY = new Date('2006-03-05T00:00:00.000');
+        // console.log(`My Birthday: ${MY_BIRTHDAY}`); // for debugging
+        function calculateAge(birthday) {
+            let yesterday = new Date(new Date().setUTCDate(new Date().getUTCDate() - 1)); // this is messy but it works
+            // Without subtracting 1 day as above (yesterday), the age as calculated wrong the day before my birthday for reasons that I don't understand.
+            var ageDifMs = yesterday - birthday;
+            var ageDate = new Date(ageDifMs);
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        }
+    </script>
+
     <title>kadenemrich.com</title>
 </head>
 <body class="">
@@ -112,8 +124,11 @@
                     <p>Hi. I'm Kaden Emrich.</p>
                     <br>
                     <p>
-                        I am a 18 year old from Ohio who is interested in computers. I have experience in HTML/CSS/Javascript, PHP, SQL, Python, C#, and a little C++ (to an extent). I have been exposed to Computer Science/I.T. for my whole life so I have quite a bit of knowledge in the area. My dream is to eventually go on to make games for a living but I'm still excited to be programming anything professionally because programming makes me happy. Studying at my trade school has helped me a lot so far. It has allowed me to win awards with BPA, and meet more like-minded individuals. 
+                        I am a <span id="my-age"></span> year old from Ohio who is interested in computers. I have experience in HTML/CSS/Javascript, PHP, SQL, Python, C#, and a little C++ (to an extent). I have been exposed to Computer Science/I.T. for my whole life so I have quite a bit of knowledge in the area. My dream is to eventually go on to make games for a living but I'm still excited to be programming anything professionally because programming makes me happy. Studying at my trade school has helped me a lot so far. It has allowed me to win awards with BPA, and meet more like-minded individuals. 
                     </p>
+                    <script>
+                        document.getElementById('my-age').innerText = calculateAge(MY_BIRTHDAY);
+                    </script>
                     <br>
                     <p>
                         Outside of school/career-dreams I have many other interests. Like most teenage boys nowadays, video games are my favorite pass-time. Games like Minecraft, Forza Horizon, Team Fortress 2, and Half-Life all had a great effect on me. I also try my best to program games in my free time, but, with a lack of ideas and stress from other things I don't work on them very often. I also have been playing guitar for longer than I can remember. 
