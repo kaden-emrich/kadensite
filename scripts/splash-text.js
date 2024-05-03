@@ -144,7 +144,7 @@ function pickSplashText() {
     else if(new Date().getMonth() == 2 && new Date().getDate() == 9) {
         setSplashText("Happy Anniversary to This Site!"); // first deployment was on March 9th, 2023
     }
-    else if(new Date().getMonth() == 4 && new Date().getDate() == 3) {
+    else if(new Date().getMonth() == 4 && new Date().getDate() == 5) {
         setSplashText("May the 4th be with you");
     }
     else if(new Date().getMonth() == 11 && new Date().getDate() == 25) {
