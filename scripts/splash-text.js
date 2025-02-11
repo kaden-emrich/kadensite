@@ -53,7 +53,7 @@ const splashTextOptions = [
     "= 42",
     "Welcome to Paradise",
     "Welcome to the machine",
-    'Play THE FINALS',
+    'play my games (please)',
     "Its Gaming Time!",
     "Comes another...",
     "Gordan Freeman, in the flesh.",
@@ -67,7 +67,7 @@ const splashTextOptions = [
     "Kick rocks!",
     "Somebody once told me the world was macaroni",
     "Overwatch says stop kicking it.",
-    "Kaden: 2, Web-Blockers: 1",
+    "please don't block my website",
     "What's up gamer?",
     "if you like PHP you're probably lying",
     "Just a week away!",
@@ -142,7 +142,7 @@ function pickSplashText() {
         setSplashText("Happy Birthday Kaden!");
     }
     else if(new Date().getMonth() == 2 && new Date().getDate() == 9) {
-        setSplashText("Happy Anniversary to This Site!"); // first deployment was on March 9th, 2023
+        setSplashText("Happy Anniversary to This Site!"); // deployment started on March 9th, 2023
     }
     else if(new Date().getMonth() == 4 && new Date().getDate() == 5) {
         setSplashText("May the 4th be with you");
@@ -201,15 +201,17 @@ splashText.ondblclick = () => {
 pickSplashText();
 
 const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
-var codeIndex = 0;
+const fiveKg = ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowDown", "ArrowDown"];
+var konamiCodeIndex = 0;
+var fiveKgCodeIndex = 0;
 var lastKey = "";
 document.addEventListener("keyup", (event) => {
 
-    if(event.key == konamiCode[codeIndex]) {
-        codeIndex++;
+    if(event.key == konamiCode[konamiCodeIndex]) {
+        konamiCodeIndex++;
 
-        if(codeIndex == konamiCode.length) {
-            codeIndex = 0;
+        if(konamiCodeIndex == konamiCode.length) {
+            konamiCodeIndex = 0;
             window.scroll({ top: 0, left: 0, behavior: 'auto' });
             if(!isAnimating) {
                 isAnimating = true;
@@ -234,10 +236,46 @@ document.addEventListener("keyup", (event) => {
         }
     }
     else {
-        codeIndex = 0;
+        konamiCodeIndex = 0;
 
         if(lastKey == konamiCode[0] && event.key == konamiCode[1]) {
-            codeIndex = 2;
+            konamiCodeIndex = 2;
+        }
+    }
+
+    if(event.key == fiveKg[fiveKgCodeIndex]) {
+        fiveKgCodeIndex++;
+
+        if(fiveKgCodeIndex == fiveKg.length) {
+            fiveKgCodeIndex = 0;
+            window.scroll({ top: 0, left: 0, behavior: 'auto' });
+            if(!isAnimating) {
+                isAnimating = true;
+                // splashText.classList.add("splash-text-spin-class");
+                isToLate = true;
+        
+                setTimeout(() => {
+                    isDoubleClick = false;
+                    isToLate = true;
+                    setSplashText("I'm not gonna sugarcoat it, 500kg bomb incoming");
+    
+                    elementTypeText(splashText, 30);
+                }, 30 * splashText.innerText.length);
+        
+                elementBackspaceText(splashText, 30);
+        
+                setTimeout(() => {
+                    // splashText.classList.remove("splash-text-spin-class");
+                    isAnimating = false;
+                }, 30 * splashText.innerText.length);
+            }
+        }
+    }
+    else {
+        fiveKgCodeIndex = 0;
+
+        if(lastKey == fiveKg[0] && event.key == fiveKg[1]) {
+            fiveKgCodeIndex = 2;
         }
     }
 
