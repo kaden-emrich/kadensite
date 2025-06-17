@@ -100,7 +100,8 @@ const splashTextOptions = [
     ":)",
     "the end is near",
     "Uh, let me be clear",
-    "Sponsored by Kaden"
+    "Sponsored by Kaden",
+    "also try kadengoode.com!"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
@@ -152,6 +153,9 @@ function pickSplashText() {
     }
     else if(new Date().getMonth() == 0 && new Date().getDate() == 1) {
         setSplashText("Happy new year!");
+    }
+    else if(new Date().getMonth() == 6 && new Date().getDate() == 27) {
+        setSplashText("also try kadengoode.com!");
     }
     else {
         randomSplashText();
