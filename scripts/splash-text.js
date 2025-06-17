@@ -155,7 +155,7 @@ function pickSplashText() {
         setSplashText("Happy new year!");
     }
     else if(new Date().getMonth() == 6 && new Date().getDate() == 27) {
-        setSplashText("also try kadengoode.com!");
+        setSplashText("also try kadengoode.com! (its his birthday)");
     }
     else {
         randomSplashText();
