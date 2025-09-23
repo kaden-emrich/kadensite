@@ -13,8 +13,18 @@ posters.forEach((poster) => {
         });
     });
 
-    poster.addEventListener('click', () => {
-        poster.classList.add('gd-fly-out');
-        setTimeout(() => poster.classList.remove('gd-fly-out'), 500);
+    poster.addEventListener('click', (event) => {
+
+        if(event.ctrlKey) {
+            poster.classList.add('gd-fly-up');
+            setTimeout(() => poster.classList.remove('gd-fly-up'), 500);
+            window.open(poster.parentElement.dataset.url, '_blank');
+        }
+        else {
+            activateMiniplayer(poster.parentNode.dataset.url);
+            poster.classList.add('gd-fly-out');
+            setTimeout(() => poster.classList.remove('gd-fly-out'), 500);
+        }
+
     });
 });
