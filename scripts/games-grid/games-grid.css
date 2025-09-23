@@ -69,3 +69,8 @@
     transform: translate(0, 100vh) !important;
     transition: transform 0.7s cubic-bezier(.27,-0.44,.58,1), width 0.3s ease-in-out, height 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out, filter 0.3s !important;
 }
+
+.gd-fly-up {
+    transform: translate(0, -100vh) !important;
+    transition: transform 0.7s cubic-bezier(.27,-0.44,.58,1), width 0.3s ease-in-out, height 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out, filter 0.3s !important;
+}
