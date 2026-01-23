@@ -101,7 +101,8 @@ const splashTextOptions = [
     "the end is near",
     "Uh, let me be clear",
     "Sponsored by Kaden",
-    "also try kadengoode.com!"
+    "also try kadengoode.com!",
+    "shout out to Harrison Ohio!"
 ];
 
 splashTextOptions.push("There are " + splashTextOptions.length + " of these");
