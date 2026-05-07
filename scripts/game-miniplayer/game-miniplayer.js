@@ -62,3 +62,12 @@ function turnOffIframe() {
     gmIframe.classList.add('gm-iframe-off');
     gmIframe.classList.remove('gm-iframe-on');
 }
+
+function registerMiniplayerClick(event, url) {
+    if(event.ctrlKey) {
+        window.open(url, "_blank");
+    }
+    else {
+        activateMiniplayer(url);
+    }
+}

@@ -17,8 +17,13 @@ posters.forEach((poster) => {
 
         if(event.ctrlKey) {
             poster.classList.add('gd-fly-up');
-            setTimeout(() => poster.classList.remove('gd-fly-up'), 500);
-            window.open(poster.parentElement.dataset.url, '_blank');
+            setTimeout(() => { 
+                poster.classList.remove('gd-fly-up');
+                window.open(poster.parentElement.dataset.url, '_blank');
+                poster.classList.add('gd-zoom-in');
+                setTimeout(() => poster.classList.remove('gd-zoom-in'), 700);
+            }, 500);
+            
         }
         else {
             activateMiniplayer(poster.parentNode.dataset.url);
