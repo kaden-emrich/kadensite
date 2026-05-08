@@ -14,6 +14,7 @@
     <script src="scripts/splash-text.js" defer></script>
     <script src="scripts/game-miniplayer/game-miniplayer.js" defer></script>
     <script src="scripts/games-grid/games-grid.js" defer></script>
+    <script src="scripts/optimizer.js" defer></script>
     <!-- <script src="scripts/games-track/games-track.js" defer></script> -->
 
     <script>
@@ -157,7 +158,9 @@
         </div>
 
         <div class="fullbox onebox desktop" id="games-area">
-            <iframe class="fullbox-background" id="games-dot-background" src="https://vissim.kadenemrich.com/dots/?sludge=true"></iframe> <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
+            <img src="assets/images/fullbox/games-fullbox-background.png" class="fullbox-background fb-medium-blur">
+            <iframe class="fullbox-background" id="games-dot-background" src="https://vissim.kadenemrich.com/dots/?sludge=true"></iframe> 
+            <!-- old background: https://vissim.kadenemrich.com/matrix/?rainbow=true -->
             <div class="fullbox-background" id="games-background-overlay"></div>
 
             <!-- <div class="game-section-wrapper dw90 mw90" id="games-track-container"> -->
@@ -272,6 +275,7 @@
         </div>
 
         <div class="fullbox onebox" id="asteroids-area">
+            <img src="assets/images/fullbox/asteroids-fullbox-background.png" class="fullbox-background fb-blur">
             <iframe class="fullbox-background fb-blur" src="https://asteroids.kadenemrich.com/?background=true"></iframe>
 
             <div class="glass-box dw70 mw90">
@@ -295,6 +299,7 @@
         </div>
 
         <div class="fullbox onebox" id="sort-area">
+            <img src="assets/images/fullbox/sortalg-fullbox-background.png" class="fullbox-background fb-blur">
             <iframe class="fullbox-background fb-blur" src="https://sortAlg.kadenemrich.com/?auto=true&dynamicHeight=true&arraySize=100&sortType=random"></iframe>
 
             <div class="glass-box dw70 mw90">
@@ -330,6 +335,7 @@
         </div>
 
         <div class="fullbox onebox" id="spirograph-area">
+            <img src="assets/images/fullbox/spiro-fullbox-background.png" class="fullbox-background fb-blur">
             <iframe class="fullbox-background" src="https://spirograph.kadenemrich.com/?background=true"></iframe>
 
             <div class="glass-box dw60 mw90">

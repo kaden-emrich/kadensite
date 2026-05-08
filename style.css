@@ -267,6 +267,10 @@ main.main-with-nav {
     filter: brightness(50%) blur(1px);
 }
 
+.fb-medium-blur {
+    filter: brightness(30%) blur(1px);
+}
+
 .fb-extra-blur {
     filter: blur(20px) brightness(40%);
 }
@@ -514,4 +518,10 @@ main.main-with-nav {
     100% {
         transform: scale(140%) rotate(0);
     }
+}
+
+/* OPTIMIZATION */
+
+body.low-perf-mode main .fullbox iframe.fullbox-background {
+    display: none;
 }
